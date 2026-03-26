@@ -1,26 +1,151 @@
-import { Breadcrumb } from "@/components/ui/breadcrumb"
-import { AboutHero } from "@/components/about/about-hero"
-import { AboutFeatures } from "@/components/about/about-features"
-import { AboutDelivery } from "@/components/about/about-delivery"
-import { AboutTeam } from "@/components/about/about-team"
-import { AboutTestimonials } from "@/components/about/about-testimonials"
-import { AboutPartners } from "@/components/about/about-partners"
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Users, Ticket, Shield, Globe } from 'lucide-react'
+
+const stats = [
+  {
+    number: "10M+",
+    label: "Active Users"
+  },
+  {
+    number: "50K+",
+    label: "Events"
+  },
+  {
+    number: "100+",
+    label: "Cities"
+  },
+  {
+    number: "24/7",
+    label: "Support"
+  }
+]
+
+const values = [
+  {
+    icon: Users,
+    title: "Customer First",
+    description: "We prioritize our customers' needs and satisfaction above all else, ensuring the best possible experience."
+  },
+  {
+    icon: Ticket,
+    title: "Easy Access",
+    description: "Simple and intuitive ticket booking process, making it easy for everyone to attend their favorite events."
+  },
+  {
+    icon: Shield,
+    title: "Secure Platform",
+    description: "State-of-the-art security measures to protect your data and transactions at all times."
+  },
+  {
+    icon: Globe,
+    title: "Global Reach",
+    description: "Connect with events and experiences from around the world, bringing entertainment to your doorstep."
+  }
+]
 
 export default function AboutPage() {
   return (
-    <div>
-      <div className="container py-8">
-        <Breadcrumb items={[
-          { label: 'Home', href: '/' },
-          { label: 'About Us', href: '/about' }
-        ]} />
+    <div className="min-h-screen bg-[#0a0b2e] text-white">
+      {/* Hero Section */}
+      <div className="relative bg-black/40 py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">About Ticketer</h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Your trusted platform for discovering and booking the best live entertainment experiences around the world.
+          </p>
+        </div>
       </div>
-      <AboutHero />
-      <AboutFeatures />
-      <AboutDelivery />
-      <AboutTeam />
-      <AboutTestimonials />
-      <AboutPartners />
+
+      {/* Stats Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-[#4338ca] mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-gray-400">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Story Section */}
+      <section className="py-20 bg-black/40">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Our Story</h2>
+              <div className="space-y-4 text-gray-300">
+                <p>
+                  Founded in 2020, Ticketer emerged from a simple vision: to make live entertainment accessible to everyone. What started as a small startup has grown into a global platform connecting millions of fans with their favorite events.
+                </p>
+                <p>
+                  Our journey has been driven by innovation, customer satisfaction, and a deep passion for bringing people together through unforgettable experiences. Today, we're proud to be one of the leading ticket reservation platforms.
+                </p>
+                <p>
+                  We work with the world's top venues, artists, and event organizers to bring you a diverse range of entertainment options, from intimate local shows to major international concerts.
+                </p>
+              </div>
+            </div>
+            <div className="relative aspect-video rounded-xl overflow-hidden">
+              <Image
+                src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg"
+                alt="Concert crowd enjoying a live performance"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 className="text-3xl font-bold text-center mb-12">Our Values</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => (
+              <div key={index} className="bg-white/5 rounded-xl p-6">
+                <div className="w-12 h-12 rounded-lg bg-[#4338ca]/10 flex items-center justify-center mb-4">
+                  <value.icon className="h-6 w-6 text-[#4338ca]" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
+                <p className="text-gray-400">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-black/40">
+        <div className="max-w-3xl mx-auto px-4 md:px-6 text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to Experience More?</h2>
+          <p className="text-gray-300 mb-8">
+            Join millions of others who have already discovered their next favorite event through Ticketer.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              asChild
+              className="bg-[#4338ca] hover:bg-[#3730a3]"
+            >
+              <Link href="/concerts">Browse Events</Link>
+            </Button>
+            <Button 
+              asChild
+              variant="outline" 
+              className="border-[#4338ca] text-[#4338ca] hover:bg-[#4338ca] hover:text-white"
+            >
+              <Link href="/contact">Contact Us</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
