@@ -1,0 +1,25 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_404)">
+    <!-- 404 Text -->
+    <path d="M200 200 L400 200 L600 200 L600 400 L400 400 L200 400 Z" fill="#00B207"/>
+    <!-- Leaves -->
+    <path d="M150 150 C180 120 220 120 250 150" stroke="#E0E0E0" stroke-width="4"/>
+    <path d="M550 150 C580 120 620 120 650 150" stroke="#E0E0E0" stroke-width="4"/>
+    <path d="M350 450 C380 420 420 420 450 450" stroke="#E0E0E0" stroke-width="4"/>
+    <!-- Person -->
+    <circle cx="400" cy="300" r="50" fill="#333333"/>
+    <path d="M375 290 L385 280 L395 290" stroke="#FFFFFF" stroke-width="2"/>
+    <path d="M405 290 L415 280 L425 290" stroke="#FFFFFF" stroke-width="2"/>
+    <path d="M390 310 C400 320 410 320 420 310" stroke="#FFFFFF" stroke-width="2"/>
+    <!-- Question Mark -->
+    <circle cx="500" cy="200" r="30" fill="#00B207"/>
+    <path d="M495 190 C495 180 505 180 505 190 L505 200" stroke="#FFFFFF" stroke-width="3"/>
+    <circle cx="500" cy="210" r="2" fill="#FFFFFF"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_404">
+      <rect width="800" height="600" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+
