@@ -1,54 +1,54 @@
-'use client'
+"use client";
 
-import * as React from "react"
-import { useRouter } from 'next/navigation'
-import Image from "next/image"
-import Link from "next/link"
-import { Mail, Lock } from 'lucide-react'
-import { Button } from "@/components/ui/button"
+import * as React from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { Mail, Lock } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Checkbox } from "@/components/ui/checkbox"
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 
 interface LoginDialogProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
 export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
-  const router = useRouter()
-  const [email, setEmail] = React.useState('')
-  const [password, setPassword] = React.useState('')
-  const [rememberMe, setRememberMe] = React.useState(false)
-  const [isLoading, setIsLoading] = React.useState(false)
+  const router = useRouter();
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [rememberMe, setRememberMe] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-    
+    e.preventDefault();
+    setIsLoading(true);
+
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       // Handle successful login
-      onOpenChange(false)
-      router.push('/checkout')
+      onOpenChange(false);
+      router.push("/checkout");
     } catch (error) {
       // Handle error
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="p-0 overflow-hidden">
+      <DialogContent className="p-0 max-w-screen-md overflow-hidden">
         <div className="grid lg:grid-cols-2 gap-0">
           {/* Form Section */}
           <div className="p-6 lg:p-8">
@@ -97,7 +97,9 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
                   <Checkbox
                     id="remember"
                     checked={rememberMe}
-                    onCheckedChange={(checked) => setRememberMe(checked as boolean)}
+                    onCheckedChange={(checked) =>
+                      setRememberMe(checked as boolean)
+                    }
                   />
                   <label
                     htmlFor="remember"
@@ -111,8 +113,8 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
                 </Button>
               </div>
 
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="w-full bg-[#4338ca] hover:bg-[#3730a3]"
                 disabled={isLoading}
               >
@@ -130,11 +132,7 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
                 </div>
               </div>
 
-              <Button 
-                variant="outline" 
-                type="button" 
-                className="w-full"
-              >
+              <Button variant="outline" type="button" className="w-full">
                 <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
                   <path
                     d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -158,8 +156,8 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
 
               <div className="text-center text-sm text-muted-foreground">
                 Don't have an account?{" "}
-                <Link 
-                  href="/signup" 
+                <Link
+                  href="/signup"
                   className="text-[#4338ca] hover:text-[#3730a3] font-medium"
                 >
                   Sign Up
@@ -178,7 +176,9 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
               className="object-cover"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center z-20 p-8 text-white text-center">
-              <h2 className="text-3xl font-bold mb-2">Complete Your Purchase</h2>
+              <h2 className="text-3xl font-bold mb-2">
+                Complete Your Purchase
+              </h2>
               <p className="text-lg text-white/90">
                 Sign in to continue with your order
               </p>
@@ -187,6 +187,5 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
         </div>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
-

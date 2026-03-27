@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import Link from "next/link"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Facebook, Twitter, Send, Ticket } from 'lucide-react'
+import Link from "next/link";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Facebook, Twitter, Send, Ticket } from "lucide-react";
 
 const footerLinks = {
   ticketer: [
@@ -25,7 +25,7 @@ const footerLinks = {
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Cookies Policy", href: "/cookies" },
   ],
-}
+};
 
 export function SiteFooter() {
   return (
@@ -40,12 +40,14 @@ export function SiteFooter() {
             </Link>
             <h2 className="text-xl font-semibold mb-4">Who we are?</h2>
             <p className="text-gray-400 mb-6">
-              Ticketer is a global ticketing platform for live experiences that allows anyone to create, share, find and attend events that fuel their passions and enrich their lives.
+              Ticketer is a global ticketing platform for live experiences that
+              allows anyone to create, share, find and attend events that fuel
+              their passions and enrich their lives.
             </p>
             <div className="space-y-2">
               <h3 className="text-xl font-semibold mb-2">Contact</h3>
-              <a 
-                href="mailto:Ticketercontacts@gmail.com" 
+              <a
+                href="mailto:Ticketercontacts@gmail.com"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 Ticketercontacts@gmail.com
@@ -59,7 +61,7 @@ export function SiteFooter() {
             <ul className="space-y-2">
               {footerLinks.ticketer.map((link) => (
                 <li key={link.href}>
-                  <Link 
+                  <Link
                     href={link.href}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
@@ -75,7 +77,7 @@ export function SiteFooter() {
             <ul className="space-y-2">
               {footerLinks.help.map((link) => (
                 <li key={link.href}>
-                  <Link 
+                  <Link
                     href={link.href}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
@@ -91,7 +93,7 @@ export function SiteFooter() {
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.href}>
-                  <Link 
+                  <Link
                     href={link.href}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
@@ -113,7 +115,7 @@ export function SiteFooter() {
                 placeholder="Enter your email"
                 className="w-full bg-white/10 border-white/20 text-white placeholder:text-gray-400"
               />
-              <Button 
+              <Button
                 size="icon"
                 className="absolute right-1 top-1 h-8 w-8 bg-[#4338ca] hover:bg-[#3730a3]"
               >
@@ -126,38 +128,36 @@ export function SiteFooter() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400">
-              @2024 NOT FULLTIME PVT.LTD.
-            </p>
+            <p className="text-gray-400">@2024 Ticketer All rights reserved.</p>
             <div className="flex items-center gap-4">
-              <Link 
-                href="/terms" 
+              <Link
+                href="/terms"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 Terms
               </Link>
-              <Link 
-                href="/privacy" 
+              <Link
+                href="/privacy"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 Privacy
               </Link>
-              <Link 
-                href="/cookies" 
+              <Link
+                href="/cookies"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 Cookies
               </Link>
             </div>
             <div className="flex items-center gap-4">
-              <Link 
-                href="https://twitter.com" 
+              <Link
+                href="https://twitter.com"
                 className="text-gray-400 hover:text-[#4338ca] transition-colors"
               >
                 <Twitter className="h-5 w-5" />
               </Link>
-              <Link 
-                href="https://facebook.com" 
+              <Link
+                href="https://facebook.com"
                 className="text-gray-400 hover:text-[#4338ca] transition-colors"
               >
                 <Facebook className="h-5 w-5" />
@@ -198,6 +198,5 @@ export function SiteFooter() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
-
