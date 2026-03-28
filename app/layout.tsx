@@ -3,6 +3,7 @@ import "./globals.css";
 import Link from "next/link";
 import { AccountDropdown } from "@/components/account-dropdown";
 import { SiteFooter } from "@/components/site-footer";
+import { ReduxProvider } from "@/components/providers/redux-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -36,45 +37,48 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} min-h-screen bg-[#0a0b2e] text-white`}
+
+        className={`${inter.className} min-h-screen bg-background text-foreground`}
       >
-        <ThemeProvider defaultTheme="dark" attribute="class">
-          {/* Navigation */}
-          <nav className="flex items-center justify-between px-6 py-4">
-            <div className="flex items-center space-x-8">
-              <Link
-                href="/"
-                className="text-sm font-medium hover:text-gray-300"
-              >
-                Home
-              </Link>
-              <Link
-                href="/concerts"
-                className="text-sm font-medium hover:text-gray-300"
-              >
-                Concerts
-              </Link>
-              <Link
-                href="/singers"
-                className="text-sm font-medium hover:text-gray-300"
-              >
-                Singers
-              </Link>
-            </div>
-            <div className="flex-1 flex justify-center">
-              <Link href="/" className="text-2xl font-bold tracking-wider">
-                TICKETER
-              </Link>
-            </div>
-            <AccountDropdown />
-          </nav>
+        <ReduxProvider>
+          <ThemeProvider enableSystem attribute="class">
+            {/* Navigation */}
+            <nav className="flex items-center justify-between px-6 py-4 border-b border-border">
+              <div className="flex items-center space-x-8 text-muted-foreground">
+                <Link
+                  href="/"
+                  className="text-sm font-medium hover:text-foreground transition-colors"
+                >
+                  Home
+                </Link>
+                <Link
+                  href="/concerts"
+                  className="text-sm font-medium hover:text-foreground transition-colors"
+                >
+                  Concerts
+                </Link>
+                <Link
+                  href="/singers"
+                  className="text-sm font-medium hover:text-foreground transition-colors"
+                >
+                  Singers
+                </Link>
+              </div>
+              <div className="flex-1 flex justify-center">
+                <Link href="/" className="text-2xl font-bold tracking-wider text-primary">
+                  TICKETER
+                </Link>
+              </div>
+              <AccountDropdown />
+            </nav>
 
-          {children}
+            {children}
 
-          <SiteFooter />
-        </ThemeProvider>
+            <SiteFooter />
+          </ThemeProvider>
+        </ReduxProvider>
       </body>
     </html>
   );
