@@ -5,10 +5,20 @@ import { Moon, Sun } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./ui/card";
 import { Label } from "./ui/label";
 
-export default function ThemeSwitcher() {
+export default function ThemeSwitcher({ inputOnly }: { inputOnly?: boolean }) {
     const { theme, setTheme } = useTheme()
     const handleThemeChange = () => {
         setTheme(theme === 'light' ? 'dark' : 'light')
+    }
+    if (inputOnly) {
+        return <div className="flex items-center justify-between">
+            <Label htmlFor="dark-mode">{theme === 'dark' ? 'Dark mode is on' : 'Light mode is on'}</Label>
+            <Switch
+                id="dark-mode"
+                checked={theme === 'dark'}
+                onCheckedChange={handleThemeChange}
+            />
+        </div>
     }
     return <Card>
         <CardHeader>

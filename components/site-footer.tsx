@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Facebook, Twitter, Send, Ticket } from "lucide-react";
+import ThemeSwitcher from "./theme-switcher";
 
 const footerLinks = {
   ticketer: [
@@ -105,7 +106,7 @@ export function SiteFooter() {
           </div>
 
           {/* Newsletter */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 space-y-4">
             <h3 className="text-xl font-semibold mb-4">
               Join our mailing list to stay in the loop with our...
             </h3>
@@ -122,6 +123,7 @@ export function SiteFooter() {
                 <Send className="h-4 w-4" />
               </Button>
             </div>
+            <ThemeSwitcher inputOnly />
           </div>
         </div>
 
