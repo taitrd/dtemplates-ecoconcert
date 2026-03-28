@@ -104,7 +104,7 @@ export default function LoginPage() {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className={cn(
                     "pl-10",
-                    errors.email && "border-red-500 focus-visible:ring-red-500"
+                    errors.email && "border-destructive focus-visible:ring-destructive"
                   )}
                 />
                 <Mail className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
@@ -121,7 +121,7 @@ export default function LoginPage() {
                 )}
               </div>
               {errors.email && (
-                <p className="text-sm text-red-500">{errors.email}</p>
+                <p className="text-sm text-destructive">{errors.email}</p>
               )}
             </div>
 
@@ -136,7 +136,7 @@ export default function LoginPage() {
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   className={cn(
                     "pl-10",
-                    errors.password && "border-red-500 focus-visible:ring-red-500"
+                    errors.password && "border-destructive focus-visible:ring-destructive"
                   )}
                 />
                 <Lock className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
@@ -155,7 +155,7 @@ export default function LoginPage() {
                 </Button>
               </div>
               {errors.password && (
-                <p className="text-sm text-red-500">{errors.password}</p>
+                <p className="text-sm text-destructive">{errors.password}</p>
               )}
             </div>
 
@@ -171,7 +171,7 @@ export default function LoginPage() {
               </div>
               <Button
                 variant="link"
-                className="text-sm text-[#4338ca] hover:text-[#3730a3] p-0"
+                className="text-sm text-primary hover:text-primary/90 p-0"
                 asChild
               >
                 <Link href="/forgot-password">
@@ -182,7 +182,7 @@ export default function LoginPage() {
 
             <Button
               type="submit"
-              className="w-full bg-[#4338ca] hover:bg-[#3730a3]"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
               disabled={isLoading}
             >
               {isLoading ? "Signing in..." : "Log in"}
@@ -232,7 +232,7 @@ export default function LoginPage() {
             Don't have an account?{" "}
             <Link
               href="/signup"
-              className="text-[#4338ca] hover:text-[#3730a3] font-medium"
+              className="text-primary hover:text-primary/90 font-medium"
             >
               Sign Up
             </Link>
@@ -241,15 +241,15 @@ export default function LoginPage() {
       </div>
 
       {/* Image Section */}
-      <div className="hidden lg:block relative bg-black">
+      <div className="hidden lg:block relative bg-muted">
         <Image
           src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg"
           alt="Concert crowd"
           fill
           className="object-cover opacity-80"
         />
-        <div className="absolute inset-0 bg-blue-900/50" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
+        <div className="absolute inset-0 bg-primary/20 backdrop-blur-sm" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-primary-foreground text-center">
           <h2 className="text-4xl font-bold mb-4">Welcome Back</h2>
           <p className="text-xl">Access your personal account by logging in</p>
         </div>

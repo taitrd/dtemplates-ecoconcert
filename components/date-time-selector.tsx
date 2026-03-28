@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { MapPin, Ticket } from 'lucide-react'
 
-interface ShowTime {
+export interface ShowTime {
   date: string
   day: string
   month: string
@@ -89,7 +89,7 @@ export function DateTimeSelector({ onSelectTime, selectedTime }: DateTimeSelecto
     <div className="w-full">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold mb-2">Choose Date And Time</h2>
-        <p className="text-gray-400">All Available Tickets Are here.</p>
+        <p className="text-muted-foreground">All Available Tickets Are here.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -98,13 +98,13 @@ export function DateTimeSelector({ onSelectTime, selectedTime }: DateTimeSelecto
             key={index}
             className={`group relative rounded-xl overflow-hidden transition-all duration-200 ${
               selectedTime === time 
-                ? 'bg-[#4338ca]/20 border-[#4338ca]' 
-                : 'bg-black/20 hover:bg-black/40 border-transparent'
+                ? 'bg-primary/20 border-primary' 
+                : 'bg-muted border-border hover:bg-muted/80'
             } border`}
           >
             <div className="flex items-stretch">
               {/* Date Column */}
-              <div className="bg-[#4338ca] text-white p-4 flex flex-col items-center justify-center min-w-[120px]">
+              <div className="bg-primary text-primary-foreground p-4 flex flex-col items-center justify-center min-w-[120px]">
                 <span className="text-2xl font-bold">{time.date}</span>
                 <span className="text-sm">{time.month}</span>
                 <span className="text-sm mt-2">{time.day}</span>
@@ -118,25 +118,25 @@ export function DateTimeSelector({ onSelectTime, selectedTime }: DateTimeSelecto
               <div className="flex-1 p-4 flex justify-between items-center">
                 <div className="space-y-2">
                   <h3 className="text-xl font-semibold text-white">Taylor Swift</h3>
-                  <p className="text-gray-400">The Eras Tour</p>
-                  <div className="flex items-center text-gray-400 text-sm">
+                  <p className="text-muted-foreground">The Eras Tour</p>
+                  <div className="flex items-center text-muted-foreground text-sm">
                     <MapPin className="w-4 h-4 mr-1" />
                     Royal Albert Hall
                   </div>
-                  <div className="flex items-center text-gray-400 text-sm">
+                  <div className="flex items-center text-muted-foreground text-sm">
                     <Ticket className="w-4 h-4 mr-1" />
                     {time.ticketsAvailable} Tickets Available!
                   </div>
                 </div>
 
                 <div className="flex flex-col items-end justify-between h-full">
-                  <div className="text-gray-400 text-sm">
+                  <div className="text-muted-foreground text-sm">
                     From {time.price}$ / person
                   </div>
                   <Button
                     onClick={() => onSelectTime(time)}
                     variant="ghost"
-                    className="text-[#4338ca] hover:text-[#4338ca] hover:bg-[#4338ca]/10"
+                    className="text-primary hover:text-primary hover:bg-primary/10"
                   >
                     Book Now
                   </Button>

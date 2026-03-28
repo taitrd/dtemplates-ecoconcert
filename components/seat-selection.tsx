@@ -8,7 +8,7 @@ import { TicketSummary } from './ticket-summary'
 import { LoginDialog } from './login-dialog'
 import type { Seat } from './seating-chart'
 
-interface TicketTier {
+export interface TicketTier {
   type: 'VIP' | 'Standard' | 'Economic'
   price: number
   icon: typeof Crown
@@ -75,7 +75,7 @@ export function SeatSelection({ onSelectTier, selectedTier, concertInfo }: SeatS
     <div className="w-full">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold mb-2">{concertInfo.title}</h2>
-        <p className="text-xl text-gray-400">
+        <p className="text-xl text-muted-foreground">
           {concertInfo.date} · {concertInfo.time} · {concertInfo.venue}
         </p>
       </div>
@@ -102,26 +102,26 @@ export function SeatSelection({ onSelectTier, selectedTier, concertInfo }: SeatS
                 } border p-6`}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-[#4338ca]/20">
-                    <tier.icon className="w-6 h-6 text-[#4338ca]" />
+                  <div className="p-2 rounded-lg bg-primary/20">
+                    <tier.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">{tier.type}</h3>
-                    <p className="text-sm text-gray-400">{tier.description}</p>
+                    <p className="text-sm text-muted-foreground">{tier.description}</p>
                   </div>
                 </div>
 
                 <div className="mb-6">
                   <div className="text-3xl font-bold">
                     ${tier.price}
-                    <span className="text-sm font-normal text-gray-400"> / ticket</span>
+                    <span className="text-sm font-normal text-muted-foreground"> / ticket</span>
                   </div>
                 </div>
 
                 <ul className="space-y-3 mb-6">
                   {tier.features.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-2 text-sm text-gray-300">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#4338ca]" />
+                    <li key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                       {feature}
                     </li>
                   ))}
@@ -131,8 +131,8 @@ export function SeatSelection({ onSelectTier, selectedTier, concertInfo }: SeatS
                   onClick={() => onSelectTier(tier)}
                   className={`w-full ${
                     selectedTier?.type === tier.type
-                      ? 'bg-[#4338ca] hover:bg-[#3730a3] text-white'
-                      : 'bg-white/10 hover:bg-white/20 text-white'
+                      ? 'bg-primary hover:bg-primary/90 text-primary-foreground'
+                      : 'bg-muted hover:bg-muted/80 text-foreground'
                   }`}
                 >
                   {selectedTier?.type === tier.type ? 'Selected' : 'Select Tickets'}

@@ -65,13 +65,13 @@ export default function PaymentsPage() {
   const getStatusColor = (status: Transaction['status']) => {
     switch (status) {
       case 'completed':
-        return 'text-green-600'
+        return 'text-green-500'
       case 'pending':
-        return 'text-yellow-600'
+        return 'text-yellow-500'
       case 'failed':
-        return 'text-red-600'
+        return 'text-destructive'
       default:
-        return 'text-gray-600'
+        return 'text-muted-foreground'
     }
   }
 
@@ -81,7 +81,7 @@ export default function PaymentsPage() {
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <h1 className="text-2xl font-bold">Payment Methods</h1>
           <Button 
-            className="bg-[#4338ca] hover:bg-[#3730a3]"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground"
             onClick={() => setShowAddCard(true)}
           >
             <Plus className="mr-2 h-4 w-4" />
@@ -97,25 +97,25 @@ export default function PaymentsPage() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     {method.type === 'card' ? (
-                      <CreditCard className="h-8 w-8 text-gray-600" />
+                      <CreditCard className="h-8 w-8 text-muted-foreground" />
                     ) : (
-                      <PaypalIcon className="h-8 w-8 text-[#00457C]" />
+                      <PaypalIcon className="h-8 w-8 text-primary" />
                     )}
                     <div>
                       <p className="font-medium">{method.details}</p>
                       {method.expiryDate && (
-                        <p className="text-sm text-gray-500">Expires {method.expiryDate}</p>
+                        <p className="text-sm text-muted-foreground">Expires {method.expiryDate}</p>
                       )}
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
                     {method.isDefault && (
-                      <span className="text-sm text-[#4338ca] bg-[#4338ca]/10 px-2 py-1 rounded">
+                      <span className="text-sm text-primary bg-primary/10 px-2 py-1 rounded">
                         Default
                       </span>
                     )}
                     <Button variant="outline" size="sm">Edit</Button>
-                    <Button variant="outline" size="sm" className="text-red-600">
+                    <Button variant="outline" size="sm" className="text-destructive">
                       Remove
                     </Button>
                   </div>
@@ -155,7 +155,7 @@ export default function PaymentsPage() {
                   <Button variant="outline" onClick={() => setShowAddCard(false)}>
                     Cancel
                   </Button>
-                  <Button className="bg-[#4338ca] hover:bg-[#3730a3]">
+                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                     Add Card
                   </Button>
                 </div>
@@ -178,7 +178,7 @@ export default function PaymentsPage() {
                 >
                   <div>
                     <p className="font-medium">{transaction.description}</p>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-muted-foreground">
                       {new Date(transaction.date).toLocaleDateString()} · {transaction.paymentMethod}
                     </p>
                   </div>

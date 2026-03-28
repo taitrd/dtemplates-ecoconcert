@@ -158,7 +158,7 @@ export default function ResetPasswordPage() {
 
             <Button
               type="submit"
-              className="w-full bg-[#4338ca] hover:bg-[#3730a3]"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
               disabled={isLoading}
             >
               {isLoading ? "Resetting..." : "Reset password"}
@@ -168,7 +168,7 @@ export default function ResetPasswordPage() {
           <div className="text-center">
             <Button
               variant="link"
-              className="text-[#4338ca] hover:text-[#3730a3]"
+              className="text-primary hover:text-primary/90"
               asChild
             >
               <Link href="/login">

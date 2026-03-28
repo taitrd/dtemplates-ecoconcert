@@ -150,25 +150,25 @@ export default function BlogsPage() {
     })
 
   return (
-    <div className="min-h-screen bg-[#0a0b2e] text-white">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <div className="bg-black/40 py-20">
+      <div className="bg-muted/30 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Blog</h1>
-          <p className="text-xl text-gray-300">
+          <p className="text-xl text-muted-foreground">
             Our place to share news about concerts, events and singers all around the world
           </p>
         </div>
       </div>
 
       {/* Popular Posts Section */}
-      <section className="py-12 bg-black/20">
+      <section className="py-12 bg-muted/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold">Popular Posts</h2>
             <Link 
               href="/blogs/popular" 
-              className="text-[#4338ca] hover:text-[#3730a3] flex items-center gap-2"
+              className="text-primary hover:text-primary/90 flex items-center gap-2"
             >
               All News
               <ChevronRight className="h-4 w-4" />
@@ -197,7 +197,7 @@ export default function BlogsPage() {
                     <h3 className="text-lg font-semibold mb-2 line-clamp-2">
                       {post.title}
                     </h3>
-                    <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                       {post.excerpt}
                     </p>
                     <div className="flex items-center gap-3">
@@ -207,7 +207,7 @@ export default function BlogsPage() {
                       </Avatar>
                       <div>
                         <p className="text-sm font-medium">{post.author.name}</p>
-                        <div className="flex items-center gap-2 text-sm text-gray-400">
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
                           <time>{post.date}</time>
                           <span>·</span>
                           <span>{post.readTime}</span>
@@ -229,17 +229,17 @@ export default function BlogsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
             <div className="relative w-full md:w-[400px]">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 type="search"
                 placeholder="Search any blogs..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="pl-10 bg-muted/50 border-border text-foreground placeholder:text-muted-foreground"
               />
             </div>
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-[180px] bg-white/10 border-white/20 text-white">
+              <SelectTrigger className="w-[180px] bg-muted/50 border-border text-foreground">
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
               <SelectContent>
@@ -258,7 +258,7 @@ export default function BlogsPage() {
           {filteredPosts.map((post) => (
             <article 
               key={post.id}
-              className="bg-white/5 rounded-lg overflow-hidden hover:bg-white/10 transition-colors"
+              className="bg-card border border-border rounded-lg overflow-hidden hover:bg-muted/50 transition-colors"
             >
               <Link href={`/blogs/${post.id}`}>
                 <div className="relative aspect-[16/9]">
@@ -271,17 +271,17 @@ export default function BlogsPage() {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="text-xs text-[#4338ca] bg-[#4338ca]/10 px-2 py-1 rounded-full">
+                    <span className="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full">
                       {post.category}
                     </span>
-                    <span className="text-xs text-gray-400">
+                    <span className="text-xs text-muted-foreground">
                       {post.readTime}
                     </span>
                   </div>
                   <h2 className="text-xl font-semibold mb-2 line-clamp-2">
                     {post.title}
                   </h2>
-                  <p className="text-gray-400 mb-4 line-clamp-3">
+                  <p className="text-muted-foreground mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
                   <div className="flex items-center gap-3">
@@ -291,7 +291,7 @@ export default function BlogsPage() {
                     </Avatar>
                     <div className="flex-1">
                       <p className="font-medium text-sm">{post.author.name}</p>
-                      <div className="flex items-center gap-2 text-sm text-gray-400">
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <time>{post.date}</time>
                         <span>·</span>
                         <span>{post.readTime}</span>
@@ -306,7 +306,7 @@ export default function BlogsPage() {
 
         {filteredPosts.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-400">No blog posts found matching your search.</p>
+            <p className="text-muted-foreground">No blog posts found matching your search.</p>
           </div>
         )}
       </div>

@@ -54,7 +54,7 @@ export default function CheckoutSuccessPage() {
           <h1 className="text-3xl font-bold text-green-500 mb-2">
             Payment Successful!
           </h1>
-          <p className="text-gray-400">
+          <p className="text-muted-foreground">
             You got your ticket. Download it here.
           </p>
         </div>
@@ -64,7 +64,7 @@ export default function CheckoutSuccessPage() {
           <div className="space-y-8">
             <div>
               <h2 className="text-2xl font-bold mb-4">Congratulations!</h2>
-              <p className="text-gray-400 text-lg">
+              <p className="text-muted-foreground text-lg">
                 You've Successfully purchased the ticket for:
               </p>
               <p className="text-xl mt-2">
@@ -75,7 +75,7 @@ export default function CheckoutSuccessPage() {
             {/* Item Details */}
             <div>
               <h3 className="text-xl font-semibold mb-4">Item Details</h3>
-              <div className="space-y-2 text-gray-400">
+              <div className="space-y-2 text-muted-foreground">
                 <div className="flex justify-between">
                   <span>Item:</span>
                   <span>{ticketDetails.concertName} {ticketDetails.artist} Concert</span>
@@ -94,7 +94,7 @@ export default function CheckoutSuccessPage() {
             {/* Customer Details */}
             <div>
               <h3 className="text-xl font-semibold mb-4">Customer details</h3>
-              <div className="space-y-2 text-gray-400">
+              <div className="space-y-2 text-muted-foreground">
                 <div className="flex justify-between">
                   <span>Name:</span>
                   <span>{ticketDetails.customerName}</span>
@@ -115,7 +115,7 @@ export default function CheckoutSuccessPage() {
               <h3 className="text-xl font-semibold mb-4">
                 Thank you for choosing to buy from Ticketer!
               </h3>
-              <p className="text-gray-400 mb-4">You've unlocked special rewards:</p>
+              <p className="text-muted-foreground mb-4">You've unlocked special rewards:</p>
               <div className="space-y-3">
                 <div className="bg-green-500/10 text-green-500 p-4 rounded-lg">
                   20% Discount on your next ticket!
@@ -129,7 +129,7 @@ export default function CheckoutSuccessPage() {
 
           {/* Right Column - Ticket Preview */}
           <div>
-            <Card className="bg-zinc-900 text-white overflow-hidden">
+            <Card className="bg-card text-foreground overflow-hidden border-border">
               <div className="relative aspect-[3/4] w-full">
                 <Image
                   src={ticketDetails.image}
@@ -140,25 +140,25 @@ export default function CheckoutSuccessPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
                 <div className="absolute inset-0 p-6 flex flex-col">
                   <div className="flex-1">
-                    <h2 className="text-2xl font-bold">Download Your Tickets!</h2>
-                    <p className="text-xl">
+                    <h2 className="text-2xl font-bold text-primary-foreground">Download Your Tickets!</h2>
+                    <p className="text-xl text-primary-foreground/90">
                       '{ticketDetails.concertName}' {ticketDetails.artist} Concert
                     </p>
                   </div>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center border-t border-white/20 pt-4">
                       <div>
-                        <div className="text-sm text-gray-400">Section: {ticketDetails.section}</div>
-                        <div>Seat: {ticketDetails.seats.join(', ')}</div>
+                        <div className="text-sm text-primary-foreground/70">Section: {ticketDetails.section}</div>
+                        <div className="text-primary-foreground/90">Seat: {ticketDetails.seats.join(', ')}</div>
                       </div>
                       <div className="text-right">
-                        <div className="text-sm text-gray-400">Date: {ticketDetails.date}</div>
-                        <div>Time: {ticketDetails.time}</div>
+                        <div className="text-sm text-primary-foreground/70">Date: {ticketDetails.date}</div>
+                        <div className="text-primary-foreground/90">Time: {ticketDetails.time}</div>
                       </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <Button 
-                        className="bg-[#4338ca] hover:bg-[#3730a3] w-full"
+                        className="bg-primary hover:bg-primary/90 text-primary-foreground w-full"
                         onClick={() => window.print()}
                       >
                         <Download className="w-4 h-4 mr-2" />
@@ -166,7 +166,7 @@ export default function CheckoutSuccessPage() {
                       </Button>
                       <Button 
                         variant="outline" 
-                        className="border-[#4338ca] text-[#4338ca] hover:bg-[#4338ca] hover:text-white w-full"
+                        className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full"
                         onClick={() => {
                           if (navigator.share) {
                             navigator.share({

@@ -97,7 +97,7 @@ export default function ForgotPasswordPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     className={cn(
                       "pl-10",
-                      error && "border-red-500 focus-visible:ring-red-500"
+                      error && "border-destructive focus-visible:ring-destructive"
                     )}
                   />
                   <Mail className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
@@ -114,13 +114,13 @@ export default function ForgotPasswordPage() {
                   )}
                 </div>
                 {error && (
-                  <p className="text-sm text-red-500">{error}</p>
+                  <p className="text-sm text-destructive">{error}</p>
                 )}
               </div>
 
-              <Button
-                type="submit"
-                className="w-full bg-[#4338ca] hover:bg-[#3730a3]"
+                <Button
+                  type="submit"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 disabled={isLoading}
               >
                 {isLoading ? "Sending..." : "Send"}
@@ -155,9 +155,9 @@ export default function ForgotPasswordPage() {
           )}
 
           <div className="space-y-3 text-center">
-            <Button
-              variant="link"
-              className="text-[#4338ca] hover:text-[#3730a3]"
+              <Button
+                variant="link"
+                className="text-primary hover:text-primary/90"
               asChild
             >
               <Link href="/login">

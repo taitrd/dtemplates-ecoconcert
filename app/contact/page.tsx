@@ -41,29 +41,29 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen">
-      <div className="bg-black/40 py-20">
+      <div className="bg-muted/30 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-4">Get in Touch with Us</h1>
-          <p className="text-xl text-gray-300">
+          <p className="text-xl text-muted-foreground">
             Have questions or need assistance? We're here to help! Reach out to our team through any of the channels below.
           </p>
         </div>
       </div>
       <div className="grid lg:grid-cols-2">
         {/* Left Column - Contact Info */}
-        <div className="relative bg-[#0a0b2e] text-white p-8 lg:p-12">
+        <div className="relative bg-background text-foreground p-8 lg:p-12 border-r border-border">
           <div className="relative z-10">
             
             <div className="space-y-6 mb-12">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                   <Phone className="h-6 w-6" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">Call directly at:</p>
+                  <p className="text-sm text-muted-foreground">Call directly at:</p>
                   <a 
                     href="tel:+1-235678354" 
-                    className="text-lg hover:text-[#4338ca] transition-colors"
+                    className="text-lg hover:text-primary transition-colors"
                   >
                     +1-235678354
                   </a>
@@ -71,14 +71,14 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                   <Mail className="h-6 w-6" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">Email:</p>
+                  <p className="text-sm text-muted-foreground">Email:</p>
                   <a 
                     href="mailto:Ticketer@gmail.com" 
-                    className="text-lg hover:text-[#4338ca] transition-colors"
+                    className="text-lg hover:text-primary transition-colors"
                   >
                     Ticketer@gmail.com
                   </a>
@@ -87,29 +87,29 @@ export default function ContactPage() {
             </div>
 
             <div className="mt-auto">
-              <p className="text-gray-400 mb-4">Follow us on social media:</p>
+              <p className="text-muted-foreground mb-4">Follow us on social media:</p>
               <div className="flex gap-4">
                 <a 
                   href="#" 
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#4338ca] transition-colors"
+                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
                   <Instagram className="h-5 w-5" />
                 </a>
                 <a 
                   href="#" 
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#4338ca] transition-colors"
+                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
                   <Facebook className="h-5 w-5" />
                 </a>
                 <a 
                   href="#" 
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#4338ca] transition-colors"
+                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
                   <Send className="h-5 w-5" />
                 </a>
                 <a 
                   href="#" 
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#4338ca] transition-colors"
+                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
@@ -132,7 +132,7 @@ export default function ContactPage() {
         <div className="p-8 lg:p-12">
           <div className="max-w-md">
             <h2 className="text-2xl font-bold mb-2">Get In Touch</h2>
-            <p className="text-gray-500 mb-8">
+            <p className="text-muted-foreground mb-8">
               Feel free to drop us a line below.
             </p>
 
@@ -182,7 +182,7 @@ export default function ContactPage() {
 
               <Button 
                 type="submit" 
-                className="w-full bg-[#4338ca] hover:bg-[#3730a3]"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Sending..." : "Send"}

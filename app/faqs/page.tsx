@@ -47,12 +47,12 @@ const faqs = [
 
 export default function FaqsPage() {
   return (
-    <div className="min-h-screen bg-[#0a0b2e] text-white">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <div className="bg-black/40 py-20">
+      <div className="bg-muted/30 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
-          <p className="text-xl text-gray-300">
+          <p className="text-xl text-muted-foreground">
             Find answers to common questions about tickets, events, and our services. Can't find what you're looking for? Contact our support team.
           </p>
         </div>
@@ -67,12 +67,12 @@ export default function FaqsPage() {
             <AccordionItem 
               key={index} 
               value={`faq-${index}`}
-              className="bg-white/5 rounded-lg overflow-hidden border-none"
+              className="bg-muted/50 rounded-lg overflow-hidden border-none"
             >
-              <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-white/5">
+              <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-muted/50">
                 <span className="text-left">{faq.question}</span>
               </AccordionTrigger>
-              <AccordionContent className="px-6 py-4 text-gray-300">
+              <AccordionContent className="px-6 py-4 text-muted-foreground">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
@@ -82,7 +82,7 @@ export default function FaqsPage() {
         <div className="mt-8 text-center">
           <Button 
             variant="outline" 
-            className="border-[#4338ca] text-[#4338ca] hover:bg-[#4338ca] hover:text-white"
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
           >
             Read More
           </Button>
@@ -90,19 +90,19 @@ export default function FaqsPage() {
       </div>
 
       {/* Contact Section */}
-      <div className="bg-black/40 py-20">
+      <div className="bg-muted/30 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Still have question?</h2>
-          <p className="text-gray-300 mb-12">
+          <p className="text-muted-foreground mb-12">
             Contact us using the information below. We'll respond promptly to your inquiries and feedback.
           </p>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-8">
             <Link 
               href="mailto:helpcenter@ticketer.com"
-              className="flex items-center gap-3 text-lg hover:text-[#4338ca] transition-colors"
+              className="flex items-center gap-3 text-lg hover:text-primary transition-colors"
             >
-              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                 <Mail className="h-6 w-6" />
               </div>
               helpcenter@ticketer.com
@@ -110,9 +110,9 @@ export default function FaqsPage() {
 
             <Link 
               href="tel:(010)123-4567"
-              className="flex items-center gap-3 text-lg hover:text-[#4338ca] transition-colors"
+              className="flex items-center gap-3 text-lg hover:text-primary transition-colors"
             >
-              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                 <Phone className="h-6 w-6" />
               </div>
               (010) 123-4567

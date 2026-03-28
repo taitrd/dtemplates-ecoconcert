@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Minus, Plus } from 'lucide-react'
 
-interface Seat {
+export interface Seat {
   id: string
   section: number
   row: number
@@ -36,7 +36,7 @@ export function SeatingChart({ onSeatSelect, selectedSeats }: SeatingChartProps)
 
   return (
     <div className="w-full">
-      <div className="relative w-full overflow-auto bg-black/20 rounded-xl p-8">
+      <div className="relative w-full overflow-auto bg-muted/30 rounded-xl p-8 border border-border">
         <div className="flex justify-center mb-8">
           <div className="bg-white text-black px-16 py-2 rounded-lg font-medium">
             Stage
@@ -66,8 +66,8 @@ export function SeatingChart({ onSeatSelect, selectedSeats }: SeatingChartProps)
                     className={`
                       cursor-pointer transition-colors
                       ${selectedSeats.some(s => s.id === `1-${row}-${seat}`)
-                        ? 'fill-red-500'
-                        : 'fill-[#4338ca] hover:fill-[#4338ca]/80'}
+                        ? 'fill-destructive'
+                        : 'fill-primary hover:fill-primary/80'}
                     `}
                     onClick={() => handleSeatClick({
                       id: `1-${row}-${seat}`,
@@ -92,7 +92,7 @@ export function SeatingChart({ onSeatSelect, selectedSeats }: SeatingChartProps)
                     width={16}
                     height={16}
                     rx={2}
-                    className="fill-[#4338ca] hover:fill-[#4338ca]/80 cursor-pointer transition-colors"
+                    className="fill-primary hover:fill-primary/80 cursor-pointer transition-colors"
                     onClick={() => handleSeatClick({
                       id: `2-${row}-${seat}`,
                       section: 2,
@@ -116,7 +116,7 @@ export function SeatingChart({ onSeatSelect, selectedSeats }: SeatingChartProps)
                     width={16}
                     height={16}
                     rx={2}
-                    className="fill-[#4338ca] hover:fill-[#4338ca]/80 cursor-pointer transition-colors"
+                    className="fill-primary hover:fill-primary/80 cursor-pointer transition-colors"
                     onClick={() => handleSeatClick({
                       id: `3-${row}-${seat}`,
                       section: 3,
@@ -140,7 +140,7 @@ export function SeatingChart({ onSeatSelect, selectedSeats }: SeatingChartProps)
                     width={16}
                     height={16}
                     rx={2}
-                    className="fill-[#4338ca] hover:fill-[#4338ca]/80 cursor-pointer transition-colors"
+                    className="fill-primary hover:fill-primary/80 cursor-pointer transition-colors"
                     onClick={() => handleSeatClick({
                       id: `4-${row}-${seat}`,
                       section: 3,
@@ -154,16 +154,16 @@ export function SeatingChart({ onSeatSelect, selectedSeats }: SeatingChartProps)
             </g>
 
             {/* Section Labels */}
-            <text x="450" y="280" className="fill-gray-400 text-sm" textAnchor="middle">
+            <text x="450" y="280" className="fill-muted-foreground text-sm" textAnchor="middle">
               Section 1
             </text>
-            <text x="450" y="480" className="fill-gray-400 text-sm" textAnchor="middle">
+            <text x="450" y="480" className="fill-muted-foreground text-sm" textAnchor="middle">
               Section 2
             </text>
-            <text x="250" y="280" className="fill-gray-400 text-sm" textAnchor="middle">
+            <text x="250" y="280" className="fill-muted-foreground text-sm" textAnchor="middle">
               Section 3
             </text>
-            <text x="650" y="280" className="fill-gray-400 text-sm" textAnchor="middle">
+            <text x="650" y="280" className="fill-muted-foreground text-sm" textAnchor="middle">
               Section 4
             </text>
           </svg>
@@ -175,7 +175,7 @@ export function SeatingChart({ onSeatSelect, selectedSeats }: SeatingChartProps)
             variant="outline"
             size="icon"
             onClick={handleZoomOut}
-            className="bg-white/10 border-white/20 hover:bg-white/20"
+            className="bg-muted border-border hover:bg-muted/80"
           >
             <Minus className="h-4 w-4" />
           </Button>
@@ -183,7 +183,7 @@ export function SeatingChart({ onSeatSelect, selectedSeats }: SeatingChartProps)
             variant="outline"
             size="icon"
             onClick={handleZoomIn}
-            className="bg-white/10 border-white/20 hover:bg-white/20"
+            className="bg-muted border-border hover:bg-muted/80"
           >
             <Plus className="h-4 w-4" />
           </Button>
@@ -193,16 +193,16 @@ export function SeatingChart({ onSeatSelect, selectedSeats }: SeatingChartProps)
       {/* Legend */}
       <div className="flex justify-center gap-8 mt-6">
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-[#4338ca] rounded" />
-          <span className="text-sm text-gray-400">Available</span>
+          <div className="w-4 h-4 bg-primary rounded" />
+          <span className="text-sm text-muted-foreground">Available</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-red-500 rounded" />
-          <span className="text-sm text-gray-400">Selected</span>
+          <div className="w-4 h-4 bg-destructive rounded" />
+          <span className="text-sm text-muted-foreground">Selected</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-gray-500 rounded" />
-          <span className="text-sm text-gray-400">Unavailable</span>
+          <div className="w-4 h-4 bg-muted-foreground rounded" />
+          <span className="text-sm text-muted-foreground">Unavailable</span>
         </div>
       </div>
     </div>
