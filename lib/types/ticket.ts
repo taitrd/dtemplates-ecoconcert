@@ -1,4 +1,3 @@
-// Ticket-related types
 import type { LucideIcon } from 'lucide-react'
 
 export interface Seat {
@@ -61,4 +60,60 @@ export interface TicketWallet {
   seat: string
   status: 'valid' | 'used' | 'expired'
   image: string
+}
+
+// New types for Redux
+export interface Concert {
+  id: string;
+  title: string;
+  singer: string;
+  date: string;
+  location: string;
+  price: number;
+  image: string;
+  description: string;
+  tags: string[];
+}
+
+export interface Ticket {
+  id: string;
+  concertId: string;
+  userId: string;
+  seatNumber: string;
+  purchasedAt: string;
+  status: 'active' | 'used' | 'cancelled';
+}
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  avatar?: string;
+}
+
+export interface SearchFilters {
+  query?: string;
+  date?: string;
+  location?: string;
+  advanced?: {
+    minPrice?: number;
+    maxPrice?: number;
+    tags?: string[];
+  };
+}
+
+export interface TicketState {
+  concerts: Concert[];
+  userTickets: Ticket[];
+  selectedConcertIds: string[];
+  filters: SearchFilters;
+  loading: boolean;
+  error: string | null;
+}
+
+export interface AuthState {
+  user: User | null;
+  isAuthenticated: boolean;
+  loading: boolean;
+  error: string | null;
 }
