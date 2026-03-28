@@ -5,6 +5,8 @@ import { AccountDropdown } from "@/components/account-dropdown";
 import { SiteFooter } from "@/components/site-footer";
 import { ReduxProvider } from "@/components/providers/redux-provider";
 import { ThemeProvider } from "@/components/theme-provider";
+import { TopNavigation } from "@/components/top-navigation";
+import { BottomNavigation } from "@/components/bottom-navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,37 +46,13 @@ export default function RootLayout({
       >
         <ReduxProvider>
           <ThemeProvider enableSystem attribute="class">
-            {/* Navigation */}
-            <nav className="flex items-center justify-between px-6 py-4 border-b border-border">
-              <div className="items-center space-x-8 text-muted-foreground hidden md:flex">
-                <Link
-                  href="/"
-                  className="text-sm font-medium hover:text-foreground transition-colors"
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/concerts"
-                  className="text-sm font-medium hover:text-foreground transition-colors"
-                >
-                  Concerts
-                </Link>
-                <Link
-                  href="/singers"
-                  className="text-sm font-medium hover:text-foreground transition-colors"
-                >
-                  Singers
-                </Link>
-              </div>
-              <div className="flex-1 flex justify-center">
-                <Link href="/" className="text-2xl font-bold tracking-wider text-primary">
-                  TICKETER
-                </Link>
-              </div>
-              <AccountDropdown />
-            </nav>
+            <TopNavigation />
 
-            {children}
+            <main className="flex-1 pb-16 md:pb-0">
+              {children}
+            </main>
+
+            <BottomNavigation />
 
             <SiteFooter />
           </ThemeProvider>

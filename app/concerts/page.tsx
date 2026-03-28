@@ -92,13 +92,13 @@ export default function ConcertsPage() {
     setHasSearched(true)
 
     const filtered = concerts.filter(concert => {
-      const artistMatch = !searchParams.artist || 
+      const artistMatch = !searchParams.artist ||
         concert.artist.toLowerCase().includes(searchParams.artist.toLowerCase())
-      const dateMatch = !searchParams.date || 
+      const dateMatch = !searchParams.date ||
         concert.date.toLowerCase().includes(searchParams.date.toLowerCase())
-      const locationMatch = !searchParams.location || 
+      const locationMatch = !searchParams.location ||
         concert.location.toLowerCase().includes(searchParams.location.toLowerCase())
-      
+
       return artistMatch && dateMatch && locationMatch
     })
 
@@ -130,12 +130,12 @@ export default function ConcertsPage() {
                 placeholder="Artist name"
                 value={searchParams.artist}
                 onChange={(e) => setSearchParams(prev => ({ ...prev, artist: e.target.value }))}
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="pl-10 text-white placeholder:text-gray-400"
               />
               <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
             </div>
             <div className="relative">
-              <Select 
+              <Select
                 value={searchParams.date}
                 onValueChange={(value) => setSearchParams(prev => ({ ...prev, date: value }))}
               >
@@ -155,7 +155,7 @@ export default function ConcertsPage() {
               </Select>
             </div>
             <div className="relative">
-              <Select 
+              <Select
                 value={searchParams.location}
                 onValueChange={(value) => setSearchParams(prev => ({ ...prev, location: value }))}
               >
@@ -180,9 +180,9 @@ export default function ConcertsPage() {
                 Apply Filters
               </Button>
               {hasSearched && (
-                <Button 
-                  type="button" 
-                  variant="outline" 
+                <Button
+                  type="button"
+                  variant="outline"
                   onClick={handleReset}
                   className="bg-white/10 border-white/20 hover:bg-white/20"
                 >
