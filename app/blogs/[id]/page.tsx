@@ -136,11 +136,11 @@ export default function BlogDetailsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0b2e] text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Back Button */}
         <Link href="/blogs">
-          <Button variant="ghost" className="mb-8 text-gray-400 hover:text-white">
+          <Button variant="ghost" className="mb-8 text-muted-foreground hover:text-foreground">
             <ChevronLeft className="h-4 w-4 mr-2" />
             Back to Blogs
           </Button>
@@ -151,10 +151,10 @@ export default function BlogDetailsPage() {
           <article>
             <div className="mb-8">
               <div className="flex items-center gap-2 mb-4">
-                <span className="text-sm text-[#4338ca] bg-[#4338ca]/10 px-3 py-1 rounded-full">
+                <span className="text-sm text-primary bg-primary/10 px-3 py-1 rounded-full">
                   {post.category}
                 </span>
-                <span className="text-sm text-gray-400">
+                <span className="text-sm text-muted-foreground">
                   {post.readTime}
                 </span>
               </div>
@@ -168,8 +168,8 @@ export default function BlogDetailsPage() {
                 </Avatar>
                 <div>
                   <p className="font-medium">{post.author.name}</p>
-                  <p className="text-sm text-gray-400">{post.author.role}</p>
-                  <div className="flex items-center gap-2 text-sm text-gray-400">
+                  <p className="text-sm text-muted-foreground">{post.author.role}</p>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <time>{post.date}</time>
                     <span>·</span>
                     <span>{post.readTime}</span>
@@ -190,7 +190,7 @@ export default function BlogDetailsPage() {
 
             {/* Content */}
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-400 mb-8">
+              <p className="text-muted-foreground mb-8">
                 {post.content}
               </p>
 
@@ -202,7 +202,7 @@ export default function BlogDetailsPage() {
                     <h3 className="text-2xl font-semibold mb-6">
                       Here are the Unmissable European music festival of 2024
                     </h3>
-                    <p className="text-gray-400">
+                    <p className="text-muted-foreground">
                       Lorem ipsum dolor sit amet consectetur. Nullam ac nunc urna vulputate cras dolor sed sit purus. Elit dignissim nunc eget orci. Tortor rhoncus adipiscing at mus luctus in in. Congue arcu turpis aliquet purus odio erat hendrerit tristique.
                     </p>
                   </div>
@@ -224,7 +224,7 @@ export default function BlogDetailsPage() {
                     <AccordionTrigger className="text-xl font-semibold py-4">
                       {section.title}
                     </AccordionTrigger>
-                    <AccordionContent className="text-gray-400">
+                    <AccordionContent className="text-muted-foreground">
                       {section.content}
                     </AccordionContent>
                   </AccordionItem>
@@ -244,13 +244,13 @@ export default function BlogDetailsPage() {
                 </Avatar>
                 <div>
                   <h2 className="font-semibold text-lg">{post.author.name}</h2>
-                  <p className="text-sm text-gray-400">{post.author.role}</p>
+                  <p className="text-sm text-muted-foreground">{post.author.role}</p>
                 </div>
               </div>
-              <p className="text-gray-400 text-sm mb-4">
+              <p className="text-muted-foreground text-sm mb-4">
                 Music journalist with over 10 years of experience covering festivals and live events across Europe.
               </p>
-              <Button className="w-full bg-[#4338ca] hover:bg-[#3730a3]">
+              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                 Follow
               </Button>
             </div>
@@ -258,7 +258,7 @@ export default function BlogDetailsPage() {
             {/* Newsletter Subscription */}
             <div className="bg-white/5 rounded-xl p-6">
               <h2 className="text-2xl font-semibold mb-2">Subscribe our news letter</h2>
-              <p className="text-gray-400 text-sm mb-6">
+              <p className="text-muted-foreground text-sm mb-6">
                 For weekly later news and offers, Join us here.
               </p>
               <form onSubmit={handleSubscribe} className="space-y-4">
@@ -267,10 +267,10 @@ export default function BlogDetailsPage() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bg-white/10 border-white/20"
+                  className="bg-muted border-border"
                   required
                 />
-                <Button type="submit" className="w-full bg-[#4338ca] hover:bg-[#3730a3]">
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                   Subscribe
                 </Button>
               </form>
@@ -292,10 +292,10 @@ export default function BlogDetailsPage() {
                         />
                       </div>
                       <div>
-                        <h3 className="font-medium group-hover:text-[#4338ca] transition-colors">
+                        <h3 className="font-medium group-hover:text-primary transition-colors">
                           Another Festival Article {i}
                         </h3>
-                        <p className="text-sm text-gray-400">July {15 + i}, 2024</p>
+                        <p className="text-sm text-muted-foreground">July {15 + i}, 2024</p>
                       </div>
                     </div>
                   </Link>
@@ -311,7 +311,7 @@ export default function BlogDetailsPage() {
             <h2 className="text-2xl font-bold">Popular Posts</h2>
             <Link 
               href="/blogs" 
-              className="text-[#4338ca] hover:text-[#3730a3] flex items-center gap-2"
+              className="text-primary hover:text-primary/90 flex items-center gap-2"
             >
               All News
               <ChevronRight className="h-4 w-4" />
@@ -338,10 +338,10 @@ export default function BlogDetailsPage() {
                           className="object-cover transition-transform group-hover:scale-105"
                         />
                       </div>
-                      <h3 className="text-lg font-semibold mb-2 group-hover:text-[#4338ca] transition-colors">
+                      <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
                         {post.title}
                       </h3>
-                      <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+                      <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                         {post.excerpt}
                       </p>
                       <div className="flex items-center gap-3">
@@ -351,7 +351,7 @@ export default function BlogDetailsPage() {
                         </Avatar>
                         <div>
                           <p className="text-sm font-medium">{post.author.name}</p>
-                          <div className="flex items-center gap-2 text-sm text-gray-400">
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
                             <time>{post.date}</time>
                             <span>·</span>
                             <span>{post.readTime}</span>

@@ -47,12 +47,12 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#0a0b2e] text-white">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <div className="relative bg-black/40 py-20">
+      <div className="relative bg-muted/30 py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">About Ticketer</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Your trusted platform for discovering and booking the best live entertainment experiences around the world.
           </p>
         </div>
@@ -64,10 +64,10 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-[#4338ca] mb-2">
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
                   {stat.number}
                 </div>
-                <div className="text-gray-400">{stat.label}</div>
+                <div className="text-muted-foreground">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -75,12 +75,12 @@ export default function AboutPage() {
       </section>
 
       {/* Story Section */}
-      <section className="py-20 bg-black/40">
+      <section className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-              <div className="space-y-4 text-gray-300">
+              <div className="space-y-4 text-muted-foreground">
                 <p>
                   Founded in 2020, Ticketer emerged from a simple vision: to make live entertainment accessible to everyone. What started as a small startup has grown into a global platform connecting millions of fans with their favorite events.
                 </p>
@@ -110,12 +110,12 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-center mb-12">Our Values</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="bg-white/5 rounded-xl p-6">
-                <div className="w-12 h-12 rounded-lg bg-[#4338ca]/10 flex items-center justify-center mb-4">
-                  <value.icon className="h-6 w-6 text-[#4338ca]" />
+              <div key={index} className="bg-muted/50 rounded-xl p-6">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <value.icon className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                <p className="text-gray-400">{value.description}</p>
+                <p className="text-muted-foreground">{value.description}</p>
               </div>
             ))}
           </div>
@@ -123,23 +123,23 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-black/40">
+      <section className="py-20 bg-muted/30">
         <div className="max-w-3xl mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Experience More?</h2>
-          <p className="text-gray-300 mb-8">
+          <p className="text-muted-foreground mb-8">
             Join millions of others who have already discovered their next favorite event through Ticketer.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               asChild
-              className="bg-[#4338ca] hover:bg-[#3730a3]"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
             >
               <Link href="/concerts">Browse Events</Link>
             </Button>
             <Button 
               asChild
               variant="outline" 
-              className="border-[#4338ca] text-[#4338ca] hover:bg-[#4338ca] hover:text-white"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
             >
               <Link href="/contact">Contact Us</Link>
             </Button>

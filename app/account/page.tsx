@@ -42,7 +42,7 @@ export default function AccountPage() {
             <Card key={section.title} className=" rounded-xl">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>{section.title}</CardTitle>
-                <Button variant="ghost" className="text-[#4338ca]" asChild>
+                <Button variant="ghost" className="text-primary" asChild>
                   <Link href={section.link} className="flex items-center gap-2">
                     {section.linkText}
                     <ChevronRight className="h-4 w-4" />
@@ -50,7 +50,7 @@ export default function AccountPage() {
                 </Button>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">{section.message}</p>
+                <p className="text-muted-foreground">{section.message}</p>
               </CardContent>
             </Card>
           ))}
@@ -59,7 +59,7 @@ export default function AccountPage() {
           <Card className="bg-card rounded-xl">
             <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle>Contact Info</CardTitle>
-              <Button variant="ghost" className="text-[#4338ca]" asChild>
+              <Button variant="ghost" className="text-primary" asChild>
                 <Link
                   href="/reset-password"
                   className="flex items-center gap-2"
@@ -70,7 +70,7 @@ export default function AccountPage() {
               </Button>
             </CardHeader>
             <CardContent>
-              <p className="text-gray-600">elnazbolkhari@gmail.com</p>
+              <p className="text-muted-foreground">elnazbolkhari@gmail.com</p>
             </CardContent>
           </Card>
         </div>

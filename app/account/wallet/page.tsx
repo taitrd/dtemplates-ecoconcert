@@ -45,13 +45,13 @@ export default function WalletPage() {
   const getStatusColor = (status: TicketWallet['status']) => {
     switch (status) {
       case 'valid':
-        return 'text-green-600 bg-green-50'
+        return 'text-green-500 bg-green-500/10'
       case 'used':
-        return 'text-gray-600 bg-gray-50'
+        return 'text-muted-foreground bg-muted'
       case 'expired':
-        return 'text-red-600 bg-red-50'
+        return 'text-destructive bg-destructive/10'
       default:
-        return 'text-gray-600 bg-gray-50'
+        return 'text-muted-foreground bg-muted'
     }
   }
 
@@ -66,11 +66,11 @@ export default function WalletPage() {
         <Card>
           <CardContent className="p-6">
             <div className="flex items-center gap-4">
-              <div className="p-3 rounded-full bg-[#4338ca]/10">
-                <Wallet className="h-6 w-6 text-[#4338ca]" />
+              <div className="p-3 rounded-full bg-primary/10">
+                <Wallet className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <p className="text-sm text-gray-500">Available Balance</p>
+                <p className="text-sm text-muted-foreground">Available Balance</p>
                 <p className="text-2xl font-bold">$1,234.56</p>
               </div>
             </div>
@@ -94,23 +94,23 @@ export default function WalletPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
                       <div className="absolute bottom-0 left-0 right-0 p-4">
-                        <h3 className="text-lg font-semibold text-white">{ticket.event}</h3>
-                        <p className="text-sm text-gray-200">{ticket.date}</p>
+                        <h3 className="text-lg font-semibold text-primary-foreground">{ticket.event}</h3>
+                        <p className="text-sm text-primary-foreground/80">{ticket.date}</p>
                       </div>
                     </div>
                   </div>
                   <CardContent className="p-4">
                     <div className="space-y-4">
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-500">Venue</span>
+                        <span className="text-muted-foreground">Venue</span>
                         <span>{ticket.venue}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-500">Section</span>
+                        <span className="text-muted-foreground">Section</span>
                         <span>{ticket.section}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-500">Row / Seat</span>
+                        <span className="text-muted-foreground">Row / Seat</span>
                         <span>{ticket.row} / {ticket.seat}</span>
                       </div>
                       <div className="flex justify-between items-center">

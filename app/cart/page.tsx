@@ -19,6 +19,7 @@ interface CartItem {
   seat: number
   price: number
   image: string
+  quantity: number
 }
 
 const cartItems: CartItem[] = [
@@ -33,7 +34,8 @@ const cartItems: CartItem[] = [
     row: "A",
     seat: 12,
     price: 399,
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg"
+    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg",
+    quantity: 1
   },
   {
     id: 2,
@@ -46,7 +48,8 @@ const cartItems: CartItem[] = [
     row: "C",
     seat: 5,
     price: 299,
-    image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg"
+    image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg",
+    quantity: 1
   }
 ]
 
@@ -84,11 +87,11 @@ export default function CartPage() {
     return (
       <div className="min-h-[80vh] flex flex-col items-center justify-center px-4">
         <div className="text-center">
-          <ShoppingBag className="w-16 h-16 mx-auto mb-4 text-gray-400" />
+          <ShoppingBag className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
           <h1 className="text-2xl font-bold mb-2">Your cart is empty</h1>
-          <p className="text-gray-400 mb-8">Looks like you haven't added any tickets yet.</p>
+          <p className="text-muted-foreground mb-8">Looks like you haven't added any tickets yet.</p>
           <Link href="/concerts">
-            <Button className="bg-[#4338ca] hover:bg-[#3730a3]">
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
               Browse Concerts
             </Button>
           </Link>
@@ -108,7 +111,7 @@ export default function CartPage() {
             {items.map((item) => (
               <div 
                 key={item.id}
-                className="bg-white/5 backdrop-blur-sm rounded-xl p-6 flex gap-6"
+                className="bg-card border border-border rounded-xl p-6 flex gap-6"
               >
                 <div className="relative w-32 h-32">
                   <Image
@@ -122,18 +125,18 @@ export default function CartPage() {
                   <div className="flex justify-between items-start">
                     <div>
                       <h3 className="text-lg font-semibold mb-1">{item.title}</h3>
-                      <p className="text-gray-400">{item.artist}</p>
+                      <p className="text-muted-foreground">{item.artist}</p>
                     </div>
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="text-gray-400 hover:text-red-500"
+                      className="text-muted-foreground hover:text-destructive"
                       onClick={() => handleRemoveItem(item.id)}
                     >
                       <Trash2 className="w-5 h-5" />
                     </Button>
                   </div>
-                  <div className="mt-2 space-y-1 text-sm text-gray-400">
+                  <div className="mt-2 space-y-1 text-sm text-muted-foreground">
                     <p>{item.date} · {item.time}</p>
                     <p>{item.venue}</p>
                     <p>{item.section}, Row {item.row}, Seat {item.seat}</p>
@@ -143,16 +146,16 @@ export default function CartPage() {
                       <Button
                         variant="outline"
                         size="icon"
-                        className="h-8 w-8 bg-white/10 border-white/20 hover:bg-white/20"
+                        className="h-8 w-8 bg-muted border-border hover:bg-muted/80"
                         onClick={() => handleQuantityChange(item.id, false)}
                       >
                         <Minus className="h-4 w-4" />
                       </Button>
-                      <span className="w-12 text-center">1</span>
+                      <span className="w-12 text-center">{item.quantity}</span>
                       <Button
                         variant="outline"
                         size="icon"
-                        className="h-8 w-8 bg-white/10 border-white/20 hover:bg-white/20"
+                        className="h-8 w-8 bg-muted border-border hover:bg-muted/80"
                         onClick={() => handleQuantityChange(item.id, true)}
                       >
                         <Plus className="h-4 w-4" />
@@ -167,15 +170,15 @@ export default function CartPage() {
 
           {/* Order Summary */}
           <div className="lg:sticky lg:top-4 lg:h-fit">
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6">
+            <div className="bg-card border border-border rounded-xl p-6">
               <h2 className="text-xl font-semibold mb-6">Order Summary</h2>
               
-              <div className="space-y-3 border-b border-white/10 pb-4 mb-4">
-                <div className="flex justify-between text-gray-400">
+              <div className="space-y-3 border-b border-border pb-4 mb-4">
+                <div className="flex justify-between text-muted-foreground">
                   <span>Subtotal ({items.length} items)</span>
                   <span>${subtotal.toFixed(2)}</span>
                 </div>
-                <div className="flex justify-between text-gray-400">
+                <div className="flex justify-between text-muted-foreground">
                   <span>Service Fees</span>
                   <span>${serviceFee.toFixed(2)}</span>
                 </div>
@@ -187,13 +190,13 @@ export default function CartPage() {
               </div>
 
               <Button 
-                className="w-full bg-[#4338ca] hover:bg-[#3730a3]"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 onClick={handleCheckout}
               >
                 Proceed to Checkout
               </Button>
 
-              <p className="mt-4 text-sm text-gray-400 text-center">
+              <p className="mt-4 text-sm text-muted-foreground text-center">
                 By proceeding, you agree to our Terms of Service and Privacy Policy
               </p>
             </div>

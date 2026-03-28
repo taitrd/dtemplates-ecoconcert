@@ -70,7 +70,7 @@ export default function SettingsPage() {
             <div className="flex items-center justify-between">
               <div className="space-y-0.5">
                 <Label>Email Notifications</Label>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-muted-foreground">
                   Receive email updates about your ticket purchases
                 </p>
               </div>
@@ -84,7 +84,7 @@ export default function SettingsPage() {
             <div className="flex items-center justify-between">
               <div className="space-y-0.5">
                 <Label>Push Notifications</Label>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-muted-foreground">
                   Receive push notifications about upcoming events
                 </p>
               </div>
@@ -98,7 +98,7 @@ export default function SettingsPage() {
             <div className="flex items-center justify-between">
               <div className="space-y-0.5">
                 <Label>SMS Notifications</Label>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-muted-foreground">
                   Receive text messages about ticket updates
                 </p>
               </div>
@@ -112,7 +112,7 @@ export default function SettingsPage() {
             <div className="flex items-center justify-between">
               <div className="space-y-0.5">
                 <Label>Promotional Communications</Label>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-muted-foreground">
                   Receive updates about special offers and promotions
                 </p>
               </div>
@@ -175,7 +175,7 @@ export default function SettingsPage() {
             <Button variant="outline" className="w-full">
               Enable Two-Factor Authentication
             </Button>
-            <Button variant="outline" className="w-full text-red-600">
+            <Button variant="outline" className="w-full text-destructive">
               Delete Account
             </Button>
           </CardContent>
@@ -184,7 +184,7 @@ export default function SettingsPage() {
         {/* Save Changes */}
         <div className="flex justify-end gap-4">
           <Button variant="outline">Cancel</Button>
-          <Button className="bg-[#4338ca] hover:bg-[#3730a3]">
+          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
             Save Changes
           </Button>
         </div>

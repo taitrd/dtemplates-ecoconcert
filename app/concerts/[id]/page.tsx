@@ -59,10 +59,10 @@ export default function ConcertDetailsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0b2e] text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
-        <div className="rounded-2xl overflow-hidden bg-gradient-to-b from-blue-600 to-purple-600">
+        <div className="rounded-2xl overflow-hidden bg-gradient-to-b from-primary/80 to-primary">
           <div className="relative h-[400px] md:h-[500px] lg:h-[600px]">
             <Image
               src="https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg"
@@ -74,34 +74,34 @@ export default function ConcertDetailsPage() {
           </div>
           
           {/* Event Details Section */}
-          <div className="bg-black/40 backdrop-blur-sm p-6 lg:p-8">
+          <div className="bg-muted/30 backdrop-blur-sm p-6 lg:p-8">
             <div className="max-w-7xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="flex items-center gap-3">
-                  <Calendar className="h-6 w-6 text-gray-400" />
+                  <Calendar className="h-6 w-6 text-muted-foreground" />
                   <div>
-                    <div className="text-sm text-gray-400">Date</div>
+                    <div className="text-sm text-muted-foreground">Date</div>
                     <div className="font-medium">3 June until 6 June, 2024</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Clock className="h-6 w-6 text-gray-400" />
+                  <Clock className="h-6 w-6 text-muted-foreground" />
                   <div>
-                    <div className="text-sm text-gray-400">Time</div>
+                    <div className="text-sm text-muted-foreground">Time</div>
                     <div className="font-medium">08:00 PM & 10:00 PM</div>
                   </div>
                 </div>
                 <div className="flex items-center justify-between lg:col-span-1">
                   <div className="flex items-center gap-3">
-                    <MapPin className="h-6 w-6 text-gray-400" />
+                    <MapPin className="h-6 w-6 text-muted-foreground" />
                     <div>
-                      <div className="text-sm text-gray-400">Location</div>
+                      <div className="text-sm text-muted-foreground">Location</div>
                       <div className="font-medium">Royal Albert Hall, London</div>
                     </div>
                   </div>
                   <Button 
                     variant="outline" 
-                    className="hidden lg:flex items-center gap-2 text-white border-white/20 hover:bg-white/10"
+                    className="hidden lg:flex items-center gap-2 text-foreground border-border hover:bg-muted"
                   >
                     Get Direction
                     <ArrowRight className="h-4 w-4" />
@@ -110,7 +110,7 @@ export default function ConcertDetailsPage() {
               </div>
               <Button 
                 variant="outline" 
-                className="w-full mt-4 lg:hidden items-center justify-center gap-2 text-white border-white/20 hover:bg-white/10"
+                className="w-full mt-4 lg:hidden items-center justify-center gap-2 text-foreground border-border hover:bg-muted"
               >
                 Get Direction
                 <ArrowRight className="h-4 w-4" />
@@ -135,7 +135,7 @@ export default function ConcertDetailsPage() {
             <div className="md:col-span-2">
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4">About the Concert</h2>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 Join us for an unforgettable evening with Taylor Swift at the iconic Royal Albert Hall. 
                 Experience the magic of her latest tour featuring songs from her newest album along with 
                 beloved classics. This exclusive performance promises an intimate setting with state-of-the-art 
@@ -145,17 +145,17 @@ export default function ConcertDetailsPage() {
 
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4">Lineup</h2>
-              <ul className="space-y-3 text-gray-300">
+              <ul className="space-y-3 text-muted-foreground">
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#4338ca]"></span>
+                  <span className="w-2 h-2 rounded-full bg-primary"></span>
                   Taylor Swift - Main Performance
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#4338ca]"></span>
+                  <span className="w-2 h-2 rounded-full bg-primary"></span>
                   Special Guest Performance
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#4338ca]"></span>
+                  <span className="w-2 h-2 rounded-full bg-primary"></span>
                   Opening Act
                 </li>
               </ul>
@@ -163,7 +163,7 @@ export default function ConcertDetailsPage() {
 
             <section>
               <h2 className="text-2xl font-semibold mb-4">Venue Information</h2>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 The Royal Albert Hall is one of the world's most prestigious venues. 
                 Located in South Kensington, London, this historic venue offers excellent 
                 acoustics and an intimate atmosphere despite its grand scale. The venue 
@@ -176,26 +176,26 @@ export default function ConcertDetailsPage() {
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6">
               <h2 className="text-xl font-semibold mb-4">Concert Details</h2>
               <ul className="space-y-4">
-                <li className="flex items-center text-gray-300">
-                  <Calendar className="w-5 h-5 mr-2 text-[#4338ca]" />
+                <li className="flex items-center text-muted-foreground">
+                  <Calendar className="w-5 h-5 mr-2 text-primary" />
                   <span>3-6 June, 2024</span>
                 </li>
-                <li className="flex items-center text-gray-300">
-                  <Clock className="w-5 h-5 mr-2 text-[#4338ca]" />
+                <li className="flex items-center text-muted-foreground">
+                  <Clock className="w-5 h-5 mr-2 text-primary" />
                   <span>8:00 PM & 10:00 PM</span>
                 </li>
-                <li className="flex items-center text-gray-300">
-                  <MapPin className="w-5 h-5 mr-2 text-[#4338ca]" />
+                <li className="flex items-center text-muted-foreground">
+                  <MapPin className="w-5 h-5 mr-2 text-primary" />
                   <span>Royal Albert Hall, London</span>
                 </li>
-                <li className="flex items-center text-gray-300">
-                  <Music className="w-5 h-5 mr-2 text-[#4338ca]" />
+                <li className="flex items-center text-muted-foreground">
+                  <Music className="w-5 h-5 mr-2 text-primary" />
                   <span>Pop, Contemporary</span>
                 </li>
               </ul>
               <div className="mt-6">
                 <Button 
-                  className="w-full bg-[#4338ca] hover:bg-[#3730a3] text-white"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                   onClick={handleNextStep}
                 >
                   {currentStep === 4 ? 'Download Ticket' : 'Continue'}

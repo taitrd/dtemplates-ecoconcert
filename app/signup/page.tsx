@@ -164,13 +164,13 @@ export default function SignUpPage() {
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className={cn(
                     "pl-10",
-                    errors.name && "border-red-500 focus-visible:ring-red-500"
+                    errors.name && "border-destructive focus-visible:ring-destructive"
                   )}
                 />
                 <User className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
               </div>
               {errors.name && (
-                <p className="text-sm text-red-500">{errors.name}</p>
+                <p className="text-sm text-destructive">{errors.name}</p>
               )}
             </div>
 
@@ -185,13 +185,13 @@ export default function SignUpPage() {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className={cn(
                     "pl-10",
-                    errors.email && "border-red-500 focus-visible:ring-red-500"
+                    errors.email && "border-destructive focus-visible:ring-destructive"
                   )}
                 />
                 <Mail className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
               </div>
               {errors.email && (
-                <p className="text-sm text-red-500">{errors.email}</p>
+                <p className="text-sm text-destructive">{errors.email}</p>
               )}
             </div>
 
@@ -206,7 +206,7 @@ export default function SignUpPage() {
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   className={cn(
                     "pl-10",
-                    errors.password && "border-red-500 focus-visible:ring-red-500"
+                    errors.password && "border-destructive focus-visible:ring-destructive"
                   )}
                 />
                 <Lock className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
@@ -228,7 +228,7 @@ export default function SignUpPage() {
                 Must be at least 8 characters.
               </p>
               {errors.password && (
-                <p className="text-sm text-red-500">{errors.password}</p>
+                <p className="text-sm text-destructive">{errors.password}</p>
               )}
             </div>
 
@@ -243,7 +243,7 @@ export default function SignUpPage() {
                   onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                   className={cn(
                     "pl-10",
-                    errors.confirmPassword && "border-red-500 focus-visible:ring-red-500"
+                    errors.confirmPassword && "border-destructive focus-visible:ring-destructive"
                   )}
                 />
                 <Lock className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
@@ -262,13 +262,13 @@ export default function SignUpPage() {
                 </Button>
               </div>
               {errors.confirmPassword && (
-                <p className="text-sm text-red-500">{errors.confirmPassword}</p>
+                <p className="text-sm text-destructive">{errors.confirmPassword}</p>
               )}
             </div>
 
             <Button
               type="submit"
-              className="w-full bg-[#4338ca] hover:bg-[#3730a3]"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
               disabled={isLoading}
             >
               {isLoading ? "Creating account..." : "Create an account"}
@@ -279,7 +279,7 @@ export default function SignUpPage() {
             Already have an account?{" "}
             <Link
               href="/login"
-              className="text-[#4338ca] hover:text-[#3730a3] font-medium"
+              className="text-primary hover:text-primary/90 font-medium"
             >
               Log In
             </Link>
@@ -288,15 +288,15 @@ export default function SignUpPage() {
       </div>
 
       {/* Image Section */}
-      <div className="hidden lg:block relative bg-black">
+      <div className="hidden lg:block relative bg-muted">
         <Image
           src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg"
           alt="Concert crowd"
           fill
           className="object-cover opacity-80"
         />
-        <div className="absolute inset-0 bg-blue-900/50" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
+        <div className="absolute inset-0 bg-primary/20 backdrop-blur-sm" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-primary-foreground text-center">
           <h2 className="text-4xl font-bold mb-4">Welcome Here</h2>
           <p className="text-xl">Create an account to make reservations</p>
         </div>

@@ -118,10 +118,10 @@ export default function ConcertsPage() {
   return (
     <div className="min-h-screen">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-4xl font-bold mb-8">Upcoming Concerts</h1>
+        <h1 className="text-4xl font-bold mb-8 text-foreground">Upcoming Concerts</h1>
 
         {/* Filter Section */}
-        <form onSubmit={handleFilter} className="mb-12 p-6 bg-white/5 rounded-lg">
+        <form onSubmit={handleFilter} className="mb-12 p-6 bg-card/50 border border-border rounded-lg">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="relative">
               <Input
@@ -130,18 +130,18 @@ export default function ConcertsPage() {
                 placeholder="Artist name"
                 value={searchParams.artist}
                 onChange={(e) => setSearchParams(prev => ({ ...prev, artist: e.target.value }))}
-                className="pl-10 text-white placeholder:text-gray-400"
+                className="pl-10 bg-background border-border text-foreground placeholder:text-muted-foreground"
               />
-              <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+              <Search className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
             </div>
             <div className="relative">
               <Select
                 value={searchParams.date}
                 onValueChange={(value) => setSearchParams(prev => ({ ...prev, date: value }))}
               >
-                <SelectTrigger className="bg-white/10 border-white/20 text-white">
+                <SelectTrigger className="bg-muted border-border text-foreground">
                   <div className="flex items-center">
-                    <Calendar className="mr-2 h-4 w-4 text-gray-400" />
+                    <Calendar className="mr-2 h-4 w-4 text-muted-foreground" />
                     <SelectValue placeholder="Select date" />
                   </div>
                 </SelectTrigger>
@@ -159,9 +159,9 @@ export default function ConcertsPage() {
                 value={searchParams.location}
                 onValueChange={(value) => setSearchParams(prev => ({ ...prev, location: value }))}
               >
-                <SelectTrigger className="bg-white/10 border-white/20 text-white">
+                <SelectTrigger className="bg-muted border-border text-foreground">
                   <div className="flex items-center">
-                    <MapPin className="mr-2 h-4 w-4 text-gray-400" />
+                    <MapPin className="mr-2 h-4 w-4 text-muted-foreground" />
                     <SelectValue placeholder="Select location" />
                   </div>
                 </SelectTrigger>
@@ -176,7 +176,7 @@ export default function ConcertsPage() {
               </Select>
             </div>
             <div className="flex gap-2">
-              <Button type="submit" className="flex-1 bg-[#4338ca] hover:bg-[#3730a3]">
+              <Button type="submit" className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground">
                 Apply Filters
               </Button>
               {hasSearched && (
@@ -184,7 +184,7 @@ export default function ConcertsPage() {
                   type="button"
                   variant="outline"
                   onClick={handleReset}
-                  className="bg-white/10 border-white/20 hover:bg-white/20"
+                  className="bg-muted border-border hover:bg-muted/80"
                 >
                   Reset
                 </Button>
@@ -202,18 +202,18 @@ export default function ConcertsPage() {
             <h2 className="text-2xl font-semibold mb-2">
               Sorry, there aren't any search results for: {searchParams.artist || "your search"}
             </h2>
-            <p className="text-xl text-gray-400 mb-8">
+            <p className="text-xl text-muted-foreground mb-8">
               We couldn't find any results matching your criteria
             </p>
             <div className="max-w-md mx-auto">
               <h3 className="font-semibold mb-4">Tips for improving the results:</h3>
-              <ul className="text-gray-400 text-left space-y-2 mb-8">
+              <ul className="text-muted-foreground text-left space-y-2 mb-8">
                 <li>• Check your spelling</li>
                 <li>• Use different keywords and try again</li>
                 <li>• Visit our Homepage to browse other events</li>
               </ul>
               <Link href="/">
-                <Button className="bg-[#4338ca] hover:bg-[#3730a3]">
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                   <Home className="w-4 h-4 mr-2" />
                   Go to Home Page
                 </Button>
@@ -226,7 +226,7 @@ export default function ConcertsPage() {
         {filteredConcerts.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredConcerts.map((concert) => (
-              <div key={concert.id} className="bg-white/5 rounded-lg overflow-hidden">
+              <div key={concert.id} className="bg-card border border-border rounded-lg overflow-hidden">
                 <div className="relative h-48">
                   <Image
                     src={concert.image}
@@ -237,13 +237,13 @@ export default function ConcertsPage() {
                 </div>
                 <div className="p-4">
                   <h2 className="text-xl font-semibold mb-2">{concert.artist}</h2>
-                  <p className="text-gray-300 mb-1">{concert.date}</p>
-                  <p className="text-gray-300 mb-1">{concert.location}</p>
-                  <p className="text-gray-300 mb-4">{concert.venue}</p>
+                  <p className="text-muted-foreground mb-1">{concert.date}</p>
+                  <p className="text-muted-foreground mb-1">{concert.location}</p>
+                  <p className="text-muted-foreground mb-4">{concert.venue}</p>
                   <div className="flex justify-between items-center">
-                    <span className="text-lg font-bold">${concert.price}</span>
+                    <span className="text-lg font-bold text-foreground">${concert.price}</span>
                     <Link href={`/concerts/${concert.id}`}>
-                      <Button className="bg-[#4338ca] hover:bg-[#3730a3]">
+                      <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                         View Details
                       </Button>
                     </Link>

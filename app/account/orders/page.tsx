@@ -67,13 +67,13 @@ export default function OrdersPage() {
   const getStatusColor = (status: Order['status']) => {
     switch (status) {
       case 'upcoming':
-        return 'text-blue-600 bg-blue-50'
+        return 'text-blue-500 bg-blue-500/10'
       case 'completed':
-        return 'text-green-600 bg-green-50'
+        return 'text-green-500 bg-green-500/10'
       case 'cancelled':
-        return 'text-red-600 bg-red-50'
+        return 'text-destructive bg-destructive/10'
       default:
-        return 'text-gray-600 bg-gray-50'
+        return 'text-muted-foreground bg-muted'
     }
   }
 
@@ -84,7 +84,7 @@ export default function OrdersPage() {
           <h1 className="text-2xl font-bold">Orders</h1>
           <div className="flex flex-col gap-4 md:flex-row md:items-center">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 placeholder="Search orders..."
                 value={searchQuery}
@@ -135,7 +135,7 @@ export default function OrdersPage() {
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                       <div>
                         <h3 className="text-lg font-semibold">{order.event}</h3>
-                        <p className="text-sm text-gray-500">Order ID: {order.id}</p>
+                        <p className="text-sm text-muted-foreground">Order ID: {order.id}</p>
                       </div>
                       <div className="flex items-center gap-2">
                         <span className={`px-3 py-1 rounded-full text-sm font-medium capitalize ${getStatusColor(order.status)}`}>
@@ -145,15 +145,15 @@ export default function OrdersPage() {
                     </div>
                     <div className="flex flex-col md:flex-row md:items-center gap-4 text-sm">
                       <div className="flex items-center gap-2">
-                        <Calendar className="h-4 w-4 text-gray-500" />
+                        <Calendar className="h-4 w-4 text-muted-foreground" />
                         <span>{order.date}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-gray-500">Quantity:</span>
+                        <span className="text-muted-foreground">Quantity:</span>
                         <span>{order.quantity}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-gray-500">Total:</span>
+                        <span className="text-muted-foreground">Total:</span>
                         <span className="font-semibold">${(order.price * order.quantity).toFixed(2)}</span>
                       </div>
                     </div>

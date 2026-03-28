@@ -93,10 +93,10 @@ export default function CheckoutPage() {
         </div>
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold mb-2">Checkout</h1>
-          <p className="text-gray-400">Fill Out Necessary Information here.</p>
-          <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full mt-4">
-            <Clock className="w-4 h-4 text-red-500" />
-            <CountdownTimer days={0} className="text-red-500" />
+          <p className="text-muted-foreground">Fill Out Necessary Information here.</p>
+          <div className="inline-flex items-center gap-2 bg-muted px-4 py-2 rounded-full mt-4">
+            <Clock className="w-4 h-4 text-destructive" />
+            <CountdownTimer days={0} className="text-destructive" />
           </div>
         </div>
 
@@ -106,7 +106,7 @@ export default function CheckoutPage() {
             <h2 className="text-2xl font-semibold mb-6">Your Ticket List</h2>
             <div className="space-y-4">
               {tickets.map((ticket) => (
-                <Card key={ticket.id} className="bg-white/5 backdrop-blur-sm border-0">
+                <Card key={ticket.id} className="bg-card border-border">
                   <CardContent className="p-4">
                     <div className="flex gap-4">
                       <div className="relative w-24 h-24">
@@ -119,10 +119,10 @@ export default function CheckoutPage() {
                       </div>
                       <div>
                         <h3 className="font-semibold text-lg">{ticket.title}</h3>
-                        <p className="text-sm text-gray-400">
+                        <p className="text-sm text-muted-foreground">
                           {ticket.date}, {ticket.time} · {ticket.ticketType}
                         </p>
-                        <p className="text-sm text-gray-400">
+                        <p className="text-sm text-muted-foreground">
                           {ticket.section}, Row {ticket.row}, Seat {ticket.seat}
                         </p>
                         <p className="text-lg font-semibold mt-2">
@@ -136,15 +136,15 @@ export default function CheckoutPage() {
             </div>
 
             <div className="mt-6 space-y-2">
-              <div className="flex justify-between text-gray-400">
+              <div className="flex justify-between text-muted-foreground">
                 <span>Subtotal</span>
                 <span>${subtotal.toFixed(2)}</span>
               </div>
-              <div className="flex justify-between text-gray-400">
+              <div className="flex justify-between text-muted-foreground">
                 <span>Service Fees</span>
                 <span>${serviceFee.toFixed(2)}</span>
               </div>
-              <div className="flex justify-between text-xl font-semibold pt-2 border-t border-white/10">
+              <div className="flex justify-between text-xl font-semibold pt-2 border-t border-border">
                 <span>Total USD ({tickets.length} items)</span>
                 <span>${total.toFixed(2)}</span>
               </div>
@@ -153,7 +153,7 @@ export default function CheckoutPage() {
 
           {/* Right Column - Payment Details */}
           <div>
-            <Card className="bg-white/5 backdrop-blur-sm border-0">
+            <Card className="bg-card border-border">
               <CardHeader>
                 <CardTitle>Payment Details</CardTitle>
               </CardHeader>
@@ -164,8 +164,8 @@ export default function CheckoutPage() {
                     variant={paymentMethod === 'paypal' ? 'default' : 'outline'}
                     className={`h-20 ${
                       paymentMethod === 'paypal' 
-                        ? 'bg-[#4338ca] hover:bg-[#3730a3]' 
-                        : 'bg-white/10 border-white/20 hover:bg-white/20'
+                        ? 'bg-primary hover:bg-primary/90 text-primary-foreground' 
+                        : 'bg-muted border-border hover:bg-muted/80 text-foreground'
                     }`}
                     onClick={() => setPaymentMethod('paypal')}
                   >
@@ -180,8 +180,8 @@ export default function CheckoutPage() {
                     variant={paymentMethod === 'card' ? 'default' : 'outline'}
                     className={`h-20 ${
                       paymentMethod === 'card' 
-                        ? 'bg-[#4338ca] hover:bg-[#3730a3]' 
-                        : 'bg-white/10 border-white/20 hover:bg-white/20'
+                        ? 'bg-primary hover:bg-primary/90 text-primary-foreground' 
+                        : 'bg-muted border-border hover:bg-muted/80 text-foreground'
                     }`}
                     onClick={() => setPaymentMethod('card')}
                   >
@@ -196,8 +196,8 @@ export default function CheckoutPage() {
                     variant={paymentMethod === 'venmo' ? 'default' : 'outline'}
                     className={`h-20 ${
                       paymentMethod === 'venmo' 
-                        ? 'bg-[#4338ca] hover:bg-[#3730a3]' 
-                        : 'bg-white/10 border-white/20 hover:bg-white/20'
+                        ? 'bg-primary hover:bg-primary/90 text-primary-foreground' 
+                        : 'bg-muted border-border hover:bg-muted/80 text-foreground'
                     }`}
                     onClick={() => setPaymentMethod('venmo')}
                   >
@@ -217,7 +217,7 @@ export default function CheckoutPage() {
                       <Input
                         id="cardNumber"
                         placeholder="xxxx xxxx xxxx xxxx"
-                        className="bg-white/10 border-white/20"
+                        className="bg-muted border-border"
                       />
                     </div>
 
@@ -227,7 +227,7 @@ export default function CheckoutPage() {
                         <Input
                           id="expiry"
                           placeholder="MM/YY"
-                          className="bg-white/10 border-white/20"
+                          className="bg-muted border-border"
                         />
                       </div>
                       <div className="space-y-2">
@@ -235,7 +235,7 @@ export default function CheckoutPage() {
                         <Input
                           id="cvv"
                           placeholder="xxx"
-                          className="bg-white/10 border-white/20"
+                          className="bg-muted border-border"
                         />
                       </div>
                     </div>
@@ -245,7 +245,7 @@ export default function CheckoutPage() {
                       <Input
                         id="name"
                         placeholder="Enter your name"
-                        className="bg-white/10 border-white/20"
+                        className="bg-muted border-border"
                       />
                     </div>
 
@@ -254,7 +254,7 @@ export default function CheckoutPage() {
                       <Input
                         id="discount"
                         placeholder="Enter discount code"
-                        className="bg-white/10 border-white/20"
+                        className="bg-muted border-border"
                       />
                     </div>
                   </div>
@@ -268,10 +268,10 @@ export default function CheckoutPage() {
                   />
                   <label
                     htmlFor="terms"
-                    className="text-sm text-gray-400 cursor-pointer"
+                    className="text-sm text-muted-foreground cursor-pointer"
                   >
                     By clicking this, I agree to Ticketer{" "}
-                    <Link href="/privacy" className="text-[#4338ca] hover:underline">
+                    <Link href="/privacy" className="text-primary hover:underline">
                       Privacy Policy
                     </Link>
                   </label>
@@ -279,7 +279,7 @@ export default function CheckoutPage() {
               </CardContent>
               <CardFooter>
                 <Button 
-                  className="w-full bg-[#4338ca] hover:bg-[#3730a3]"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                   disabled={!agreedToTerms || isLoading}
                   onClick={handlePayment}
                 >

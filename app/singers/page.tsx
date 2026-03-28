@@ -109,18 +109,18 @@ export default function SingersPage() {
             <Input
               type="text"
               placeholder="Type a singer name"
-              className="w-full pl-10 h-12 bg-white text-black rounded-full"
+              className="w-full pl-10 h-12 bg-muted/50 text-foreground rounded-full border-border"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <User className="absolute left-3 top-3.5 h-5 w-5 text-gray-500" />
+            <User className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
           </div>
         </div>
 
         {/* Singers Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-2">Singers</h1>
-          <p className="text-gray-400">You can meet all singers here</p>
+          <p className="text-muted-foreground">You can meet all singers here</p>
         </div>
 
         {/* Singers Grid */}
@@ -128,7 +128,7 @@ export default function SingersPage() {
           {filteredSingers.map((singer) => (
             <div 
               key={singer.id} 
-              className="group relative bg-white/5 rounded-2xl overflow-hidden transition-transform hover:scale-105"
+              className="group relative bg-card border border-border rounded-2xl overflow-hidden transition-transform hover:scale-105"
             >
               <div className="aspect-[3/4] relative">
                 <Image
@@ -143,12 +143,12 @@ export default function SingersPage() {
                 <h2 className="text-xl font-semibold text-white mb-1">
                   {singer.name}
                 </h2>
-                <p className="text-sm text-gray-300 mb-3">
+                <p className="text-sm text-primary-foreground/80 mb-3">
                   {singer.dateRange} {singer.location}
                 </p>
                 <Link 
                   href={`/concerts/${singer.id}`}
-                  className="inline-block text-[#4338ca] hover:text-[#3730a3] font-medium transition-colors"
+                  className="inline-block text-primary hover:text-primary/90 font-medium transition-colors"
                 >
                   View Details
                 </Link>
@@ -160,7 +160,7 @@ export default function SingersPage() {
         {/* No Results Message */}
         {filteredSingers.length === 0 && (
           <div className="text-center mt-12">
-            <p className="text-gray-400">No singers found matching your search.</p>
+            <p className="text-muted-foreground">No singers found matching your search.</p>
           </div>
         )}
       </main>

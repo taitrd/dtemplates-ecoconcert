@@ -71,13 +71,13 @@ export default function ListingsPage() {
   const getStatusColor = (status: Listing['status']) => {
     switch (status) {
       case 'active':
-        return 'text-green-600 bg-green-50'
+        return 'text-green-500 bg-green-500/10'
       case 'sold':
-        return 'text-blue-600 bg-blue-50'
+        return 'text-blue-500 bg-blue-500/10'
       case 'expired':
-        return 'text-gray-600 bg-gray-50'
+        return 'text-muted-foreground bg-muted'
       default:
-        return 'text-gray-600 bg-gray-50'
+        return 'text-muted-foreground bg-muted'
     }
   }
 
@@ -87,12 +87,12 @@ export default function ListingsPage() {
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <h1 className="text-2xl font-bold">My Listings</h1>
           <div className="flex flex-col gap-4 md:flex-row md:items-center">
-            <Button className="bg-[#4338ca] hover:bg-[#3730a3]">
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
               <Plus className="mr-2 h-4 w-4" />
               Create New Listing
             </Button>
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 placeholder="Search listings..."
                 value={searchQuery}
@@ -131,7 +131,7 @@ export default function ListingsPage() {
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                       <div>
                         <h3 className="text-lg font-semibold">{listing.event}</h3>
-                        <p className="text-sm text-gray-500">Listing ID: {listing.id}</p>
+                        <p className="text-sm text-muted-foreground">Listing ID: {listing.id}</p>
                       </div>
                       <div className="flex items-center gap-2">
                         <span className={`px-3 py-1 rounded-full text-sm font-medium capitalize ${getStatusColor(listing.status)}`}>
@@ -141,19 +141,19 @@ export default function ListingsPage() {
                     </div>
                     <div className="flex flex-col md:flex-row md:items-center gap-4 text-sm">
                       <div className="flex items-center gap-2">
-                        <Calendar className="h-4 w-4 text-gray-500" />
+                        <Calendar className="h-4 w-4 text-muted-foreground" />
                         <span>{listing.date}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-gray-500">Price:</span>
+                        <span className="text-muted-foreground">Price:</span>
                         <span className="font-semibold">${listing.price.toFixed(2)}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-gray-500">Quantity:</span>
+                        <span className="text-muted-foreground">Quantity:</span>
                         <span>{listing.quantity}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-gray-500">Views:</span>
+                        <span className="text-muted-foreground">Views:</span>
                         <span>{listing.views}</span>
                       </div>
                     </div>
