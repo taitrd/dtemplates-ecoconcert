@@ -11,22 +11,22 @@ interface CountdownTimerProps {
 export function CountdownTimer({ days, className }: CountdownTimerProps) {
   const [timeLeft, setTimeLeft] = useState({
     days,
-    hours: Math.floor(Math.random() * 24),
-    minutes: Math.floor(Math.random() * 60),
-    seconds: Math.floor(Math.random() * 60)
+    hours: 1,
+    minutes: 25,
+    seconds: 26
   })
 
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(current => {
-        if (current.days === 0 && current.hours === 0 && 
-            current.minutes === 0 && current.seconds === 0) {
+        if (current.days === 0 && current.hours === 0 &&
+          current.minutes === 0 && current.seconds === 0) {
           clearInterval(timer)
           return current
         }
 
         let newTime = { ...current }
-        
+
         if (current.seconds > 0) {
           newTime.seconds -= 1
         } else {

@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 const user = {
   name: "Elnaz Bolkhari",
   email: "elnazbolkhari@gmail.com",
-  image: "/placeholder.svg",
+  image: "/placeholder.png",
 };
 
 const navigation = [
@@ -76,9 +76,9 @@ export function AccountSidebar() {
             <Button
               variant="ghost"
               size="icon"
-              className="relative hover:bg-gray-100"
+              className="relative hover:bg-accent"
             >
-              <Bell className="h-5 w-5 text-gray-600" />
+              <Bell className="h-5 w-5 text-accent-foreground" />
               <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500" />
               <span className="sr-only">Notifications</span>
             </Button>

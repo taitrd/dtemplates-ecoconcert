@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Badge } from "@/components/ui/badge"
 import {
   Carousel,
   CarouselContent,
@@ -70,29 +71,31 @@ export function NewsletterSection() {
   }
 
   return (
-    <section className="w-full py-20 px-4 md:px-6 bg-black/40">
+    <section className="w-full py-24 px-4 md:px-6 bg-muted/20 border-y border-border">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-[400px_1fr] gap-12">
+        <div className="grid lg:grid-cols-[450px_1fr] gap-16 items-center">
           {/* Newsletter Subscription */}
-          <div>
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Subscribe our news letter
-            </h2>
-            <p className="text-gray-400 mb-6">
-              For weekly later news and offers about music world, Join us here.
-            </p>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="relative">
+          <div className="space-y-6">
+            <div className="space-y-3">
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground">
+                Stay in the <span className="text-primary italic">Loop</span>
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Unlock exclusive early access, special offers, and the latest news from the music world. Join our community today.
+              </p>
+            </div>
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+              <div className="relative flex-1">
                 <Input
                   type="email"
-                  placeholder="Enter your email"
-                  className="w-full pl-10 h-12 bg-white/10 border-white/20 text-white"
+                  placeholder="Enter your email address"
+                  className="w-full pl-10 h-14 bg-background border-border focus:ring-primary shadow-sm"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
                 <svg
-                  className="absolute left-3 top-3.5 h-5 w-5 text-gray-400"
+                  className="absolute left-3 top-4.5 h-5 w-5 text-muted-foreground"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -107,17 +110,21 @@ export function NewsletterSection() {
               </div>
               <Button 
                 type="submit" 
-                className="w-full md:w-auto bg-[#4338ca] hover:bg-[#3730a3]"
+                size="lg"
+                className="h-14 px-8 font-bold text-base shadow-lg transition-all hover:scale-105"
                 disabled={isSubmitting}
               >
-                Subscribe
-                <ArrowRight className="ml-2 h-4 w-4" />
+                Sign Up
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </form>
+            <p className="text-xs text-muted-foreground italic">
+              * By subscribing, you agree to our Privacy Policy and Terms of Service.
+            </p>
           </div>
 
           {/* News Carousel */}
-          <div>
+          <div className="relative">
             <Carousel
               opts={{
                 align: "start",
@@ -128,34 +135,37 @@ export function NewsletterSection() {
               <CarouselContent>
                 {news.map((item, index) => (
                   <CarouselItem key={index}>
-                    <div className="grid md:grid-cols-[1.5fr_1fr] gap-6">
-                      <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
+                    <div className="grid md:grid-cols-[1.2fr_1fr] gap-8 bg-card p-4 rounded-3xl border border-border shadow-xl overflow-hidden group">
+                      <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
                         <Image
                           src={item.image}
                           alt={item.title}
                           fill
-                          className="object-cover"
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                       </div>
-                      <div className="flex flex-col justify-center">
-                        <h3 className="text-xl font-semibold text-white mb-3">
+                      <div className="flex flex-col justify-center space-y-4 py-2">
+                        <Badge variant="secondary" className="w-fit bg-primary/10 text-primary hover:bg-primary/20">
+                          Hot News
+                        </Badge>
+                        <h3 className="text-2xl font-bold text-card-foreground line-clamp-2 leading-tight">
                           {item.title}
                         </h3>
-                        <p className="text-gray-400 mb-4 line-clamp-3">
+                        <p className="text-muted-foreground line-clamp-3 text-sm leading-relaxed">
                           {item.description}
                         </p>
-                        <div className="flex items-center gap-3">
-                          <Avatar>
+                        <div className="flex items-center gap-4 pt-2">
+                          <Avatar className="h-10 w-10 border-2 border-primary/20">
                             <AvatarImage src={item.author.avatar} />
-                            <AvatarFallback>{item.author.name[0]}</AvatarFallback>
+                            <AvatarFallback className="bg-primary/10 text-primary font-bold">{item.author.name[0]}</AvatarFallback>
                           </Avatar>
-                          <div>
-                            <div className="font-medium text-white">
+                          <div className="flex flex-col">
+                            <span className="font-bold text-sm text-foreground">
                               {item.author.name}
-                            </div>
-                            <div className="text-sm text-gray-400">
-                              {item.author.date}. {item.author.readTime}
-                            </div>
+                            </span>
+                            <span className="text-xs text-muted-foreground flex items-center gap-1">
+                              {item.author.date} <span className="text-primary/50 text-lg leading-none">•</span> {item.author.readTime} read
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -163,13 +173,9 @@ export function NewsletterSection() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <div className="flex justify-end gap-2 mt-4">
-                <CarouselPrevious className="relative inset-0 translate-x-0 translate-y-0 h-8 w-8">
-                  <ChevronLeft className="h-4 w-4" />
-                </CarouselPrevious>
-                <CarouselNext className="relative inset-0 translate-x-0 translate-y-0 h-8 w-8">
-                  <ChevronRight className="h-4 w-4" />
-                </CarouselNext>
+              <div className="absolute -bottom-12 right-0 flex gap-2">
+                <CarouselPrevious className="static translate-y-0 h-10 w-10 border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground shadow-sm" />
+                <CarouselNext className="static translate-y-0 h-10 w-10 border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground shadow-sm" />
               </div>
             </Carousel>
           </div>

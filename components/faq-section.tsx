@@ -34,80 +34,91 @@ const faqs = [
 
 export function FaqSection() {
   return (
-    <section className="w-full py-20 px-4 md:px-6 bg-black/40">
+    <section className="w-full py-24 px-4 md:px-6 bg-muted/30 border-y border-border">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-[300px_1fr] gap-12">
+        <div className="grid lg:grid-cols-[350px_1fr] gap-16 items-start">
           {/* Left Column - Contact Info */}
-          <div>
-            <h2 className="text-3xl font-bold text-white mb-8">
-              Frequently Asked Questions
-            </h2>
+          <div className="space-y-10">
+            <div className="space-y-4">
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground">
+                Common <span className="text-primary italic">Questions</span>
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Everything you need to know about booking, cancellations, and more.
+              </p>
+            </div>
             
-            <div className="space-y-6 mb-12">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-[#4338ca]" />
+            <div className="space-y-6">
+              <div className="group flex items-center gap-4 p-4 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/50">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center transition-colors group-hover:bg-primary/20">
+                  <Mail className="w-6 h-6 text-primary" />
                 </div>
-                <a 
-                  href="mailto:helpcenter@ticketer.com" 
-                  className="text-white hover:text-[#4338ca] transition-colors"
-                >
-                  helpcenter@ticketer.com
-                </a>
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Email Us</span>
+                  <a 
+                    href="mailto:helpcenter@ticketer.com" 
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
+                  >
+                    helpcenter@ticketer.com
+                  </a>
+                </div>
               </div>
               
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-[#4338ca]" />
+              <div className="group flex items-center gap-4 p-4 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/50">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center transition-colors group-hover:bg-primary/20">
+                  <Phone className="w-6 h-6 text-primary" />
                 </div>
-                <a 
-                  href="tel:(010)123-4567" 
-                  className="text-white hover:text-[#4338ca] transition-colors"
-                >
-                  (010) 123-4567
-                </a>
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Call Us</span>
+                  <a 
+                    href="tel:(010)123-4567" 
+                    className="text-foreground font-semibold hover:text-primary transition-colors"
+                  >
+                    (010) 123-4567
+                  </a>
+                </div>
               </div>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-white">
-                Still Have Questions?
+            <div className="p-6 bg-primary/5 rounded-3xl border border-primary/10 space-y-4">
+              <h3 className="text-xl font-bold text-foreground">
+                Still have questions?
               </h3>
-              <p className="text-gray-400">
-                Can't find the answer you're looking for? Please contact our help center.
+              <p className="text-sm text-muted-foreground">
+                Can't find the answer you're looking for? Our dedicated support team is here to help you 24/7.
               </p>
-              <Button className="bg-[#4338ca] hover:bg-[#3730a3]">
-                Contact Us
+              <Button size="lg" className="w-full font-bold shadow-lg shadow-primary/20">
+                Contact Support
               </Button>
             </div>
           </div>
 
           {/* Right Column - FAQs */}
-          <div>
-            <Accordion type="single" collapsible className="space-y-4">
+          <div className="space-y-8">
+            <Accordion type="single" collapsible className="space-y-3">
               {faqs.map((faq, index) => (
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="border border-white/10 rounded-lg overflow-hidden bg-white/5 backdrop-blur-sm"
+                  className="border border-border rounded-2xl px-2 overflow-hidden bg-card transition-all duration-300 data-[state=open]:border-primary/50 data-[state=open]:shadow-xl"
                 >
-                  <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-white/10">
-                    <span className="text-left text-white">{faq.question}</span>
-                    <ChevronDown className="shrink-0 text-white transition-transform duration-200" />
+                  <AccordionTrigger className="px-4 py-5 hover:no-underline font-bold text-lg text-left text-card-foreground">
+                    {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="px-6 py-4 text-gray-300">
+                  <AccordionContent className="px-4 pb-6 pt-2 text-muted-foreground leading-relaxed text-base border-t border-border/50 mt-2">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
             
-            <div className="mt-6 text-center">
+            <div className="flex justify-center pt-4">
               <Button 
                 variant="outline" 
-                className="border-[#4338ca] text-[#4338ca] hover:bg-[#4338ca] hover:text-white"
+                size="lg"
+                className="font-bold border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all"
               >
-                Read More
+                Explore Knowledge Base
               </Button>
             </div>
           </div>

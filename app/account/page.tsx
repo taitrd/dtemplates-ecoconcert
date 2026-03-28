@@ -9,25 +9,25 @@ const sections = [
   {
     title: "Orders",
     message: "You don't have any upcoming events scheduled right now.",
-    link: "/orders",
+    link: "/account/orders",
     linkText: "View all orders",
   },
   {
     title: "Listings",
     message: "You don't have any listings right now.",
-    link: "/listings",
+    link: "/account/listings",
     linkText: "View all lisings",
   },
   {
     title: "Payments",
     message: "You don't have any payments.",
-    link: "/payments",
+    link: "/account/payments",
     linkText: "View payments",
   },
   {
     title: "Ticketer Wallet",
     message: "You don't have any tickets in your wallet.",
-    link: "/wallet",
+    link: "/account/wallet",
     linkText: "View Wallet",
   },
 ];

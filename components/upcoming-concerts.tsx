@@ -1,8 +1,9 @@
 'use client'
 
-import Image from "next/image"
-import Link from "next/link"
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
+import { useDispatch, useSelector } from "react-redux"
+import { RootState, AppDispatch } from "@/lib/store"
+import { ConcertCard } from "@/components/concert-card"
+import { toggleConcertSelection } from "@/lib/tickets-slice"
 import {
   Carousel,
   CarouselContent,
@@ -10,105 +11,66 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-
-const concerts = [
-  {
-    artist: "Ed Shareen",
-    location: "London",
-    dateRange: "Sep10 - Sep13",
-    date: "10 September 2024",
-    imageUrl: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg"
-  },
-  {
-    artist: "Shakira",
-    location: "Manchester",
-    dateRange: "Sep14 - Sep19",
-    date: "14 September 2024",
-    imageUrl: "https://images.pexels.com/photos/1699159/pexels-photo-1699159.jpeg"
-  },
-  {
-    artist: "Pitbull",
-    location: "Bristol",
-    dateRange: "Nov02 - Nov04",
-    date: "02 November 2024",
-    imageUrl: "https://images.pexels.com/photos/1916824/pexels-photo-1916824.jpeg"
-  },
-  {
-    artist: "Lady Gaga",
-    location: "London",
-    dateRange: "Sep24 - Sep29",
-    date: "24 September 2024",
-    imageUrl: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg"
-  },
-  {
-    artist: "Omarion",
-    location: "Bristol",
-    dateRange: "Nov02 - Nov04",
-    date: "02 November 2024",
-    imageUrl: "https://images.pexels.com/photos/1687831/pexels-photo-1687831.jpeg"
-  }
-]
+import { Skeleton } from "@/components/ui/skeleton"
 
 export function UpcomingConcerts() {
+  const dispatch = useDispatch<AppDispatch>()
+  const { concerts, loading, selectedConcertIds } = useSelector((state: RootState) => state.tickets)
+
   return (
-    <section className="w-full py-20 px-4 md:px-6">
+    <section className="w-full py-20 px-4 md:px-6 bg-background/50 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
             Upcoming Concerts
           </h2>
-          <p className="text-gray-400 text-lg">
-            The best concerts will be held soon!
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            The best concerts will be held soon! Don't miss out on your chance to see your favorite artists live.
           </p>
         </div>
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full"
-        >
-          <CarouselContent className="-ml-4">
-            {concerts.map((concert, index) => (
-              <CarouselItem key={index} className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
-                <Card className="bg-transparent border-0">
-                  <CardContent className="p-0">
-                    <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
-                      <Image
-                        src={concert.imageUrl}
-                        alt={concert.artist}
-                        fill
-                        className="object-cover transition-transform hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
-                        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                          <div className="text-2xl font-bold mb-2">Coming soon</div>
-                          <div className="text-sm opacity-80">{concert.date}</div>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                  <CardFooter className="flex flex-col items-start pt-4 px-0">
-                    <h3 className="text-xl font-semibold text-white mb-1">
-                      {concert.artist}
-                    </h3>
-                    <p className="text-sm text-gray-400 mb-2">
-                      {concert.dateRange} {concert.location}
-                    </p>
-                    <Link 
-                      href="#" 
-                      className="text-[#4338ca] hover:text-[#3730a3] font-medium"
-                    >
-                      View Details
-                    </Link>
-                  </CardFooter>
-                </Card>
-              </CarouselItem>
+
+        {loading ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="space-y-4">
+                <Skeleton className="aspect-[3/4] w-full rounded-xl" />
+                <Skeleton className="h-6 w-3/4" />
+                <Skeleton className="h-4 w-1/2" />
+              </div>
             ))}
-          </CarouselContent>
-          <CarouselPrevious className="hidden md:flex" />
-          <CarouselNext className="hidden md:flex" />
-        </Carousel>
+          </div>
+        ) : concerts.length > 0 ? (
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {concerts.map((concert) => (
+                <CarouselItem key={concert.id} className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+                  <ConcertCard
+                    id={concert.id}
+                    artist={concert.singer}
+                    location={concert.location}
+                    dateRange={new Date(concert.date).toLocaleDateString()}
+                    price={concert.price}
+                    imageUrl={concert.image}
+                    isSelected={selectedConcertIds.includes(concert.id)}
+                    onToggleSelection={(id) => dispatch(toggleConcertSelection(id))}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex -left-12 border-primary text-primary hover:bg-primary hover:text-primary-foreground" />
+            <CarouselNext className="hidden md:flex -right-12 border-primary text-primary hover:bg-primary hover:text-primary-foreground" />
+          </Carousel>
+        ) : (
+          <div className="text-center py-20 bg-muted/20 rounded-2xl border border-dashed border-border">
+            <p className="text-muted-foreground italic">No concerts found matching your criteria.</p>
+          </div>
+        )}
       </div>
     </section>
   )
