@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import ThemeSwitcher from '@/components/theme-switcher'
 
 export default function SettingsPage() {
   const [notifications, setNotifications] = useState({
@@ -58,6 +59,8 @@ export default function SettingsPage() {
           </CardContent>
         </Card>
 
+        <ThemeSwitcher />
+
         {/* Notification Preferences */}
         <Card>
           <CardHeader>
@@ -73,7 +76,7 @@ export default function SettingsPage() {
               </div>
               <Switch
                 checked={notifications.email}
-                onCheckedChange={(checked) => 
+                onCheckedChange={(checked) =>
                   setNotifications(prev => ({ ...prev, email: checked }))
                 }
               />
@@ -87,7 +90,7 @@ export default function SettingsPage() {
               </div>
               <Switch
                 checked={notifications.push}
-                onCheckedChange={(checked) => 
+                onCheckedChange={(checked) =>
                   setNotifications(prev => ({ ...prev, push: checked }))
                 }
               />
@@ -101,7 +104,7 @@ export default function SettingsPage() {
               </div>
               <Switch
                 checked={notifications.sms}
-                onCheckedChange={(checked) => 
+                onCheckedChange={(checked) =>
                   setNotifications(prev => ({ ...prev, sms: checked }))
                 }
               />
@@ -115,7 +118,7 @@ export default function SettingsPage() {
               </div>
               <Switch
                 checked={notifications.promotional}
-                onCheckedChange={(checked) => 
+                onCheckedChange={(checked) =>
                   setNotifications(prev => ({ ...prev, promotional: checked }))
                 }
               />
