@@ -92,12 +92,12 @@ export default function WalletPage() {
                       alt={ticket.event}
                       className="absolute inset-0 w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
-                      <div className="absolute bottom-0 left-0 right-0 p-4">
-                        <h3 className="text-lg font-semibold text-primary-foreground">{ticket.event}</h3>
-                        <p className="text-sm text-primary-foreground/80">{ticket.date}</p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/60 to-transparent">
+                        <div className="absolute bottom-0 left-0 right-0 p-4">
+                          <h3 className="text-lg font-semibold text-primary-foreground">{ticket.event}</h3>
+                          <p className="text-sm text-primary-foreground/80">{ticket.date}</p>
+                        </div>
                       </div>
-                    </div>
                   </div>
                   <CardContent className="p-4">
                     <div className="space-y-4">

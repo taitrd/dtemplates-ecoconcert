@@ -107,7 +107,7 @@ export default function PrivacyPolicyPage() {
           </p>
         </section>
 
-        <p className="text-gray-300">
+        <p className="text-muted-foreground">
           For more information about our policies, please refer to our{" "}
           <Link href="/terms" className="text-primary hover:underline">
             Terms and Conditions

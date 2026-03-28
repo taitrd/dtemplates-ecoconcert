@@ -67,9 +67,8 @@ export default function ConcertDetailsPage() {
             <Image
               src="https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg"
               alt="Taylor Swift performing live"
-              layout="fill"
-              objectFit="cover"
-              className="mix-blend-overlay"
+              fill
+              className="object-cover mix-blend-overlay"
             />
           </div>
           
@@ -173,7 +172,7 @@ export default function ConcertDetailsPage() {
           </div>
 
           <div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6">
+            <div className="bg-card border border-border rounded-xl p-6">
               <h2 className="text-xl font-semibold mb-4">Concert Details</h2>
               <ul className="space-y-4">
                 <li className="flex items-center text-muted-foreground">

@@ -99,7 +99,7 @@ export default function ResetPasswordPage() {
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   className={cn(
                     "pl-10",
-                    errors.password && "border-red-500 focus-visible:ring-red-500"
+                    errors.password && "border-destructive focus-visible:ring-destructive"
                   )}
                 />
                 <Lock className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
@@ -118,7 +118,7 @@ export default function ResetPasswordPage() {
                 </Button>
               </div>
               {errors.password && (
-                <p className="text-sm text-red-500">{errors.password}</p>
+                <p className="text-sm text-destructive">{errors.password}</p>
               )}
             </div>
 
@@ -133,7 +133,7 @@ export default function ResetPasswordPage() {
                   onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                   className={cn(
                     "pl-10",
-                    errors.confirmPassword && "border-red-500 focus-visible:ring-red-500"
+                    errors.confirmPassword && "border-destructive focus-visible:ring-destructive"
                   )}
                 />
                 <Lock className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
@@ -152,7 +152,7 @@ export default function ResetPasswordPage() {
                 </Button>
               </div>
               {errors.confirmPassword && (
-                <p className="text-sm text-red-500">{errors.confirmPassword}</p>
+                <p className="text-sm text-destructive">{errors.confirmPassword}</p>
               )}
             </div>
 

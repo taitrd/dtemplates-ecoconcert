@@ -63,7 +63,7 @@ export default function TermsOfUsePage() {
 
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">8. Governing Law</h2>
-          <p className="text-gray-300 mb-4">
+          <p className="text-muted-foreground mb-4">
             These Terms of Use shall be governed by and construed in accordance with the laws of the jurisdiction in which Ticketer is based, without regard to its conflict of law provisions.
           </p>
         </section>

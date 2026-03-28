@@ -231,8 +231,8 @@ export default function ConcertsPage() {
                   <Image
                     src={concert.image}
                     alt={concert.artist}
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-4">

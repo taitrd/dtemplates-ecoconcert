@@ -137,16 +137,17 @@ export default function CheckoutSuccessPage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/60 to-transparent" />
                 <div className="absolute inset-0 p-6 flex flex-col">
                   <div className="flex-1">
                     <h2 className="text-2xl font-bold text-primary-foreground">Download Your Tickets!</h2>
+                    <p className="text-sm text-muted-foreground">Order Date: July 17, 2024</p>
                     <p className="text-xl text-primary-foreground/90">
                       '{ticketDetails.concertName}' {ticketDetails.artist} Concert
                     </p>
                   </div>
                   <div className="space-y-4">
-                    <div className="flex justify-between items-center border-t border-white/20 pt-4">
+                    <div className="flex justify-between items-center border-t border-border/50 pt-4">
                       <div>
                         <div className="text-sm text-primary-foreground/70">Section: {ticketDetails.section}</div>
                         <div className="text-primary-foreground/90">Seat: {ticketDetails.seats.join(', ')}</div>
