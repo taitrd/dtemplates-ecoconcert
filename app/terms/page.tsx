@@ -56,7 +56,7 @@ export default function TermsAndConditionsPage() {
 
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">7. Business uses of our Services</h2>
-          <p className="text-gray-300 mb-4">
+          <p className="text-muted-foreground mb-4">
             If you are using our Services on behalf of a business, that business accepts these terms. It will hold harmless and indemnify Ticketer and its affiliates, officers, agents, and employees from any claim, suit or action arising from or related to the use of the Services or violation of these terms, including any liability or expense arising from claims, losses, damages, suits, judgments, litigation costs and attorneys' fees.
           </p>
         </section>

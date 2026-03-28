@@ -236,7 +236,7 @@ export default function BlogDetailsPage() {
           {/* Sidebar */}
           <aside className="space-y-8">
             {/* Author Card */}
-            <div className="bg-white/5 rounded-xl p-6">
+            <div className="bg-card border border-border rounded-xl p-6">
               <div className="flex items-center gap-4 mb-4">
                 <Avatar className="h-16 w-16">
                   <AvatarImage src={post.author.image} />
@@ -256,7 +256,7 @@ export default function BlogDetailsPage() {
             </div>
 
             {/* Newsletter Subscription */}
-            <div className="bg-white/5 rounded-xl p-6">
+            <div className="bg-card border border-border rounded-xl p-6">
               <h2 className="text-2xl font-semibold mb-2">Subscribe our news letter</h2>
               <p className="text-muted-foreground text-sm mb-6">
                 For weekly later news and offers, Join us here.
@@ -277,7 +277,7 @@ export default function BlogDetailsPage() {
             </div>
 
             {/* Related Posts */}
-            <div className="bg-white/5 rounded-xl p-6">
+            <div className="bg-card border border-border rounded-xl p-6">
               <h2 className="font-semibold mb-4">Related Posts</h2>
               <div className="space-y-4">
                 {[1, 2, 3].map((i) => (

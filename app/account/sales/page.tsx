@@ -73,13 +73,13 @@ export default function SalesPage() {
   const getStatusColor = (status: Sale['status']) => {
     switch (status) {
       case 'completed':
-        return 'text-green-600 bg-green-50'
+        return 'text-green-500 bg-green-500/10'
       case 'pending':
-        return 'text-yellow-600 bg-yellow-50'
+        return 'text-yellow-500 bg-yellow-500/10'
       case 'refunded':
-        return 'text-red-600 bg-red-50'
+        return 'text-destructive bg-destructive/10'
       default:
-        return 'text-gray-600 bg-gray-50'
+        return 'text-muted-foreground bg-muted'
     }
   }
 
@@ -108,13 +108,13 @@ export default function SalesPage() {
             <Card key={stat.title}>
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
-                  <p className="text-sm font-medium text-gray-500">{stat.title}</p>
-                  <stat.icon className="h-4 w-4 text-gray-400" />
+                  <p className="text-sm font-medium text-muted-foreground">{stat.title}</p>
+                  <stat.icon className="h-4 w-4 text-muted-foreground" />
                 </div>
                 <div className="mt-2">
                   <h3 className="text-2xl font-bold">{stat.value}</h3>
-                  <p className="mt-1 text-sm text-gray-500">
-                    <span className="text-green-600">{stat.change}</span> {stat.timespan}
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    <span className="text-green-500">{stat.change}</span> {stat.timespan}
                   </p>
                 </div>
               </CardContent>
@@ -143,7 +143,7 @@ export default function SalesPage() {
                   </div>
                   <div className="flex-1">
                     <h4 className="font-semibold">{sale.event}</h4>
-                    <p className="text-sm text-gray-500">Order ID: {sale.id}</p>
+                    <p className="text-sm text-muted-foreground">Order ID: {sale.id}</p>
                     <div className="mt-2 flex flex-wrap gap-4 text-sm">
                       <span>Buyer: {sale.buyer}</span>
                       <span>Quantity: {sale.quantity}</span>

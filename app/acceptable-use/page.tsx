@@ -73,7 +73,7 @@ export default function AcceptableUsePage() {
 
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">5. Compliance and Enforcement</h2>
-          <p className="text-gray-300 mb-4">
+          <p className="text-muted-foreground mb-4">
             Ticketer reserves the right to:
           </p>
           <ul className="list-disc list-inside text-muted-foreground space-y-2">

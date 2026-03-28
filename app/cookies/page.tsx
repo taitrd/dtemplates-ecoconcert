@@ -62,7 +62,7 @@ export default function CookiesPage() {
 
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">More information</h2>
-          <p className="text-gray-300 mb-4">
+          <p className="text-muted-foreground mb-4">
             If you have any questions about our use of cookies or other technologies, please email us at privacy@ticketer.com.
           </p>
         </section>

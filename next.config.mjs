@@ -10,6 +10,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  distDir: process.env.NODE_ENV === "development" ? ".next-dev" : ".next",
   async redirects() {
     const enterpricePaths = ["/account/:path"];
     if (process.env.APP_VERSION !== "full") {

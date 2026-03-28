@@ -162,7 +162,7 @@ export default function ListingsPage() {
                       {listing.status === 'active' && (
                         <>
                           <Button variant="outline">Promote</Button>
-                          <Button variant="outline" className="text-red-600 hover:text-red-700">
+                          <Button variant="outline" className="text-destructive">
                             Delete Listing
                           </Button>
                         </>

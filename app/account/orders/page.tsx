@@ -162,7 +162,7 @@ export default function OrdersPage() {
                       {order.status === 'upcoming' && (
                         <>
                           <Button variant="outline">Download Ticket</Button>
-                          <Button variant="outline" className="text-red-600 hover:text-red-700">
+                          <Button variant="outline" className="text-destructive">
                             Cancel Order
                           </Button>
                         </>
