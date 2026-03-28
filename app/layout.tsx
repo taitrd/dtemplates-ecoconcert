@@ -46,7 +46,7 @@ export default function RootLayout({
           <ThemeProvider enableSystem attribute="class">
             {/* Navigation */}
             <nav className="flex items-center justify-between px-6 py-4 border-b border-border">
-              <div className="flex items-center space-x-8 text-muted-foreground">
+              <div className="items-center space-x-8 text-muted-foreground hidden md:flex">
                 <Link
                   href="/"
                   className="text-sm font-medium hover:text-foreground transition-colors"
