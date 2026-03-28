@@ -24,8 +24,8 @@ export function BookingSteps({ currentStep }: BookingStepsProps) {
                 className={cn(
                   "w-8 h-8 rounded-full border-2 flex items-center justify-center mb-2",
                   currentStep >= step.number 
-                    ? "border-[#4338ca] bg-[#4338ca] text-white"
-                    : "border-gray-300 text-gray-300"
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-muted-foreground text-muted-foreground"
                 )}
               >
                 {step.number}
@@ -34,8 +34,8 @@ export function BookingSteps({ currentStep }: BookingStepsProps) {
                 className={cn(
                   "text-sm text-center",
                   currentStep >= step.number 
-                    ? "text-white"
-                    : "text-gray-300"
+                    ? "text-primary font-medium"
+                    : "text-muted-foreground"
                 )}
               >
                 {step.title}
@@ -46,8 +46,8 @@ export function BookingSteps({ currentStep }: BookingStepsProps) {
                 className={cn(
                   "h-[2px] flex-1 mx-4",
                   currentStep > step.number 
-                    ? "bg-[#4338ca]"
-                    : "bg-gray-300"
+                    ? "bg-primary"
+                    : "bg-muted"
                 )}
               />
             )}

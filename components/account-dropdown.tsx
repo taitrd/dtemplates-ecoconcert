@@ -52,7 +52,7 @@ export function AccountDropdown() {
     return (
       <Button
         variant="outline"
-        className="bg-white text-[#0a0b2e] hover:bg-gray-200"
+        className="bg-card text-foreground hover:bg-muted"
       >
         <Link href="/login" className="flex items-center space-x-2">
           Login/Register
@@ -68,11 +68,11 @@ export function AccountDropdown() {
           <Button
             variant="ghost"
             size="icon"
-            className="relative hover:bg-white/10"
+            className="relative hover:bg-muted/50"
           >
             <Bell className="h-5 w-5" />
             {notifications.length > 0 && (
-              <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500" />
+              <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-destructive" />
             )}
             <span className="sr-only">Notifications</span>
           </Button>
@@ -109,7 +109,7 @@ export function AccountDropdown() {
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
-            className="relative h-8 w-8 rounded-full hover:bg-white/10"
+            className="relative h-8 w-8 rounded-full hover:bg-muted/50"
           >
             <Avatar className="h-8 w-8">
               <AvatarImage src={user.image} alt={user.name} />
@@ -172,7 +172,7 @@ export function AccountDropdown() {
               <span>Settings</span>
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem className="text-red-600">
+          <DropdownMenuItem className="text-destructive">
             <LogOut className="mr-2 h-4 w-4" />
             <span>Log out</span>
           </DropdownMenuItem>

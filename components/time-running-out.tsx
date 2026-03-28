@@ -65,10 +65,10 @@ export function TimeRunningOut() {
     <section className="w-full py-20 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Time is Running Out!
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-muted-foreground text-lg">
             Explore nearby concerts and events here.
           </p>
         </div>
@@ -85,7 +85,7 @@ export function TimeRunningOut() {
                 key={index}
                 className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
               >
-                <Card className="bg-white/5 backdrop-blur-sm border-0">
+                <Card className="bg-card border border-border overflow-hidden">
                   <CardContent className="p-0">
                     <div className="relative aspect-[4/3] overflow-hidden rounded-t-lg">
                       <Image
@@ -97,26 +97,26 @@ export function TimeRunningOut() {
                       <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm rounded-full px-4 py-2">
                         <CountdownTimer
                           days={concert.days}
-                          className="text-white"
+                          className="text-foreground"
                         />
                       </div>
                     </div>
                     <div className="p-4">
-                      <h3 className="text-xl font-semibold text-white mb-2">
+                      <h3 className="text-xl font-semibold mb-2">
                         {concert.artist}
                       </h3>
-                      <p className="text-sm text-gray-300 mb-2">
+                      <p className="text-sm text-muted-foreground mb-2">
                         {concert.dateRange} {concert.location}
                       </p>
-                      <p className="text-xl font-bold text-white">
+                      <p className="text-xl font-bold">
                         ${concert.price.toFixed(2)}
                       </p>
                     </div>
                   </CardContent>
                   <CardFooter className="p-4 pt-0">
                     <Button
-                      className="w-full bg-[#4338ca] hover:bg-[#3730a3] text-white"
-                      variant="secondary"
+                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                      variant="default"
                     >
                       Book Now
                     </Button>

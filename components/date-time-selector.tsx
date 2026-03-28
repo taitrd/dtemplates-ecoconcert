@@ -96,11 +96,10 @@ export function DateTimeSelector({ onSelectTime, selectedTime }: DateTimeSelecto
         {showTimes.map((time, index) => (
           <div
             key={index}
-            className={`group relative rounded-xl overflow-hidden transition-all duration-200 ${
-              selectedTime === time 
-                ? 'bg-primary/20 border-primary' 
+            className={`group relative rounded-xl overflow-hidden transition-all duration-200 ${selectedTime === time
+                ? 'bg-primary/20 border-primary'
                 : 'bg-muted border-border hover:bg-muted/80'
-            } border`}
+              } border`}
           >
             <div className="flex items-stretch">
               {/* Date Column */}
@@ -117,7 +116,7 @@ export function DateTimeSelector({ onSelectTime, selectedTime }: DateTimeSelecto
               {/* Details Column */}
               <div className="flex-1 p-4 flex justify-between items-center">
                 <div className="space-y-2">
-                  <h3 className="text-xl font-semibold text-white">Taylor Swift</h3>
+                  <h3 className="text-xl font-semibold text-foreground">Taylor Swift</h3>
                   <p className="text-muted-foreground">The Eras Tour</p>
                   <div className="flex items-center text-muted-foreground text-sm">
                     <MapPin className="w-4 h-4 mr-1" />
