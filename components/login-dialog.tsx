@@ -115,7 +115,7 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
 
               <Button
                 type="submit"
-                className="w-full bg-[#4338ca] hover:bg-[#3730a3]"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 disabled={isLoading}
               >
                 {isLoading ? "Logging in..." : "Continue to Checkout"}
@@ -158,7 +158,7 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
                 Don't have an account?{" "}
                 <Link
                   href="/signup"
-                  className="text-[#4338ca] hover:text-[#3730a3] font-medium"
+                  className="text-primary hover:opacity-80 font-medium"
                 >
                   Sign Up
                 </Link>
@@ -168,18 +168,18 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
 
           {/* Image Section */}
           <div className="relative hidden lg:block">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/5 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-background/5 z-10" />
             <Image
               src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg"
               alt="Concert crowd"
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center z-20 p-8 text-white text-center">
+            <div className="absolute inset-0 flex flex-col items-center justify-center z-20 p-8 text-foreground text-center">
               <h2 className="text-3xl font-bold mb-2">
                 Complete Your Purchase
               </h2>
-              <p className="text-lg text-white/90">
+              <p className="text-lg text-muted-foreground">
                 Sign in to continue with your order
               </p>
             </div>

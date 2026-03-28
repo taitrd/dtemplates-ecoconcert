@@ -84,7 +84,7 @@ export function SeatSelection({ onSelectTier, selectedTier, concertInfo }: SeatS
         <div>
           {/* Seating Chart */}
           <div className="mb-12">
-            <SeatingChart 
+            <SeatingChart
               onSeatSelect={setSelectedSeats}
               selectedSeats={selectedSeats}
             />
@@ -95,11 +95,10 @@ export function SeatSelection({ onSelectTier, selectedTier, concertInfo }: SeatS
             {ticketTiers.map((tier) => (
               <div
                 key={tier.type}
-                className={`relative rounded-xl overflow-hidden transition-all duration-200 ${
-                  selectedTier?.type === tier.type 
-                    ? 'bg-[#4338ca]/20 border-[#4338ca]' 
-                    : 'bg-black/20 hover:bg-black/40 border-transparent'
-                } border p-6`}
+                className={`relative rounded-xl overflow-hidden transition-all duration-200 ${selectedTier?.type === tier.type
+                    ? 'bg-primary/20 border-primary'
+                    : 'bg-card hover:bg-muted/50 border-border'
+                  } border p-6`}
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 rounded-lg bg-primary/20">
@@ -129,11 +128,10 @@ export function SeatSelection({ onSelectTier, selectedTier, concertInfo }: SeatS
 
                 <Button
                   onClick={() => onSelectTier(tier)}
-                  className={`w-full ${
-                    selectedTier?.type === tier.type
+                  className={`w-full ${selectedTier?.type === tier.type
                       ? 'bg-primary hover:bg-primary/90 text-primary-foreground'
                       : 'bg-muted hover:bg-muted/80 text-foreground'
-                  }`}
+                    }`}
                 >
                   {selectedTier?.type === tier.type ? 'Selected' : 'Select Tickets'}
                 </Button>
@@ -162,8 +160,8 @@ export function SeatSelection({ onSelectTier, selectedTier, concertInfo }: SeatS
         </div>
       </div>
       {/* Login Dialog */}
-      <LoginDialog 
-        open={showLoginDialog} 
+      <LoginDialog
+        open={showLoginDialog}
         onOpenChange={setShowLoginDialog}
       />
     </div>

@@ -22,7 +22,7 @@ import { SiteFooter } from "@/components/site-footer"
 
 export default function TicketBooking() {
   return (
-    <div className="min-h-screen bg-[#0a0b2e] text-white">
+    <div className="min-h-screen bg-[#0a0b2e] text-foreground">
       {/* Navigation */}
       <nav className="flex items-center justify-between px-6 py-4">
         <div className="flex items-center space-x-8">

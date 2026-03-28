@@ -29,7 +29,7 @@ const footerLinks = {
 
 export function SiteFooter() {
   return (
-    <footer className="w-full bg-black text-white">
+    <footer className="w-full bg-background border-t border-border mt-20">
       <div className="max-w-7xl mx-auto px-4 md:px-6 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-12">
           {/* Logo and Description */}
@@ -39,7 +39,7 @@ export function SiteFooter() {
               <span className="text-2xl font-bold">TICKETER</span>
             </Link>
             <h2 className="text-xl font-semibold mb-4">Who we are?</h2>
-            <p className="text-gray-400 mb-6">
+            <p className="text-muted-foreground mb-6">
               Ticketer is a global ticketing platform for live experiences that
               allows anyone to create, share, find and attend events that fuel
               their passions and enrich their lives.
@@ -48,7 +48,7 @@ export function SiteFooter() {
               <h3 className="text-xl font-semibold mb-2">Contact</h3>
               <a
                 href="mailto:Ticketercontacts@gmail.com"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
                 Ticketercontacts@gmail.com
               </a>
@@ -63,7 +63,7 @@ export function SiteFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -79,7 +79,7 @@ export function SiteFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -95,7 +95,7 @@ export function SiteFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -113,11 +113,11 @@ export function SiteFooter() {
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="w-full bg-muted border-border placeholder:text-muted-foreground"
               />
               <Button
                 size="icon"
-                className="absolute right-1 top-1 h-8 w-8 bg-[#4338ca] hover:bg-[#3730a3]"
+                className="absolute right-1 top-1 h-8 w-8 bg-primary hover:bg-primary/90"
               >
                 <Send className="h-4 w-4" />
               </Button>
@@ -126,25 +126,25 @@ export function SiteFooter() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10">
+        <div className="pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400">@2024 Ticketer All rights reserved.</p>
+            <p className="text-muted-foreground">@2024 Ticketer All rights reserved.</p>
             <div className="flex items-center gap-4">
               <Link
                 href="/terms"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
                 Terms
               </Link>
               <Link
                 href="/privacy"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
                 Privacy
               </Link>
               <Link
                 href="/cookies"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
                 Cookies
               </Link>
@@ -152,13 +152,13 @@ export function SiteFooter() {
             <div className="flex items-center gap-4">
               <Link
                 href="https://twitter.com"
-                className="text-gray-400 hover:text-[#4338ca] transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Twitter className="h-5 w-5" />
               </Link>
               <Link
                 href="https://facebook.com"
-                className="text-gray-400 hover:text-[#4338ca] transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Facebook className="h-5 w-5" />
               </Link>
@@ -189,9 +189,9 @@ export function SiteFooter() {
             </path>
             <defs>
               <linearGradient id="wave-gradient" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#4338ca" />
-                <stop offset="50%" stopColor="#6366f1" />
-                <stop offset="100%" stopColor="#4338ca" />
+                <stop offset="0%" stopColor="hsl(var(--primary))" />
+                <stop offset="50%" stopColor="hsl(var(--primary) / 0.8)" />
+                <stop offset="100%" stopColor="hsl(var(--primary))" />
               </linearGradient>
             </defs>
           </svg>

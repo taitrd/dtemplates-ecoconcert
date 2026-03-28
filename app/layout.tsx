@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { TopNavigation } from "@/components/top-navigation";
 import { BottomNavigation } from "@/components/bottom-navigation";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata = {
   title: "Ticketer - Book Your Favorite Concerts",
@@ -42,7 +42,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
 
-        className={`${inter.className} min-h-screen bg-background text-foreground`}
+        className={`${inter.variable} font-sans min-h-screen bg-background text-foreground`}
       >
         <ReduxProvider>
           <ThemeProvider enableSystem attribute="class">
