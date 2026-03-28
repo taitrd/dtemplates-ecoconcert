@@ -18,7 +18,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 export function ThisWeekConcerts() {
   const { concerts, loading } = useSelector((state: RootState) => state.tickets)
-  
+
   // For demo, we'll just take the first 5 concerts
   const thisWeekConcerts = concerts.slice(0, 5).map((c, i) => ({
     ...c,
@@ -51,14 +51,14 @@ export function ThisWeekConcerts() {
           >
             <CarouselContent className="-ml-4">
               {thisWeekConcerts.map((concert) => (
-                <CarouselItem key={concert.id} className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4">
-                  <div className="group relative bg-card rounded-2xl overflow-hidden border border-border shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <CarouselItem key={concert.id} className="pl-4 py-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                  <div className="group relative bg-card rounded-2xl overflow-hidden border border-border shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
                     <div className="relative aspect-[3/4]">
                       <Image
                         src={concert.image}
                         alt={concert.singer}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="object-cover group-hover:rounded-2xl transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute bottom-0 left-0 right-0 bg-primary/90 backdrop-blur-md px-4 py-3 flex items-center justify-between">
                         <div className="flex items-center gap-2 text-primary-foreground">
@@ -85,8 +85,8 @@ export function ThisWeekConcerts() {
                           <span>{new Date(concert.date).toLocaleDateString()}</span>
                         </div>
                       </div>
-                      <Link 
-                        href={`/concerts/${concert.id}`} 
+                      <Link
+                        href={`/concerts/${concert.id}`}
                         className="inline-flex items-center text-sm font-semibold text-primary hover:underline mt-2"
                       >
                         View Details →

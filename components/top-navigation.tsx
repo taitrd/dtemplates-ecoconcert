@@ -48,7 +48,7 @@ export function TopNavigation() {
   return (
     <nav className="sticky top-0 z-50 flex items-center justify-between px-6 py-4 border-b border-border bg-background/80 backdrop-blur-md">
       {/* Mobile Menu Toggle */}
-      <button 
+      <button
         className="md:hidden text-muted-foreground hover:text-foreground p-2 -ml-2"
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -75,6 +75,9 @@ export function TopNavigation() {
                   <ListItem href="/blogs" title="Blogs">
                     Read the latest news, reviews, and stories from the music world.
                   </ListItem>
+                  <ListItem href="/cart" title="Shopping Cart">
+                    Review your selected tickets before checkout.
+                  </ListItem>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -97,6 +100,12 @@ export function TopNavigation() {
                   </ListItem>
                   <ListItem href="/support" title="Support">
                     Need help? Explore our help center.
+                  </ListItem>
+                  <ListItem href="/concert-ticketing" title="Concert Ticketing">
+                    Information about our ticketing process and services.
+                  </ListItem>
+                  <ListItem href="/reset-password" title="Reset Password">
+                    Need to change your password? Start here.
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
@@ -152,14 +161,17 @@ export function TopNavigation() {
               <Link href="/concerts" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Concerts</Link>
               <Link href="/singers" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Singers</Link>
               <Link href="/blogs" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Blogs</Link>
+              <Link href="/cart" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Shopping Cart</Link>
             </div>
-            
+
             <h4 className="font-semibold text-muted-foreground uppercase text-xs tracking-wider mt-6">Help & Info</h4>
             <div className="flex flex-col space-y-3 pl-2 border-l-2 border-border/50">
               <Link href="/about" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>About Us</Link>
               <Link href="/contact" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Contact Us</Link>
               <Link href="/faqs" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>FAQs</Link>
               <Link href="/support" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Support</Link>
+              <Link href="/concert-ticketing" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Concert Ticketing</Link>
+              <Link href="/reset-password" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Reset Password</Link>
             </div>
 
             <h4 className="font-semibold text-muted-foreground uppercase text-xs tracking-wider mt-6">Legal</h4>

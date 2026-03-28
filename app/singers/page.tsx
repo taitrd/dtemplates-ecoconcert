@@ -12,84 +12,84 @@ const singers = [
     name: "Taylor Swift",
     dateRange: "Sep10 - Sep13",
     location: "London",
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg"
+    image: "/singers/pexels-photo-1699161.jpeg"
   },
   {
     id: 2,
     name: "Dua Lipa",
     dateRange: "Sep14 - Sep19",
     location: "Manchester",
-    image: "https://images.pexels.com/photos/1699159/pexels-photo-1699159.jpeg"
+    image: "/singers/pexels-photo-1699159.jpeg"
   },
   {
     id: 3,
     name: "Olivia Rodrigo",
     dateRange: "Sep24 - Sep29",
     location: "London",
-    image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg"
+    image: "/singers/pexels-photo-1190297.jpeg"
   },
   {
     id: 4,
     name: "Adele",
     dateRange: "Nov02 - Nov04",
     location: "Bristol",
-    image: "https://images.pexels.com/photos/2747446/pexels-photo-2747446.jpeg"
+    image: "/singers/pexels-photo-2747446.jpeg"
   },
   {
     id: 5,
     name: "Ed Sheeran",
     dateRange: "Oct15 - Oct20",
     location: "Manchester",
-    image: "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg"
+    image: "/singers/pexels-photo-1763075.jpeg"
   },
   {
     id: 6,
     name: "Beyoncé",
     dateRange: "Oct22 - Oct27",
     location: "London",
-    image: "https://images.pexels.com/photos/1916824/pexels-photo-1916824.jpeg"
+    image: "/singers/pexels-photo-1916824.jpeg"
   },
   {
     id: 7,
     name: "Lady Gaga",
     dateRange: "Nov05 - Nov10",
     location: "Birmingham",
-    image: "https://images.pexels.com/photos/1687831/pexels-photo-1687831.jpeg"
+    image: "/singers/pexels-photo-1687831.jpeg"
   },
   {
     id: 8,
     name: "Justin Bieber",
     dateRange: "Nov12 - Nov17",
     location: "London",
-    image: "https://images.pexels.com/photos/1644888/pexels-photo-1644888.jpeg"
+    image: "/singers/pexels-photo-1644888.jpeg"
   },
   {
     id: 9,
     name: "Ariana Grande",
     dateRange: "Nov19 - Nov24",
     location: "Manchester",
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg"
+    image: "/singers/pexels-photo-1699161.jpeg"
   },
   {
     id: 10,
     name: "The Weeknd",
     dateRange: "Nov26 - Dec01",
     location: "London",
-    image: "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg"
+    image: "/singers/pexels-photo-1763075.jpeg"
   },
   {
     id: 11,
     name: "Billie Eilish",
     dateRange: "Dec03 - Dec08",
     location: "Glasgow",
-    image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg"
+    image: "/singers/pexels-photo-1190297.jpeg"
   },
   {
     id: 12,
     name: "Harry Styles",
     dateRange: "Dec10 - Dec15",
     location: "London",
-    image: "https://images.pexels.com/photos/1916824/pexels-photo-1916824.jpeg"
+    image: "/singers/pexels-photo-1916824.jpeg"
   }
 ]
 
@@ -109,7 +109,7 @@ export default function SingersPage() {
             <Input
               type="text"
               placeholder="Type a singer name"
-              className="w-full pl-10 h-12 bg-muted/50 text-foreground rounded-full border-border"
+              className="w-full pl-10 h-12 bg-muted/50 text-foreground rounded-full border-border ring-offset-primary"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -140,7 +140,7 @@ export default function SingersPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
-                <h2 className="text-xl font-semibold text-foreground mb-1">
+                <h2 className="text-xl font-semibold text-secondary mb-1">
                   {singer.name}
                 </h2>
                 <p className="text-sm text-primary-foreground/80 mb-3">

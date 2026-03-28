@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Minus, Plus } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 export interface Seat {
   id: string
@@ -25,7 +26,7 @@ export function SeatingChart({ onSeatSelect, selectedSeats }: SeatingChartProps)
 
   const handleSeatClick = (seat: Seat) => {
     if (seat.status === 'unavailable') return
-    
+
     const isSelected = selectedSeats.some(s => s.id === seat.id)
     if (isSelected) {
       onSeatSelect(selectedSeats.filter(s => s.id !== seat.id))
@@ -43,12 +44,12 @@ export function SeatingChart({ onSeatSelect, selectedSeats }: SeatingChartProps)
           </div>
         </div>
 
-        <div 
+        <div
           style={{ transform: `scale(${zoom})` }}
           className="transition-transform duration-200 origin-center"
         >
-          <svg 
-            viewBox="0 0 1000 600" 
+          <svg
+            viewBox="0 0 1000 600"
             className="w-full"
             style={{ minWidth: '800px' }}
           >
@@ -63,12 +64,11 @@ export function SeatingChart({ onSeatSelect, selectedSeats }: SeatingChartProps)
                     width={16}
                     height={16}
                     rx={2}
-                    className={`
+                    className={cn(`
                       cursor-pointer transition-colors
                       ${selectedSeats.some(s => s.id === `1-${row}-${seat}`)
                         ? 'fill-destructive'
-                        : 'fill-primary hover:fill-primary/80'}
-                    `}
+                        : ('fill-primary hover:fill-primary/80')}`)}
                     onClick={() => handleSeatClick({
                       id: `1-${row}-${seat}`,
                       section: 1,
@@ -92,7 +92,9 @@ export function SeatingChart({ onSeatSelect, selectedSeats }: SeatingChartProps)
                     width={16}
                     height={16}
                     rx={2}
-                    className="fill-primary hover:fill-primary/80 cursor-pointer transition-colors"
+                    className={`${selectedSeats.some(s => s.id === `2-${row}-${seat}`)
+                      ? 'fill-destructive'
+                      : ('fill-primary hover:fill-primary/80')} cursor-pointer transition-colors`}
                     onClick={() => handleSeatClick({
                       id: `2-${row}-${seat}`,
                       section: 2,
@@ -116,7 +118,9 @@ export function SeatingChart({ onSeatSelect, selectedSeats }: SeatingChartProps)
                     width={16}
                     height={16}
                     rx={2}
-                    className="fill-primary hover:fill-primary/80 cursor-pointer transition-colors"
+                    className={`${selectedSeats.some(s => s.id === `3-${row}-${seat}`)
+                      ? 'fill-destructive'
+                      : ('fill-primary hover:fill-primary/80')} cursor-pointer transition-colors`}
                     onClick={() => handleSeatClick({
                       id: `3-${row}-${seat}`,
                       section: 3,
@@ -140,7 +144,9 @@ export function SeatingChart({ onSeatSelect, selectedSeats }: SeatingChartProps)
                     width={16}
                     height={16}
                     rx={2}
-                    className="fill-primary hover:fill-primary/80 cursor-pointer transition-colors"
+                    className={`${selectedSeats.some(s => s.id === `4-${row}-${seat}`)
+                      ? 'fill-destructive'
+                      : ('fill-primary hover:fill-primary/80')} cursor-pointer transition-colors`}
                     onClick={() => handleSeatClick({
                       id: `4-${row}-${seat}`,
                       section: 3,

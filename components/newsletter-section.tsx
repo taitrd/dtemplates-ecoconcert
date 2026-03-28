@@ -95,7 +95,7 @@ export function NewsletterSection() {
                   required
                 />
                 <svg
-                  className="absolute left-3 top-2 h-5 w-5 text-muted-foreground"
+                  className="absolute left-3 top-[18px] h-5 w-5 text-muted-foreground"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -124,7 +124,7 @@ export function NewsletterSection() {
           </div>
 
           {/* News Carousel */}
-          <div className="relative px-2">
+          <div className="relative py-20">
             <Carousel
               opts={{
                 align: "start",
@@ -132,10 +132,10 @@ export function NewsletterSection() {
               }}
               className="w-full"
             >
-              <CarouselContent>
+              <CarouselContent className='p-2'>
                 {news.map((item, index) => (
                   <CarouselItem key={index}>
-                    <div className="grid md:grid-cols-[1.2fr_1fr] gap-8 bg-card p-4 rounded-3xl border border-border shadow-xl overflow-hidden group">
+                    <div className="grid md:grid-cols-[1.2fr_1fr] gap-8 bg-card p-4 rounded-3xl border border-border shadow-md overflow-hidden group">
                       <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
                         <Image
                           src={item.image}
