@@ -72,10 +72,10 @@ export function NewsletterSection() {
 
   return (
     <section className="w-full py-24 px-4 md:px-6 bg-muted/20 border-y border-border">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-[450px_1fr] gap-16 items-center">
+      <div className="overflow-x-auto overflow-y-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Newsletter Subscription */}
-          <div className="space-y-6">
+          <div className="space-y-6 px-4">
             <div className="space-y-3">
               <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground">
                 Stay in the <span className="text-primary italic">Loop</span>
@@ -95,7 +95,7 @@ export function NewsletterSection() {
                   required
                 />
                 <svg
-                  className="absolute left-3 top-4.5 h-5 w-5 text-muted-foreground"
+                  className="absolute left-3 top-2 h-5 w-5 text-muted-foreground"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -108,8 +108,8 @@ export function NewsletterSection() {
                   />
                 </svg>
               </div>
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 size="lg"
                 className="h-14 px-8 font-bold text-base shadow-lg transition-all hover:scale-105"
                 disabled={isSubmitting}
@@ -124,7 +124,7 @@ export function NewsletterSection() {
           </div>
 
           {/* News Carousel */}
-          <div className="relative">
+          <div className="relative px-2">
             <Carousel
               opts={{
                 align: "start",
