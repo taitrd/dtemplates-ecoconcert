@@ -59,42 +59,43 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="w-full py-20 px-4 md:px-6">
+    <section className="w-full py-24 px-4 md:px-6 bg-background">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            What People Think About Us
+        <div className="text-center mb-16 space-y-4">
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground">
+            What Our <span className="text-primary italic">Fans</span> Say
           </h2>
-          <p className="text-gray-400 text-lg">
-            Words of praise from others about our presence.
-            <br />
-            You can read and also write about us here.
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+            Real stories from real concert-goers. We pride ourselves on making the impossible, possible.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-white/5 backdrop-blur-sm border-0">
-              <CardContent className="p-6">
-                <Quote className="h-8 w-8 text-[#4338ca] mb-4" />
-                <p className="text-gray-200 mb-6 line-clamp-4">
-                  {testimonial.text}
+            <Card key={index} className="bg-card border-border shadow-md hover:shadow-xl transition-all duration-300 group">
+              <CardContent className="p-8 flex flex-col h-full">
+                <div className="mb-6 flex justify-between items-start">
+                  <Quote className="h-10 w-10 text-primary/40 transition-colors group-hover:text-primary" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">Verified Review</span>
+                </div>
+                <p className="text-card-foreground mb-8 line-clamp-4 italic leading-relaxed flex-grow">
+                  "{testimonial.text}"
                 </p>
-                <div className="flex items-center gap-3">
-                  <Avatar>
+                <div className="flex items-center gap-4 mt-auto pt-6 border-t border-border/50">
+                  <Avatar className="h-12 w-12 border-2 border-primary/10">
                     <AvatarImage src={testimonial.avatar} />
-                    <AvatarFallback>{testimonial.author[0]}</AvatarFallback>
+                    <AvatarFallback className="bg-primary/10 text-primary font-bold">{testimonial.author[0]}</AvatarFallback>
                   </Avatar>
-                  <div>
-                    <div className="font-medium text-white">
+                  <div className="flex flex-col">
+                    <span className="font-bold text-foreground">
                       {testimonial.author}
-                    </div>
-                    <div className="text-sm text-gray-400">
+                    </span>
+                    <span className="text-xs text-muted-foreground">
                       {testimonial.location}
-                    </div>
-                    <div className="text-sm text-gray-400">
-                      Date of experience: {testimonial.date}
-                    </div>
+                    </span>
+                    <span className="text-[10px] font-medium text-primary/80 mt-1 uppercase tracking-tighter">
+                      Visited: {testimonial.date}
+                    </span>
                   </div>
                 </div>
               </CardContent>
@@ -102,15 +103,19 @@ export function TestimonialsSection() {
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
           <Button 
             variant="outline" 
-            className="border-[#4338ca] text-[#4338ca] hover:bg-[#4338ca] hover:text-white"
+            size="lg"
+            className="w-full sm:w-auto font-bold border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all"
           >
-            Read All Review
+            Read All Reviews
           </Button>
-          <Button className="bg-[#4338ca] hover:bg-[#3730a3]">
-            Leave a comment
+          <Button 
+            size="lg"
+            className="w-full sm:w-auto font-bold shadow-lg shadow-primary/20 transition-all hover:scale-105"
+          >
+            Leave a Comment
           </Button>
         </div>
       </div>
