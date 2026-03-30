@@ -1,78 +1,66 @@
-import type { LucideIcon } from 'lucide-react'
+import type { LucideIcon } from "lucide-react";
+import { Concert, SearchFilters } from "./concert";
 
 export interface Seat {
-  id: string
-  section: number
-  row: number
-  number: number
-  status: 'available' | 'unavailable' | 'selected'
+  id: string;
+  section: number;
+  row: number;
+  number: number;
+  status: "available" | "unavailable" | "selected";
 }
 
 export interface TicketTier {
-  type: 'VIP' | 'Standard' | 'Economic'
-  price: number
-  icon: LucideIcon
-  description: string
-  features: string[]
+  type: "VIP" | "Standard" | "Economic";
+  price: number;
+  icon: LucideIcon;
+  description: string;
+  features: string[];
 }
 
 export interface SelectedTicket {
-  section: number
-  row: string
-  seat: number
-  price: number
+  section: number;
+  row: string;
+  seat: number;
+  price: number;
 }
 
 export interface TicketItem {
-  id: number
-  title: string
-  artist: string
-  date: string
-  time: string
-  section: string
-  row: string
-  seat: number
-  price: number
-  ticketType: string
-  image: string
+  id: number;
+  title: string;
+  artist: string;
+  date: string;
+  time: string;
+  section: string;
+  row: string;
+  seat: number;
+  price: number;
+  ticketType: string;
+  image: string;
 }
 
 export interface CartItem {
-  id: string
-  event: string
-  date: string
-  venue: string
-  section: string
-  row: string
-  seat: string
-  price: number
-  ticketType: string
-  image: string
+  id: string;
+  event: string;
+  date: string;
+  venue: string;
+  section: string;
+  row: string;
+  seat: string;
+  price: number;
+  ticketType: string;
+  image: string;
 }
 
 export interface TicketWallet {
-  id: string
-  event: string
-  date: string
-  venue: string
-  section: string
-  row: string
-  seat: string
-  status: 'valid' | 'used' | 'expired'
-  image: string
-}
-
-// New types for Redux
-export interface Concert {
   id: string;
-  title: string;
-  singer: string;
+  event: string;
   date: string;
-  location: string;
-  price: number;
+  venue: string;
+  section: string;
+  row: string;
+  seat: string;
+  status: "valid" | "used" | "expired";
   image: string;
-  description: string;
-  tags: string[];
 }
 
 export interface Ticket {
@@ -81,25 +69,7 @@ export interface Ticket {
   userId: string;
   seatNumber: string;
   purchasedAt: string;
-  status: 'active' | 'used' | 'cancelled';
-}
-
-export interface User {
-  id: string;
-  name: string;
-  email: string;
-  avatar?: string;
-}
-
-export interface SearchFilters {
-  query?: string;
-  date?: string;
-  location?: string;
-  advanced?: {
-    minPrice?: number;
-    maxPrice?: number;
-    tags?: string[];
-  };
+  status: "active" | "used" | "cancelled";
 }
 
 export interface TicketState {
@@ -107,13 +77,6 @@ export interface TicketState {
   userTickets: Ticket[];
   selectedConcertIds: string[];
   filters: SearchFilters;
-  loading: boolean;
-  error: string | null;
-}
-
-export interface AuthState {
-  user: User | null;
-  isAuthenticated: boolean;
   loading: boolean;
   error: string | null;
 }

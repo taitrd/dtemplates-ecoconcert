@@ -1,0 +1,84 @@
+"use client";
+
+import * as React from "react";
+import { ConcertHero } from "@/components/ui/concert-hero";
+import { Toolbar } from "../home/toolbar";
+import { ConcertCarousel } from "@/components/concert-carousel";
+import { BenefitsSection } from "@/components/benefits-section";
+import { UpcomingConcerts } from "@/components/upcoming-concerts";
+import { NewsletterSection } from "@/components/newsletter-section";
+import { TestimonialsSection } from "@/components/testimonials-2-section";
+import { FaqSection } from "@/components/faq-section";
+import { motion } from "framer-motion";
+import { Logos3 } from "@/components/ui/logos3";
+import Slideshow from "@/components/ui/slideshow";
+
+export function ModernHomeFeature() {
+  return (
+    <div className="flex flex-col min-h-screen bg-background text-foreground scroll-smooth">
+      <ConcertHero />
+
+      <div className="relative z-30 -mt-24 mb-24 max-w-7xl mx-auto w-full px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <Toolbar />
+        </motion.div>
+      </div>
+
+      <main className="space-y-40 pb-32">
+        <section className="container mx-auto px-4 overflow-hidden">
+          <div className="flex flex-col gap-4 mb-12">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase">
+              Featured <span className="text-primary italic">Sessions</span>
+            </h2>
+            <div className="h-1 w-24 bg-primary rounded-full" />
+          </div>
+          <ConcertCarousel />
+        </section>
+
+        <section className="container mx-auto px-4">
+          <div className="flex flex-col gap-4 mb-12">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase">
+              Live <span className="text-primary italic">Moments</span>
+            </h2>
+            <div className="h-1 w-24 bg-primary rounded-full" />
+          </div>
+          <Slideshow />
+        </section>
+
+        <BenefitsSection />
+
+        <section className="container mx-auto px-4">
+          <div className="flex flex-col gap-4 mb-12 items-center text-center">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase">
+              Live <span className="text-primary italic">Lineup</span>
+            </h2>
+            <p className="text-muted-foreground max-w-xl">
+              Dont miss out on the most anticipated performances of the season.
+              Secure your spot now.
+            </p>
+          </div>
+          <UpcomingConcerts />
+        </section>
+
+        <Logos3 />
+
+        <motion.section
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="bg-accent/50 py-32"
+        >
+          <NewsletterSection />
+        </motion.section>
+
+        <TestimonialsSection />
+        <FaqSection />
+      </main>
+    </div>
+  );
+}

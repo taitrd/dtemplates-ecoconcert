@@ -1,13 +1,26 @@
 // Concert-related types
 
 export interface Concert {
-  id: number
-  artist: string
-  date: string
-  location: string
-  venue: string
-  image: string
-  price: number
+  id: string;
+  title: string;
+  singer: string;
+  date: string;
+  location: string;
+  price: number;
+  image: string;
+  description: string;
+  tags: string[];
+}
+
+export interface SearchFilters {
+  query?: string;
+  date?: string;
+  location?: string;
+  advanced?: {
+    minPrice?: number;
+    maxPrice?: number;
+    tags?: string[];
+  };
 }
 
 export interface ConcertCardData {
