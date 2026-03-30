@@ -1,0 +1,145 @@
+"use client";
+
+import AutoScroll from "embla-carousel-auto-scroll";
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Image from "next/image";
+
+interface Logo {
+  id: string;
+  description: string;
+  image: string;
+  className?: string;
+}
+
+interface Logos3Props {
+  heading?: string;
+  logos?: Logo[];
+  className?: string;
+}
+
+const Logos3 = ({
+  heading = "Powering the world's biggest stages",
+  logos = [
+    {
+      id: "logo-1",
+      description: "Spotify",
+      image: "/partners/spotify.svg",
+      className:
+        "h-14 w-auto invert dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+    },
+    {
+      id: "logo-2",
+      description: "Live Nation",
+      image: "/partners/live-nation.svg",
+      className:
+        "h-16 w-auto invert dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+    },
+    {
+      id: "logo-3",
+      description: "Ticketmaster",
+      image: "/partners/ticketmaster.png",
+      className:
+        "h-14 w-auto invert dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+    },
+    {
+      id: "logo-4",
+      description: "Apple Music",
+      image: "/partners/apple-music.png",
+      className:
+        "h-17 w-auto invert dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+    },
+    {
+      id: "logo-5",
+      description: "SoundCloud",
+      image: "/partners/sound-cloud.svg",
+      className:
+        "h-14 w-auto invert dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+    },
+    {
+      id: "logo-6",
+      description: "YouTube Music",
+      image: "/partners/youtube-music.png",
+      className:
+        "h-8 w-auto invert dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+    },
+    {
+      id: "logo-7",
+      description: "Warner Music Group",
+      image: "/partners/wmg.png",
+      className:
+        "h-12 w-auto invert dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+    },
+    {
+      id: "logo-8",
+      description: "Universal Music Group",
+      image: "/partners/umg.png",
+      className:
+        "h-14 w-auto invert dark:invert-0 bg-muted opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+    },
+  ],
+}: Logos3Props) => {
+  return (
+    <section className="py-8 bg-background relative overflow-hidden group">
+      <div className="container px-4 flex flex-col items-center text-center">
+        <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-primary/40 mb-12">
+          {heading}
+        </h2>
+      </div>
+      <div className="relative">
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-primary/30 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-primary/30 to-transparent z-10 pointer-events-none" />
+
+        <Carousel
+          opts={{ loop: true, align: "start" }}
+          plugins={[
+            AutoScroll({
+              playOnInit: true,
+              speed: 1,
+              stopOnInteraction: false,
+            }),
+          ]}
+          className="w-full bg-secondary py-24"
+        >
+          <CarouselContent className="flex items-center">
+            {logos.map((logo) => (
+              <CarouselItem
+                key={logo.id}
+                className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 flex justify-center items-center "
+              >
+                <Image
+                  src={logo.image}
+                  alt={logo.description}
+                  className={logo.className}
+                  loading="lazy"
+                  height={600}
+                  width={800}
+                />
+              </CarouselItem>
+            ))}
+            {/* Duplicate for seamless infinite scroll if logos list is short */}
+            {logos.map((logo) => (
+              <CarouselItem
+                key={`${logo.id}-dup`}
+                className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 flex justify-center items-center px-12"
+              >
+                <img
+                  src={logo.image}
+                  alt={logo.description}
+                  className={logo.className}
+                  loading="lazy"
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
+    </section>
+  );
+};
+
+export { Logos3 };
