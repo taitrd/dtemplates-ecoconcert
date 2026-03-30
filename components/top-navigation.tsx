@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import * as React from 'react';
-import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
-import { AccountDropdown } from '@/components/account-dropdown';
-import { cn } from '@/lib/utils';
+import * as React from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { AccountDropdown } from "@/components/account-dropdown";
+import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,7 +12,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
 const ListItem = React.forwardRef<
@@ -27,7 +26,7 @@ const ListItem = React.forwardRef<
           href={href!}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
+            className,
           )}
           {...props}
         >
@@ -49,14 +48,14 @@ export function TopNavigation() {
     <nav className="sticky top-0 z-50 flex items-center justify-between px-6 py-4 border-b border-border bg-background/80 backdrop-blur-md">
       {/* Mobile Menu Toggle */}
       <button
-        className="md:hidden text-muted-foreground hover:text-foreground p-2 -ml-2"
+        className="lg:hidden text-muted-foreground hover:text-foreground p-2 -ml-2"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
 
       {/* Desktop Links (shadcn NavigationMenu) */}
-      <div className="hidden md:flex flex-1">
+      <div className="hidden lg:flex flex-1">
         <NavigationMenu>
           <NavigationMenuList>
             {/* Discover */}
@@ -73,10 +72,17 @@ export function TopNavigation() {
                     Find tours and tickets for your favorite artists.
                   </ListItem>
                   <ListItem href="/blogs" title="Blogs">
-                    Read the latest news, reviews, and stories from the music world.
+                    Read the latest news, reviews, and stories from the music
+                    world.
                   </ListItem>
                   <ListItem href="/cart" title="Shopping Cart">
                     Review your selected tickets before checkout.
+                  </ListItem>
+                  <ListItem href="/" title="Modern Home Page">
+                    Home page (Modern).
+                  </ListItem>
+                  <ListItem href="/home-2" title="Legacy Home Page">
+                    Home page 2.
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
@@ -142,7 +148,10 @@ export function TopNavigation() {
 
       {/* Logo */}
       <div className="flex-1 md:flex-none flex justify-center md:absolute md:left-1/2 md:-translate-x-1/2">
-        <Link href="/" className="text-2xl font-bold tracking-wider text-primary">
+        <Link
+          href="/"
+          className="text-2xl font-bold tracking-wider text-primary"
+        >
           TICKETER
         </Link>
       </div>
@@ -154,33 +163,129 @@ export function TopNavigation() {
 
       {/* Mobile Hamburger Menu Dropdown */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg p-4 flex flex-col space-y-4 md:hidden overflow-y-auto max-h-[80vh]">
+        <div className="absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg p-4 flex flex-col space-y-4 lg:hidden overflow-y-auto max-h-[80vh]">
           <div className="space-y-4">
-            <h4 className="font-semibold text-muted-foreground uppercase text-xs tracking-wider">Discover</h4>
+            <h4 className="font-semibold text-muted-foreground uppercase text-xs tracking-wider">
+              Discover
+            </h4>
             <div className="flex flex-col space-y-3 pl-2 border-l-2 border-border/50">
-              <Link href="/concerts" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Concerts</Link>
-              <Link href="/singers" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Singers</Link>
-              <Link href="/blogs" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Blogs</Link>
-              <Link href="/cart" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Shopping Cart</Link>
+              <Link
+                href="/concerts"
+                className="text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Concerts
+              </Link>
+              <Link
+                href="/singers"
+                className="text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Singers
+              </Link>
+              <Link
+                href="/blogs"
+                className="text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Blogs
+              </Link>
+              <Link
+                href="/cart"
+                className="text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Shopping Cart
+              </Link>
             </div>
 
-            <h4 className="font-semibold text-muted-foreground uppercase text-xs tracking-wider mt-6">Help & Info</h4>
+            <h4 className="font-semibold text-muted-foreground uppercase text-xs tracking-wider mt-6">
+              Help & Info
+            </h4>
             <div className="flex flex-col space-y-3 pl-2 border-l-2 border-border/50">
-              <Link href="/about" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>About Us</Link>
-              <Link href="/contact" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Contact Us</Link>
-              <Link href="/faqs" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>FAQs</Link>
-              <Link href="/support" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Support</Link>
-              <Link href="/concert-ticketing" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Concert Ticketing</Link>
-              <Link href="/reset-password" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Reset Password</Link>
+              <Link
+                href="/about"
+                className="text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                About Us
+              </Link>
+              <Link
+                href="/contact"
+                className="text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Contact Us
+              </Link>
+              <Link
+                href="/faqs"
+                className="text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                FAQs
+              </Link>
+              <Link
+                href="/support"
+                className="text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Support
+              </Link>
+              <Link
+                href="/concert-ticketing"
+                className="text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Concert Ticketing
+              </Link>
+              <Link
+                href="/reset-password"
+                className="text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Reset Password
+              </Link>
             </div>
 
-            <h4 className="font-semibold text-muted-foreground uppercase text-xs tracking-wider mt-6">Legal</h4>
+            <h4 className="font-semibold text-muted-foreground uppercase text-xs tracking-wider mt-6">
+              Legal
+            </h4>
             <div className="flex flex-col space-y-3 pl-2 border-l-2 border-border/50">
-              <Link href="/privacy" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Privacy Policy</Link>
-              <Link href="/terms" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Terms & Conditions</Link>
-              <Link href="/terms-of-use" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Terms of Use</Link>
-              <Link href="/cookies" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Cookies Policy</Link>
-              <Link href="/acceptable-use" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Acceptable Use</Link>
+              <Link
+                href="/privacy"
+                className="text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms"
+                className="text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Terms & Conditions
+              </Link>
+              <Link
+                href="/terms-of-use"
+                className="text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Terms of Use
+              </Link>
+              <Link
+                href="/cookies"
+                className="text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Cookies Policy
+              </Link>
+              <Link
+                href="/acceptable-use"
+                className="text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Acceptable Use
+              </Link>
             </div>
           </div>
         </div>

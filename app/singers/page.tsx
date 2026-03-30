@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Image from "next/image"
-import Link from "next/link"
-import { Input } from "@/components/ui/input"
-import { User } from 'lucide-react'
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Input } from "@/components/ui/input";
+import { User } from "lucide-react";
 
 const singers = [
   {
@@ -12,93 +12,93 @@ const singers = [
     name: "Taylor Swift",
     dateRange: "Sep10 - Sep13",
     location: "London",
-    image: "/singers/pexels-photo-1699161.jpeg"
+    image: "/singers/pexels-photo-1699161.jpeg",
   },
   {
     id: 2,
     name: "Dua Lipa",
     dateRange: "Sep14 - Sep19",
     location: "Manchester",
-    image: "/singers/pexels-photo-1699159.jpeg"
+    image: "/singers/pexels-photo-1699159.jpeg",
   },
   {
     id: 3,
     name: "Olivia Rodrigo",
     dateRange: "Sep24 - Sep29",
     location: "London",
-    image: "/singers/pexels-photo-1190297.jpeg"
+    image: "/singers/pexels-photo-1190297.jpeg",
   },
   {
     id: 4,
     name: "Adele",
     dateRange: "Nov02 - Nov04",
     location: "Bristol",
-    image: "/singers/pexels-photo-2747446.jpeg"
+    image: "/singers/pexels-photo-2747446.jpeg",
   },
   {
     id: 5,
     name: "Ed Sheeran",
     dateRange: "Oct15 - Oct20",
     location: "Manchester",
-    image: "/singers/pexels-photo-1763075.jpeg"
+    image: "/singers/pexels-photo-1763075.jpeg",
   },
   {
     id: 6,
     name: "Beyoncé",
     dateRange: "Oct22 - Oct27",
     location: "London",
-    image: "/singers/pexels-photo-1916824.jpeg"
+    image: "/singers/pexels-photo-1916824.jpeg",
   },
   {
     id: 7,
     name: "Lady Gaga",
     dateRange: "Nov05 - Nov10",
     location: "Birmingham",
-    image: "/singers/pexels-photo-1687831.jpeg"
+    image: "/singers/pexels-photo-1687831.jpeg",
   },
   {
     id: 8,
     name: "Justin Bieber",
     dateRange: "Nov12 - Nov17",
     location: "London",
-    image: "/singers/pexels-photo-1644888.jpeg"
+    image: "/singers/pexels-photo-1644888.jpeg",
   },
   {
     id: 9,
     name: "Ariana Grande",
     dateRange: "Nov19 - Nov24",
     location: "Manchester",
-    image: "/singers/pexels-photo-1699161.jpeg"
+    image: "/singers/pexels-photo-1699161.jpeg",
   },
   {
     id: 10,
     name: "The Weeknd",
     dateRange: "Nov26 - Dec01",
     location: "London",
-    image: "/singers/pexels-photo-1763075.jpeg"
+    image: "/singers/pexels-photo-1763075.jpeg",
   },
   {
     id: 11,
     name: "Billie Eilish",
     dateRange: "Dec03 - Dec08",
     location: "Glasgow",
-    image: "/singers/pexels-photo-1190297.jpeg"
+    image: "/singers/pexels-photo-1190297.jpeg",
   },
   {
     id: 12,
     name: "Harry Styles",
     dateRange: "Dec10 - Dec15",
     location: "London",
-    image: "/singers/pexels-photo-1916824.jpeg"
-  }
-]
+    image: "/singers/pexels-photo-1916824.jpeg",
+  },
+];
 
 export default function SingersPage() {
-  const [searchQuery, setSearchQuery] = useState('')
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredSingers = singers.filter(singer =>
-    singer.name.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  const filteredSingers = singers.filter((singer) =>
+    singer.name.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
 
   return (
     <div className="min-h-screen">
@@ -140,7 +140,7 @@ export default function SingersPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
-                <h2 className="text-xl font-semibold text-secondary mb-1">
+                <h2 className="text-xl font-semibold text-white mb-1">
                   {singer.name}
                 </h2>
                 <p className="text-sm text-primary-foreground/80 mb-3">
@@ -148,7 +148,7 @@ export default function SingersPage() {
                 </p>
                 <Link
                   href={`/concerts/${singer.id}`}
-                  className="inline-block text-primary hover:text-primary/90 font-medium transition-colors"
+                  className="inline-block text-muted-foreground hover:text-primary/90 font-medium transition-colors"
                 >
                   View Details
                 </Link>
@@ -160,11 +160,12 @@ export default function SingersPage() {
         {/* No Results Message */}
         {filteredSingers.length === 0 && (
           <div className="text-center mt-12">
-            <p className="text-muted-foreground">No singers found matching your search.</p>
+            <p className="text-muted-foreground">
+              No singers found matching your search.
+            </p>
           </div>
         )}
       </main>
     </div>
-  )
+  );
 }
-
