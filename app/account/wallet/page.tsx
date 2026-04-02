@@ -1,19 +1,20 @@
-'use client'
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Wallet, Ticket, Download, Share2 } from 'lucide-react'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Wallet, Download, Share2 } from "lucide-react";
+import Image from "next/image";
 
 interface TicketWallet {
-  id: string
-  event: string
-  date: string
-  venue: string
-  section: string
-  row: string
-  seat: string
-  status: 'valid' | 'used' | 'expired'
-  image: string
+  id: string;
+  event: string;
+  date: string;
+  venue: string;
+  section: string;
+  row: string;
+  seat: string;
+  status: "valid" | "used" | "expired";
+  image: string;
 }
 
 const tickets: TicketWallet[] = [
@@ -26,7 +27,7 @@ const tickets: TicketWallet[] = [
     row: "12",
     seat: "24",
     status: "valid",
-    image: "/assets/asset_d1774d39.jpeg"
+    image: "/assets/asset_d1774d39.jpeg",
   },
   {
     id: "TKT-002",
@@ -37,23 +38,23 @@ const tickets: TicketWallet[] = [
     row: "15",
     seat: "10",
     status: "valid",
-    image: "/assets/asset_479a8517.jpeg"
-  }
-]
+    image: "/assets/asset_479a8517.jpeg",
+  },
+];
 
 export default function WalletPage() {
-  const getStatusColor = (status: TicketWallet['status']) => {
+  const getStatusColor = (status: TicketWallet["status"]) => {
     switch (status) {
-      case 'valid':
-        return 'text-green-500 bg-green-500/10'
-      case 'used':
-        return 'text-muted-foreground bg-muted'
-      case 'expired':
-        return 'text-destructive bg-destructive/10'
+      case "valid":
+        return "text-green-500 bg-green-500/10";
+      case "used":
+        return "text-muted-foreground bg-muted";
+      case "expired":
+        return "text-destructive bg-destructive/10";
       default:
-        return 'text-muted-foreground bg-muted'
+        return "text-muted-foreground bg-muted";
     }
-  }
+  };
 
   return (
     <div className="p-8">
@@ -70,7 +71,9 @@ export default function WalletPage() {
                 <Wallet className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Available Balance</p>
+                <p className="text-sm text-muted-foreground">
+                  Available Balance
+                </p>
                 <p className="text-2xl font-bold">$1,234.56</p>
               </div>
             </div>
@@ -87,17 +90,23 @@ export default function WalletPage() {
               {tickets.map((ticket) => (
                 <Card key={ticket.id} className="overflow-hidden">
                   <div className="relative h-48">
-                    <img
+                    <Image
                       src={ticket.image}
                       alt={ticket.event}
+                      height={400}
+                      width={400}
                       className="absolute inset-0 w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/60 to-transparent">
-                        <div className="absolute bottom-0 left-0 right-0 p-4">
-                          <h3 className="text-lg font-semibold text-primary-foreground">{ticket.event}</h3>
-                          <p className="text-sm text-primary-foreground/80">{ticket.date}</p>
-                        </div>
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 className="text-lg font-semibold text-primary-foreground">
+                          {ticket.event}
+                        </h3>
+                        <p className="text-sm text-primary-foreground/80">
+                          {ticket.date}
+                        </p>
                       </div>
+                    </div>
                   </div>
                   <CardContent className="p-4">
                     <div className="space-y-4">
@@ -110,11 +119,17 @@ export default function WalletPage() {
                         <span>{ticket.section}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Row / Seat</span>
-                        <span>{ticket.row} / {ticket.seat}</span>
+                        <span className="text-muted-foreground">
+                          Row / Seat
+                        </span>
+                        <span>
+                          {ticket.row} / {ticket.seat}
+                        </span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(ticket.status)}`}>
+                        <span
+                          className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(ticket.status)}`}
+                        >
                           {ticket.status}
                         </span>
                         <div className="flex gap-2">
@@ -137,6 +152,5 @@ export default function WalletPage() {
         </Card>
       </div>
     </div>
-  )
+  );
 }
-

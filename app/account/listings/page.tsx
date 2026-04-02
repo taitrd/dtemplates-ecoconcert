@@ -1,27 +1,28 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Search, Calendar, Filter, Plus } from 'lucide-react'
+} from "@/components/ui/select";
+import { Search, Calendar, Filter, Plus } from "lucide-react";
+import Image from "next/image";
 
 interface Listing {
-  id: string
-  event: string
-  date: string
-  status: 'active' | 'sold' | 'expired'
-  price: number
-  quantity: number
-  image: string
-  views: number
+  id: string;
+  event: string;
+  date: string;
+  status: "active" | "sold" | "expired";
+  price: number;
+  quantity: number;
+  image: string;
+  views: number;
 }
 
 const listings: Listing[] = [
@@ -33,7 +34,7 @@ const listings: Listing[] = [
     price: 399.99,
     quantity: 2,
     image: "/assets/asset_d1774d39.jpeg",
-    views: 245
+    views: 245,
   },
   {
     id: "LST-002",
@@ -43,43 +44,46 @@ const listings: Listing[] = [
     price: 299.99,
     quantity: 1,
     image: "/assets/asset_479a8517.jpeg",
-    views: 189
+    views: 189,
   },
   {
     id: "LST-003",
     event: "Ed Sheeran Concert",
     date: "March 15, 2024",
     status: "expired",
-    price: 150.00,
+    price: 150.0,
     quantity: 2,
     image: "/assets/asset_b95a9401.jpeg",
-    views: 132
-  }
-]
+    views: 132,
+  },
+];
 
 export default function ListingsPage() {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [statusFilter, setStatusFilter] = useState<string>('all')
-  const [dateFilter, setDateFilter] = useState<string>('all')
+  const [searchQuery, setSearchQuery] = useState("");
+  const [statusFilter, setStatusFilter] = useState<string>("all");
+  const [dateFilter, setDateFilter] = useState<string>("all");
 
-  const filteredListings = listings.filter(listing => {
-    const matchesSearch = listing.event.toLowerCase().includes(searchQuery.toLowerCase())
-    const matchesStatus = statusFilter === 'all' || listing.status === statusFilter
-    return matchesSearch && matchesStatus
-  })
+  const filteredListings = listings.filter((listing) => {
+    const matchesSearch = listing.event
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    const matchesStatus =
+      statusFilter === "all" || listing.status === statusFilter;
+    return matchesSearch && matchesStatus;
+  });
 
-  const getStatusColor = (status: Listing['status']) => {
+  const getStatusColor = (status: Listing["status"]) => {
     switch (status) {
-      case 'active':
-        return 'text-green-500 bg-green-500/10'
-      case 'sold':
-        return 'text-blue-500 bg-blue-500/10'
-      case 'expired':
-        return 'text-muted-foreground bg-muted'
+      case "active":
+        return "text-green-500 bg-green-500/10";
+      case "sold":
+        return "text-blue-500 bg-blue-500/10";
+      case "expired":
+        return "text-muted-foreground bg-muted";
       default:
-        return 'text-muted-foreground bg-muted'
+        return "text-muted-foreground bg-muted";
     }
-  }
+  };
 
   return (
     <div className="p-8">
@@ -121,20 +125,28 @@ export default function ListingsPage() {
               <CardContent className="p-6">
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="relative w-full md:w-48 h-32">
-                    <img
+                    <Image
                       src={listing.image}
                       alt={listing.event}
+                      height={600}
+                      width={800}
                       className="absolute inset-0 w-full h-full object-cover rounded-lg"
                     />
                   </div>
                   <div className="flex-1 space-y-4">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                       <div>
-                        <h3 className="text-lg font-semibold">{listing.event}</h3>
-                        <p className="text-sm text-muted-foreground">Listing ID: {listing.id}</p>
+                        <h3 className="text-lg font-semibold">
+                          {listing.event}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          Listing ID: {listing.id}
+                        </p>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className={`px-3 py-1 rounded-full text-sm font-medium capitalize ${getStatusColor(listing.status)}`}>
+                        <span
+                          className={`px-3 py-1 rounded-full text-sm font-medium capitalize ${getStatusColor(listing.status)}`}
+                        >
                           {listing.status}
                         </span>
                       </div>
@@ -146,7 +158,9 @@ export default function ListingsPage() {
                       </div>
                       <div className="flex items-center gap-2">
                         <span className="text-muted-foreground">Price:</span>
-                        <span className="font-semibold">${listing.price.toFixed(2)}</span>
+                        <span className="font-semibold">
+                          ${listing.price.toFixed(2)}
+                        </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <span className="text-muted-foreground">Quantity:</span>
@@ -159,10 +173,13 @@ export default function ListingsPage() {
                     </div>
                     <div className="flex flex-wrap gap-2">
                       <Button variant="outline">Edit Listing</Button>
-                      {listing.status === 'active' && (
+                      {listing.status === "active" && (
                         <>
                           <Button variant="outline">Promote</Button>
-                          <Button variant="outline" className="text-destructive">
+                          <Button
+                            variant="outline"
+                            className="text-destructive"
+                          >
                             Delete Listing
                           </Button>
                         </>
@@ -176,6 +193,5 @@ export default function ListingsPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

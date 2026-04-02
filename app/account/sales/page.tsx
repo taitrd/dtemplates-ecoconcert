@@ -1,25 +1,26 @@
-'use client'
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Calendar, DollarSign, TrendingUp, Users } from 'lucide-react'
+} from "@/components/ui/select";
+import { Calendar, DollarSign, TrendingUp, Users } from "lucide-react";
+import Image from "next/image";
 
 interface Sale {
-  id: string
-  event: string
-  date: string
-  buyer: string
-  price: number
-  quantity: number
-  status: 'completed' | 'pending' | 'refunded'
-  image: string
+  id: string;
+  event: string;
+  date: string;
+  buyer: string;
+  price: number;
+  quantity: number;
+  status: "completed" | "pending" | "refunded";
+  image: string;
 }
 
 const sales: Sale[] = [
@@ -31,7 +32,7 @@ const sales: Sale[] = [
     price: 399.99,
     quantity: 2,
     status: "completed",
-    image: "/assets/asset_d1774d39.jpeg"
+    image: "/assets/asset_d1774d39.jpeg",
   },
   {
     id: "SL-002",
@@ -41,9 +42,9 @@ const sales: Sale[] = [
     price: 299.99,
     quantity: 1,
     status: "pending",
-    image: "/assets/asset_479a8517.jpeg"
-  }
-]
+    image: "/assets/asset_479a8517.jpeg",
+  },
+];
 
 const stats = [
   {
@@ -51,37 +52,37 @@ const stats = [
     value: "$2,389.98",
     icon: DollarSign,
     change: "+12.5%",
-    timespan: "from last month"
+    timespan: "from last month",
   },
   {
     title: "Active Listings",
     value: "23",
     icon: TrendingUp,
     change: "+8.2%",
-    timespan: "from last month"
+    timespan: "from last month",
   },
   {
     title: "Total Buyers",
     value: "48",
     icon: Users,
     change: "+15.3%",
-    timespan: "from last month"
-  }
-]
+    timespan: "from last month",
+  },
+];
 
 export default function SalesPage() {
-  const getStatusColor = (status: Sale['status']) => {
+  const getStatusColor = (status: Sale["status"]) => {
     switch (status) {
-      case 'completed':
-        return 'text-green-500 bg-green-500/10'
-      case 'pending':
-        return 'text-yellow-500 bg-yellow-500/10'
-      case 'refunded':
-        return 'text-destructive bg-destructive/10'
+      case "completed":
+        return "text-green-500 bg-green-500/10";
+      case "pending":
+        return "text-yellow-500 bg-yellow-500/10";
+      case "refunded":
+        return "text-destructive bg-destructive/10";
       default:
-        return 'text-muted-foreground bg-muted'
+        return "text-muted-foreground bg-muted";
     }
-  }
+  };
 
   return (
     <div className="p-8">
@@ -108,13 +109,16 @@ export default function SalesPage() {
             <Card key={stat.title}>
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
-                  <p className="text-sm font-medium text-muted-foreground">{stat.title}</p>
+                  <p className="text-sm font-medium text-muted-foreground">
+                    {stat.title}
+                  </p>
                   <stat.icon className="h-4 w-4 text-muted-foreground" />
                 </div>
                 <div className="mt-2">
                   <h3 className="text-2xl font-bold">{stat.value}</h3>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    <span className="text-green-500">{stat.change}</span> {stat.timespan}
+                    <span className="text-green-500">{stat.change}</span>{" "}
+                    {stat.timespan}
                   </p>
                 </div>
               </CardContent>
@@ -135,15 +139,19 @@ export default function SalesPage() {
                   className="flex flex-col md:flex-row items-start md:items-center gap-4 p-4 rounded-lg border"
                 >
                   <div className="relative w-full md:w-32 h-24">
-                    <img
+                    <Image
                       src={sale.image}
                       alt={sale.event}
                       className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                      height={600}
+                      width={800}
                     />
                   </div>
                   <div className="flex-1">
                     <h4 className="font-semibold">{sale.event}</h4>
-                    <p className="text-sm text-muted-foreground">Order ID: {sale.id}</p>
+                    <p className="text-sm text-muted-foreground">
+                      Order ID: {sale.id}
+                    </p>
                     <div className="mt-2 flex flex-wrap gap-4 text-sm">
                       <span>Buyer: {sale.buyer}</span>
                       <span>Quantity: {sale.quantity}</span>
@@ -153,7 +161,9 @@ export default function SalesPage() {
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <span className={`px-3 py-1 rounded-full text-sm font-medium capitalize ${getStatusColor(sale.status)}`}>
+                    <span
+                      className={`px-3 py-1 rounded-full text-sm font-medium capitalize ${getStatusColor(sale.status)}`}
+                    >
                       {sale.status}
                     </span>
                     <Button variant="outline">View Details</Button>
@@ -165,6 +175,5 @@ export default function SalesPage() {
         </Card>
       </div>
     </div>
-  )
+  );
 }
-

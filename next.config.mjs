@@ -4,12 +4,39 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   images: {
-    unoptimized: false,
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "attachment",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.pexels.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "*.public.blob.vercel-storage.com",
+        port: "",
+      },
+    ],
+    localPatterns: [
+      {
+        pathname: "/**",
+      },
+    ],
+    formats: ["image/webp"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
   },
   eslint: {
     ignoreDuringBuilds: false,
   },
   distDir: process.env.NODE_ENV === "development" ? ".next-dev" : ".next",
+  productionBrowserSourceMaps: false,
   async headers() {
     const cacheStaticSources = [
       "/_next/image/:path*",

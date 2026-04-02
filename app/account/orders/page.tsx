@@ -1,26 +1,27 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Search, Calendar, Filter } from 'lucide-react'
+} from "@/components/ui/select";
+import { Search, Calendar, Filter } from "lucide-react";
+import Image from "next/image";
 
 interface Order {
-  id: string
-  event: string
-  date: string
-  status: 'upcoming' | 'completed' | 'cancelled'
-  price: number
-  quantity: number
-  image: string
+  id: string;
+  event: string;
+  date: string;
+  status: "upcoming" | "completed" | "cancelled";
+  price: number;
+  quantity: number;
+  image: string;
 }
 
 const orders: Order[] = [
@@ -31,7 +32,7 @@ const orders: Order[] = [
     status: "upcoming",
     price: 399.99,
     quantity: 2,
-    image: "/assets/asset_d1774d39.jpeg"
+    image: "/assets/asset_d1774d39.jpeg",
   },
   {
     id: "ORD-002",
@@ -40,42 +41,45 @@ const orders: Order[] = [
     status: "upcoming",
     price: 299.99,
     quantity: 1,
-    image: "/assets/asset_479a8517.jpeg"
+    image: "/assets/asset_479a8517.jpeg",
   },
   {
     id: "ORD-003",
     event: "Ed Sheeran Concert",
     date: "March 15, 2024",
     status: "completed",
-    price: 150.00,
+    price: 150.0,
     quantity: 2,
-    image: "/assets/asset_b95a9401.jpeg"
-  }
-]
+    image: "/assets/asset_b95a9401.jpeg",
+  },
+];
 
 export default function OrdersPage() {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [statusFilter, setStatusFilter] = useState<string>('all')
-  const [dateFilter, setDateFilter] = useState<string>('all')
+  const [searchQuery, setSearchQuery] = useState("");
+  const [statusFilter, setStatusFilter] = useState<string>("all");
+  const [dateFilter, setDateFilter] = useState<string>("all");
 
-  const filteredOrders = orders.filter(order => {
-    const matchesSearch = order.event.toLowerCase().includes(searchQuery.toLowerCase())
-    const matchesStatus = statusFilter === 'all' || order.status === statusFilter
-    return matchesSearch && matchesStatus
-  })
+  const filteredOrders = orders.filter((order) => {
+    const matchesSearch = order.event
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    const matchesStatus =
+      statusFilter === "all" || order.status === statusFilter;
+    return matchesSearch && matchesStatus;
+  });
 
-  const getStatusColor = (status: Order['status']) => {
+  const getStatusColor = (status: Order["status"]) => {
     switch (status) {
-      case 'upcoming':
-        return 'text-blue-500 bg-blue-500/10'
-      case 'completed':
-        return 'text-green-500 bg-green-500/10'
-      case 'cancelled':
-        return 'text-destructive bg-destructive/10'
+      case "upcoming":
+        return "text-blue-500 bg-blue-500/10";
+      case "completed":
+        return "text-green-500 bg-green-500/10";
+      case "cancelled":
+        return "text-destructive bg-destructive/10";
       default:
-        return 'text-muted-foreground bg-muted'
+        return "text-muted-foreground bg-muted";
     }
-  }
+  };
 
   return (
     <div className="p-8">
@@ -125,9 +129,11 @@ export default function OrdersPage() {
               <CardContent className="p-6">
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="relative w-full md:w-48 h-32">
-                    <img
+                    <Image
                       src={order.image}
                       alt={order.event}
+                      height={600}
+                      width={800}
                       className="absolute inset-0 w-full h-full object-cover rounded-lg"
                     />
                   </div>
@@ -135,10 +141,14 @@ export default function OrdersPage() {
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                       <div>
                         <h3 className="text-lg font-semibold">{order.event}</h3>
-                        <p className="text-sm text-muted-foreground">Order ID: {order.id}</p>
+                        <p className="text-sm text-muted-foreground">
+                          Order ID: {order.id}
+                        </p>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className={`px-3 py-1 rounded-full text-sm font-medium capitalize ${getStatusColor(order.status)}`}>
+                        <span
+                          className={`px-3 py-1 rounded-full text-sm font-medium capitalize ${getStatusColor(order.status)}`}
+                        >
                           {order.status}
                         </span>
                       </div>
@@ -154,15 +164,20 @@ export default function OrdersPage() {
                       </div>
                       <div className="flex items-center gap-2">
                         <span className="text-muted-foreground">Total:</span>
-                        <span className="font-semibold">${(order.price * order.quantity).toFixed(2)}</span>
+                        <span className="font-semibold">
+                          ${(order.price * order.quantity).toFixed(2)}
+                        </span>
                       </div>
                     </div>
                     <div className="flex flex-wrap gap-2">
                       <Button variant="outline">View Details</Button>
-                      {order.status === 'upcoming' && (
+                      {order.status === "upcoming" && (
                         <>
                           <Button variant="outline">Download Ticket</Button>
-                          <Button variant="outline" className="text-destructive">
+                          <Button
+                            variant="outline"
+                            className="text-destructive"
+                          >
                             Cancel Order
                           </Button>
                         </>
@@ -176,6 +191,5 @@ export default function OrdersPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
