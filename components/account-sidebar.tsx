@@ -64,16 +64,16 @@ export function AccountSidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="w-[300px] min-h-screen p-6">
-      <div className="flex flex-col h-full">
+    <div className="w-full sm:w-[300px] p-6">
+      <div className="flex flex-col">
         {/* Profile Section */}
-        <div className="flex flex-col items-start space-y-6 pb-6 border-b">
-          <div className="flex items-center justify-between w-full">
+        <div className="flex flex-row sm:flex-col items-start space-y-6 pb-6 border-b">
+          <div className="flex items-center justify-between sm:w-full">
             <Avatar className="h-16 w-16">
               <AvatarImage src={user.image} alt={user.name} />
               <AvatarFallback>{user.name[0]}</AvatarFallback>
             </Avatar>
-            <Button
+            {/* <Button
               variant="ghost"
               size="icon"
               className="relative hover:bg-accent"
@@ -81,7 +81,7 @@ export function AccountSidebar() {
               <Bell className="h-5 w-5 text-accent-foreground" />
               <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500" />
               <span className="sr-only">Notifications</span>
-            </Button>
+            </Button> */}
           </div>
           <div>
             <h2 className="text-2xl font-bold text-accent-foreground">

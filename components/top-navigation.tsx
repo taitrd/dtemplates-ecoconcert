@@ -13,6 +13,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import Image from "next/image";
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
@@ -152,7 +153,13 @@ export function TopNavigation() {
           href="/"
           className="text-2xl font-bold tracking-wider text-primary"
         >
-          TICKETER
+          <Image
+            src={"/ticketer.png"}
+            height={80}
+            width={130}
+            className="object-cover min-h-8"
+            alt="Ticketer"
+          />
         </Link>
       </div>
 
