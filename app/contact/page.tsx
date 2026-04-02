@@ -120,7 +120,7 @@ export default function ContactPage() {
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg"
+              src="/assets/asset_b95a9401.jpeg"
               alt="Concert crowd"
               fill
               className="object-cover opacity-20"

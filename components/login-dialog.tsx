@@ -170,7 +170,7 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
           <div className="relative hidden lg:block">
             <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-background/5 z-10" />
             <Image
-              src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg"
+              src="/assets/asset_b95a9401.jpeg"
               alt="Concert crowd"
               fill
               className="object-cover"

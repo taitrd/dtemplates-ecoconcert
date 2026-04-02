@@ -1,74 +1,78 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
+import { useState } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { ArrowRight } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
-import { subscribeToNewsletter } from "@/app/actions"
+} from "@/components/ui/carousel";
+import { subscribeToNewsletter } from "@/app/actions";
 
 const news = [
   {
     title: "Taylor Swift in Biggest World Tour",
-    description: "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
+    image: "/concerts/andre-benz-Jb7TLs6fW_I-unsplash.jpg",
     author: {
       name: "Jonathan Willis",
-      avatar: "/placeholder.svg",
+      avatar: "/placeholder-user.jpg",
       date: "July 17, 2024",
-      readTime: "5 min"
-    }
+      readTime: "5 min",
+    },
   },
   {
     title: "Royal Albert Hall New Events",
-    description: "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
-    image: "https://images.pexels.com/photos/1916824/pexels-photo-1916824.jpeg",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
+    image: "/concerts/danny-howe-bn-D2bCvpik-unsplash.jpg",
     author: {
       name: "Marian Ed",
-      avatar: "/placeholder.svg",
+      avatar: "/placeholder-user.jpg",
       date: "June 13, 2024",
-      readTime: "10 min"
-    }
+      readTime: "10 min",
+    },
   },
   {
     title: "Yanni Will Be in London",
-    description: "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
-    image: "https://images.pexels.com/photos/1687831/pexels-photo-1687831.jpeg",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
+    image: "/concerts/nainoa-shizuru-NcdG9mK3PBY-unsplash.jpg",
+
     author: {
       name: "Jack Nikelson",
       avatar: "/placeholder.svg",
       date: "May 08, 2024",
-      readTime: "7 min"
-    }
-  }
-]
+      readTime: "7 min",
+    },
+  },
+];
 
 export function NewsletterSection() {
-  const [email, setEmail] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
     try {
-      await subscribeToNewsletter(email)
-      setEmail('')
+      await subscribeToNewsletter(email);
+      setEmail("");
       // You could add a success toast here
     } catch (error) {
       // You could add an error toast here
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <section className="w-full py-24 px-4 md:px-6 bg-muted/20 border-y border-border">
@@ -81,12 +85,20 @@ export function NewsletterSection() {
                 Stay in the <span className="text-primary italic">Loop</span>
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Unlock exclusive early access, special offers, and the latest news from the music world. Join our community today.
+                Unlock exclusive early access, special offers, and the latest
+                news from the music world. Join our community today.
               </p>
             </div>
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col sm:flex-row gap-3"
+            >
               <div className="relative flex-1">
+                <label htmlFor="newsletter-email-input" className="sr-only">
+                  Email address for newsletter
+                </label>
                 <Input
+                  id="newsletter-email-input"
                   type="email"
                   placeholder="Enter your email address"
                   className="w-full pl-10 h-14 bg-background border-border focus:ring-primary shadow-sm"
@@ -119,7 +131,8 @@ export function NewsletterSection() {
               </Button>
             </form>
             <p className="text-xs text-muted-foreground italic">
-              * By subscribing, you agree to our Privacy Policy and Terms of Service.
+              * By subscribing, you agree to our Privacy Policy and Terms of
+              Service.
             </p>
           </div>
 
@@ -132,7 +145,7 @@ export function NewsletterSection() {
               }}
               className="w-full"
             >
-              <CarouselContent className='p-2'>
+              <CarouselContent className="p-2">
                 {news.map((item, index) => (
                   <CarouselItem key={index}>
                     <div className="grid md:grid-cols-[1.2fr_1fr] gap-8 bg-card p-4 rounded-3xl border border-border shadow-md overflow-hidden group">
@@ -141,11 +154,15 @@ export function NewsletterSection() {
                           src={item.image}
                           alt={item.title}
                           fill
+                          sizes="(max-width: 1024px) 100vw, 50vw"
                           className="object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                       </div>
                       <div className="flex flex-col justify-center space-y-4 py-2">
-                        <Badge variant="secondary" className="w-fit bg-primary/10 text-primary hover:bg-primary/20">
+                        <Badge
+                          variant="secondary"
+                          className="w-fit bg-primary/10 text-primary hover:bg-primary/20"
+                        >
                           Hot News
                         </Badge>
                         <h3 className="text-2xl font-bold text-card-foreground line-clamp-2 leading-tight">
@@ -157,14 +174,20 @@ export function NewsletterSection() {
                         <div className="flex items-center gap-4 pt-2">
                           <Avatar className="h-10 w-10 border-2 border-primary/20">
                             <AvatarImage src={item.author.avatar} />
-                            <AvatarFallback className="bg-primary/10 text-primary font-bold">{item.author.name[0]}</AvatarFallback>
+                            <AvatarFallback className="bg-primary/10 text-primary font-bold">
+                              {item.author.name[0]}
+                            </AvatarFallback>
                           </Avatar>
                           <div className="flex flex-col">
                             <span className="font-bold text-sm text-foreground">
                               {item.author.name}
                             </span>
                             <span className="text-xs text-muted-foreground flex items-center gap-1">
-                              {item.author.date} <span className="text-primary/50 text-lg leading-none">•</span> {item.author.readTime} read
+                              {item.author.date}{" "}
+                              <span className="text-primary/50 text-lg leading-none">
+                                •
+                              </span>{" "}
+                              {item.author.readTime} read
                             </span>
                           </div>
                         </div>
@@ -182,6 +205,5 @@ export function NewsletterSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

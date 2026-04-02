@@ -32,7 +32,7 @@ const listings: Listing[] = [
     status: "active",
     price: 399.99,
     quantity: 2,
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg",
+    image: "/assets/asset_d1774d39.jpeg",
     views: 245
   },
   {
@@ -42,7 +42,7 @@ const listings: Listing[] = [
     status: "sold",
     price: 299.99,
     quantity: 1,
-    image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg",
+    image: "/assets/asset_479a8517.jpeg",
     views: 189
   },
   {
@@ -52,7 +52,7 @@ const listings: Listing[] = [
     status: "expired",
     price: 150.00,
     quantity: 2,
-    image: "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg",
+    image: "/assets/asset_b95a9401.jpeg",
     views: 132
   }
 ]

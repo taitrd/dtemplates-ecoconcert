@@ -34,7 +34,7 @@ const ticketDetails: TicketDetails = {
   customerName: "Elnaz Bolkhari",
   contactNumber: "98 935-498 28 65",
   emailAddress: "elnazbolkhari@gmail",
-  image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg"
+  image: "/assets/asset_d1774d39.jpeg"
 }
 
 export default function CheckoutSuccessPage() {

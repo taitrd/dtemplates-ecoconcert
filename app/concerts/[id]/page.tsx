@@ -65,7 +65,7 @@ export default function ConcertDetailsPage() {
         <div className="rounded-2xl overflow-hidden bg-gradient-to-b from-primary/80 to-primary">
           <div className="relative h-[400px] md:h-[500px] lg:h-[600px]">
             <Image
-              src="https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg"
+              src="/assets/asset_d1774d39.jpeg"
               alt="Taylor Swift performing live"
               fill
               className="object-cover mix-blend-overlay"

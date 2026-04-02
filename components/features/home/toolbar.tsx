@@ -52,8 +52,10 @@ export function Toolbar() {
       <div className="flex flex-wrap items-center gap-4">
         {/* Search Input */}
         <div className="relative flex-1 min-w-[280px]">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground transition-colors group-focus-within:text-primary" />
+          <label htmlFor="search-tickets" className="sr-only">Search concerts, singers, or venues</label>
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground transition-colors group-focus-within:text-primary" aria-hidden="true" />
           <Input
+            id="search-tickets"
             placeholder="Search concerts, singers, or venues..."
             className="pl-10 h-12 bg-background border-border focus:ring-2 focus:ring-primary/20 transition-all text-base"
             value={filters.query}
@@ -97,8 +99,9 @@ export function Toolbar() {
                 "h-12 px-5 border-border bg-background hover:bg-accent hover:border-primary/50 transition-all font-semibold",
                 selectedConcertIds.length > 0 && "border-primary bg-primary/5"
               )}
+              aria-label={`Bulk actions for ${selectedConcertIds.length} items`}
             >
-              <MoreHorizontal className="mr-2 h-5 w-5 text-primary" />
+              <MoreHorizontal className="mr-2 h-5 w-5 text-primary" aria-hidden="true" />
               Bulk Actions
               {selectedConcertIds.length > 0 && (
                 <Badge className="ml-2 bg-primary text-primary-foreground">
@@ -132,8 +135,8 @@ export function Toolbar() {
         {/* Advanced Filter */}
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant="outline" size="lg" className="h-12 px-5 border-border bg-background hover:bg-accent hover:border-primary/50 transition-all font-semibold">
-              <Filter className="mr-2 h-5 w-5 text-primary" />
+            <Button variant="outline" size="lg" className="h-12 px-5 border-border bg-background hover:bg-accent hover:border-primary/50 transition-all font-semibold" aria-label="Open advanced filters">
+              <Filter className="mr-2 h-5 w-5 text-primary" aria-hidden="true" />
               Advanced
             </Button>
           </PopoverTrigger>

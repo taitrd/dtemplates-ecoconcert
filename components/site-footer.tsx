@@ -111,7 +111,9 @@ export function SiteFooter() {
               Join our mailing list to stay in the loop with our...
             </h3>
             <div className="relative">
+              <label htmlFor="newsletter-email" className="sr-only">Newsletter Email</label>
               <Input
+                id="newsletter-email"
                 type="email"
                 placeholder="Enter your email"
                 className="w-full bg-muted border-border placeholder:text-muted-foreground"
@@ -119,8 +121,9 @@ export function SiteFooter() {
               <Button
                 size="icon"
                 className="absolute right-1 top-1 h-8 w-8 bg-primary hover:bg-primary/90"
+                aria-label="Subscribe to newsletter"
               >
-                <Send className="h-4 w-4" />
+                <Send className="h-4 w-4" aria-hidden="true" />
               </Button>
             </div>
             <ThemeSwitcher inputOnly />
@@ -155,14 +158,16 @@ export function SiteFooter() {
               <Link
                 href="https://twitter.com"
                 className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Follow Ticketer on Twitter"
               >
-                <Twitter className="h-5 w-5" />
+                <Twitter className="h-5 w-5" aria-hidden="true" />
               </Link>
               <Link
                 href="https://facebook.com"
                 className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Follow Ticketer on Facebook"
               >
-                <Facebook className="h-5 w-5" />
+                <Facebook className="h-5 w-5" aria-hidden="true" />
               </Link>
             </div>
           </div>

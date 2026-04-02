@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User, AuthState } from './types/ticket';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { AuthState, User } from "@/lib/types";
 
 const initialState: AuthState = {
   user: null,
@@ -9,7 +9,7 @@ const initialState: AuthState = {
 };
 
 const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {
     setUser(state, action: PayloadAction<User | null>) {

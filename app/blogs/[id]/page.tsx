@@ -1,146 +1,160 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { useParams } from 'next/navigation'
-import Image from "next/image"
-import Link from "next/link"
-import { ChevronLeft, ChevronDown, ChevronRight } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { useState } from "react";
+import { useParams } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { ChevronLeft, ChevronDown, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
+} from "@/components/ui/accordion";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
 
 // Popular posts data
 const popularPosts = [
   {
     id: 1,
     title: "Tomorrowland's Epic Stage Design",
-    excerpt: "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
     date: "July 17, 2024",
     readTime: "9 min",
-    image: "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg",
+    image: "/assets/asset_b95a9401.jpeg",
     author: {
       name: "Jonathan Wills",
-      image: "/placeholder.svg"
-    }
+      image: "/placeholder.svg",
+    },
   },
   {
     id: 2,
     title: "Royal Albert Hall New Concerts",
-    excerpt: "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
     date: "July 17, 2024",
     readTime: "3 min",
-    image: "https://images.pexels.com/photos/1916824/pexels-photo-1916824.jpeg",
+    image: "/assets/asset_091e5e11.jpeg",
     author: {
       name: "Emily Parker",
-      image: "/placeholder.svg"
-    }
+      image: "/placeholder.svg",
+    },
   },
   {
     id: 3,
     title: "Summer Music Festival",
-    excerpt: "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
     date: "June 03, 2024",
     readTime: "7 min",
-    image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg",
+    image: "/assets/asset_479a8517.jpeg",
     author: {
       name: "Alex Smith",
-      image: "/placeholder.svg"
-    }
+      image: "/placeholder.svg",
+    },
   },
   {
     id: 4,
     title: "Germany's Festivals On Fire",
-    excerpt: "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
     date: "July 04, 2024",
     readTime: "8 min",
-    image: "https://images.pexels.com/photos/1687831/pexels-photo-1687831.jpeg",
+    image: "/assets/asset_f7d5f457.jpeg",
     author: {
       name: "Sophie Chen",
-      image: "/placeholder.svg"
-    }
+      image: "/placeholder.svg",
+    },
   },
   {
     id: 5,
     title: "K-Pop Band Are Coming",
-    excerpt: "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
     date: "June 05, 2024",
     readTime: "3 min",
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg",
+    image: "/assets/asset_d1774d39.jpeg",
     author: {
       name: "David Kim",
-      image: "/placeholder.svg"
-    }
-  }
-]
+      image: "/placeholder.svg",
+    },
+  },
+];
 
 export default function BlogDetailsPage() {
-  const params = useParams()
-  const id = params.id
-  const [email, setEmail] = useState('')
+  const params = useParams();
+  const id = params.id;
+  const [email, setEmail] = useState("");
 
   // This would typically fetch the blog post data based on the ID
   const post = {
     id: Number(id),
     title: "Festival Watch: Your Guide to Summer 2024",
-    content: "Lorem ipsum dolor sit amet consectetur. Nullam ac nunc urna vulputate cras dolor sed sit purus...",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. Nullam ac nunc urna vulputate cras dolor sed sit purus...",
     date: "July 17, 2024",
     category: "Concert News",
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg",
+    image: "/assets/asset_d1774d39.jpeg",
     readTime: "5 min",
     author: {
       name: "Jonathan Wills",
       image: "/placeholder.svg",
-      role: "Music Journalist"
+      role: "Music Journalist",
     },
     sections: [
       {
         title: "Introduction",
-        content: "Lorem ipsum dolor sit amet consectetur. Nullam ac nunc urna vulputate cras dolor sed sit purus. Elit dignissim nunc eget orci. Tortor rhoncus adipiscing at mus luctus in in. Congue arcu turpis aliquet purus odio erat hendrerit tristique."
+        content:
+          "Lorem ipsum dolor sit amet consectetur. Nullam ac nunc urna vulputate cras dolor sed sit purus. Elit dignissim nunc eget orci. Tortor rhoncus adipiscing at mus luctus in in. Congue arcu turpis aliquet purus odio erat hendrerit tristique.",
       },
       {
         title: "UK - (15-18 May 2024)",
-        content: "The UK festival scene kicks off with some of the biggest names in music. From sprawling countryside venues to urban celebrations, there's something for every music lover."
+        content:
+          "The UK festival scene kicks off with some of the biggest names in music. From sprawling countryside venues to urban celebrations, there's something for every music lover.",
       },
       {
         title: "Netherland - (7-9 June 2024)",
-        content: "Dutch festivals are known for their incredible production values and diverse lineups. Experience the best of electronic and contemporary music in stunning locations."
+        content:
+          "Dutch festivals are known for their incredible production values and diverse lineups. Experience the best of electronic and contemporary music in stunning locations.",
       },
       {
         title: "Belgium - (4-7 July 2024)",
-        content: "Belgium's rich festival tradition continues with world-class events that bring together international artists and local talents in historic settings."
+        content:
+          "Belgium's rich festival tradition continues with world-class events that bring together international artists and local talents in historic settings.",
       },
       {
         title: "Portugal - (11-13 July 2024)",
-        content: "Portugal's summer festivals combine perfect weather with beautiful coastal locations and an eclectic mix of musical styles."
-      }
-    ]
-  }
+        content:
+          "Portugal's summer festivals combine perfect weather with beautiful coastal locations and an eclectic mix of musical styles.",
+      },
+    ],
+  };
 
   const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle newsletter subscription
-    console.log('Subscribing:', email)
-  }
+    console.log("Subscribing:", email);
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Back Button */}
         <Link href="/blogs">
-          <Button variant="ghost" className="mb-8 text-muted-foreground hover:text-foreground">
+          <Button
+            variant="ghost"
+            className="mb-8 text-muted-foreground hover:text-foreground"
+          >
             <ChevronLeft className="h-4 w-4 mr-2" />
             Back to Blogs
           </Button>
@@ -158,17 +172,17 @@ export default function BlogDetailsPage() {
                   {post.readTime}
                 </span>
               </div>
-              <h1 className="text-4xl font-bold mb-6">
-                {post.title}
-              </h1>
+              <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
               <div className="flex items-center gap-4">
                 <Avatar className="h-12 w-12">
-                  <AvatarImage src={post.author.image} />
+                  <AvatarImage src={post.author.image} alt="Ticketer" />
                   <AvatarFallback>{post.author.name[0]}</AvatarFallback>
                 </Avatar>
                 <div>
                   <p className="font-medium">{post.author.name}</p>
-                  <p className="text-sm text-muted-foreground">{post.author.role}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {post.author.role}
+                  </p>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <time>{post.date}</time>
                     <span>·</span>
@@ -190,9 +204,7 @@ export default function BlogDetailsPage() {
 
             {/* Content */}
             <div className="prose prose-invert max-w-none">
-              <p className="text-muted-foreground mb-8">
-                {post.content}
-              </p>
+              <p className="text-muted-foreground mb-8">{post.content}</p>
 
               {/* Festival Watch Section */}
               <section className="my-16">
@@ -203,12 +215,16 @@ export default function BlogDetailsPage() {
                       Here are the Unmissable European music festival of 2024
                     </h3>
                     <p className="text-muted-foreground">
-                      Lorem ipsum dolor sit amet consectetur. Nullam ac nunc urna vulputate cras dolor sed sit purus. Elit dignissim nunc eget orci. Tortor rhoncus adipiscing at mus luctus in in. Congue arcu turpis aliquet purus odio erat hendrerit tristique.
+                      Lorem ipsum dolor sit amet consectetur. Nullam ac nunc
+                      urna vulputate cras dolor sed sit purus. Elit dignissim
+                      nunc eget orci. Tortor rhoncus adipiscing at mus luctus in
+                      in. Congue arcu turpis aliquet purus odio erat hendrerit
+                      tristique.
                     </p>
                   </div>
                   <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
                     <Image
-                      src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg"
+                      src="/assets/asset_479a8517.jpeg"
                       alt="Festival crowd in front of colorful stage"
                       fill
                       className="object-cover"
@@ -239,16 +255,19 @@ export default function BlogDetailsPage() {
             <div className="bg-card border border-border rounded-xl p-6">
               <div className="flex items-center gap-4 mb-4">
                 <Avatar className="h-16 w-16">
-                  <AvatarImage src={post.author.image} />
+                  <AvatarImage src={post.author.image} alt="Ticketer" />
                   <AvatarFallback>{post.author.name[0]}</AvatarFallback>
                 </Avatar>
                 <div>
                   <h2 className="font-semibold text-lg">{post.author.name}</h2>
-                  <p className="text-sm text-muted-foreground">{post.author.role}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {post.author.role}
+                  </p>
                 </div>
               </div>
               <p className="text-muted-foreground text-sm mb-4">
-                Music journalist with over 10 years of experience covering festivals and live events across Europe.
+                Music journalist with over 10 years of experience covering
+                festivals and live events across Europe.
               </p>
               <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                 Follow
@@ -257,7 +276,9 @@ export default function BlogDetailsPage() {
 
             {/* Newsletter Subscription */}
             <div className="bg-card border border-border rounded-xl p-6">
-              <h2 className="text-2xl font-semibold mb-2">Subscribe our news letter</h2>
+              <h2 className="text-2xl font-semibold mb-2">
+                Subscribe our news letter
+              </h2>
               <p className="text-muted-foreground text-sm mb-6">
                 For weekly later news and offers, Join us here.
               </p>
@@ -270,7 +291,10 @@ export default function BlogDetailsPage() {
                   className="bg-muted border-border"
                   required
                 />
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Button
+                  type="submit"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
                   Subscribe
                 </Button>
               </form>
@@ -285,7 +309,7 @@ export default function BlogDetailsPage() {
                     <div className="flex gap-4">
                       <div className="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
                         <Image
-                          src={`https://images.pexels.com/photos/${1699161 + i}/pexels-photo-${1699161 + i}.jpeg`}
+                          src={`/assets/asset_d1774d39.jpeg`}
                           alt="Related post thumbnail"
                           fill
                           className="object-cover"
@@ -295,7 +319,9 @@ export default function BlogDetailsPage() {
                         <h3 className="font-medium group-hover:text-primary transition-colors">
                           Another Festival Article {i}
                         </h3>
-                        <p className="text-sm text-muted-foreground">July {15 + i}, 2024</p>
+                        <p className="text-sm text-muted-foreground">
+                          July {15 + i}, 2024
+                        </p>
                       </div>
                     </div>
                   </Link>
@@ -309,15 +335,15 @@ export default function BlogDetailsPage() {
         <section className="mt-16 mb-8">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold">Popular Posts</h2>
-            <Link 
-              href="/blogs" 
+            <Link
+              href="/blogs"
               className="text-primary hover:text-primary/90 flex items-center gap-2"
             >
               All News
               <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
-          
+
           <Carousel
             opts={{
               align: "start",
@@ -327,7 +353,10 @@ export default function BlogDetailsPage() {
           >
             <CarouselContent className="-ml-4">
               {popularPosts.map((post) => (
-                <CarouselItem key={post.id} className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                <CarouselItem
+                  key={post.id}
+                  className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
+                >
                   <Link href={`/blogs/${post.id}`}>
                     <div className="group">
                       <div className="relative aspect-[16/9] rounded-lg overflow-hidden mb-4">
@@ -346,11 +375,13 @@ export default function BlogDetailsPage() {
                       </p>
                       <div className="flex items-center gap-3">
                         <Avatar className="h-8 w-8">
-                          <AvatarImage src={post.author.image} />
+                          <AvatarImage src={post.author.image} alt="Ticketer" />
                           <AvatarFallback>{post.author.name[0]}</AvatarFallback>
                         </Avatar>
                         <div>
-                          <p className="text-sm font-medium">{post.author.name}</p>
+                          <p className="text-sm font-medium">
+                            {post.author.name}
+                          </p>
                           <div className="flex items-center gap-2 text-sm text-muted-foreground">
                             <time>{post.date}</time>
                             <span>·</span>
@@ -369,6 +400,5 @@ export default function BlogDetailsPage() {
         </section>
       </div>
     </div>
-  )
+  );
 }
-

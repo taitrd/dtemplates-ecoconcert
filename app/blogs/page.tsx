@@ -1,153 +1,161 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Input } from "@/components/ui/input"
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Search, ChevronLeft, ChevronRight } from 'lucide-react'
-import Image from "next/image"
-import Link from "next/link"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
+} from "@/components/ui/select";
+import { Search, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
 
 const popularPosts = [
   {
     id: 1,
     title: "Tomorrowland's Epic Stage Design",
-    excerpt: "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
     date: "July 17, 2024",
     readTime: "9 min",
-    image: "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg",
+    image: "/assets/asset_b95a9401.jpeg",
     author: {
       name: "Jonathan Wills",
-      image: "/placeholder.svg"
-    }
+      image: "/placeholder.svg",
+    },
   },
   {
     id: 2,
     title: "Royal Albert Hall New Concerts",
-    excerpt: "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
     date: "July 17, 2024",
     readTime: "3 min",
-    image: "https://images.pexels.com/photos/1916824/pexels-photo-1916824.jpeg",
+    image: "/assets/asset_091e5e11.jpeg",
     author: {
       name: "Emily Parker",
-      image: "/placeholder.svg"
-    }
+      image: "/placeholder.svg",
+    },
   },
   {
     id: 3,
     title: "Summer Music Festival",
-    excerpt: "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
     date: "June 03, 2024",
     readTime: "7 min",
-    image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg",
+    image: "/assets/asset_479a8517.jpeg",
     author: {
       name: "Alex Smith",
-      image: "/placeholder.svg"
-    }
+      image: "/placeholder.svg",
+    },
   },
   {
     id: 4,
     title: "Germany's Festivals On Fire",
-    excerpt: "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
     date: "July 04, 2024",
     readTime: "8 min",
-    image: "https://images.pexels.com/photos/1687831/pexels-photo-1687831.jpeg",
+    image: "/assets/asset_f7d5f457.jpeg",
     author: {
       name: "Sophie Chen",
-      image: "/placeholder.svg"
-    }
+      image: "/placeholder.svg",
+    },
   },
   {
     id: 5,
     title: "K-Pop Band Are Coming",
-    excerpt: "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
+    excerpt:
+      "Lorem ipsum dolor sit amet consectetur. A vivamus donec bibendum massa erat the ultrices nulla. Velit euismod gravida...",
     date: "June 05, 2024",
     readTime: "3 min",
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg",
+    image: "/assets/asset_d1774d39.jpeg",
     author: {
       name: "David Kim",
-      image: "/placeholder.svg"
-    }
-  }
-]
+      image: "/placeholder.svg",
+    },
+  },
+];
 
 const blogPosts = [
   // Previous blog posts...
   {
     id: 1,
     title: "Taylor Swift's Record-Breaking Eras Tour",
-    excerpt: "Breaking down the numbers and impact of one of the most successful concert tours in history.",
+    excerpt:
+      "Breaking down the numbers and impact of one of the most successful concert tours in history.",
     date: "July 12, 2024",
     category: "Concert News",
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg",
+    image: "/assets/asset_d1774d39.jpeg",
     readTime: "8 min",
     author: {
       name: "Jonathan Willis",
       image: "/placeholder.svg",
-      role: "Music Journalist"
-    }
+      role: "Music Journalist",
+    },
   },
   // Add 11 more posts to create a 4x3 grid
   {
     id: 2,
     title: "The Evolution of Concert Technology",
-    excerpt: "How modern technology is revolutionizing the live music experience for artists and fans alike.",
+    excerpt:
+      "How modern technology is revolutionizing the live music experience for artists and fans alike.",
     date: "July 10, 2024",
     category: "Industry Insights",
-    image: "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg",
+    image: "/assets/asset_b95a9401.jpeg",
     readTime: "6 min",
     author: {
       name: "Sarah Chen",
       image: "/placeholder.svg",
-      role: "Tech Analyst"
-    }
+      role: "Tech Analyst",
+    },
   },
   // ... Add more posts to fill the grid
   {
     id: 12,
     title: "The Future of Virtual Concerts",
-    excerpt: "Exploring how virtual reality is changing the way we experience live music.",
+    excerpt:
+      "Exploring how virtual reality is changing the way we experience live music.",
     date: "July 1, 2024",
     category: "Technology",
-    image: "https://images.pexels.com/photos/1916824/pexels-photo-1916824.jpeg",
+    image: "/assets/asset_091e5e11.jpeg",
     readTime: "7 min",
     author: {
       name: "Alex Thompson",
       image: "/placeholder.svg",
-      role: "Tech Writer"
-    }
-  }
-]
+      role: "Tech Writer",
+    },
+  },
+];
 
 export default function BlogsPage() {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [sortBy, setSortBy] = useState('latest')
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortBy, setSortBy] = useState("latest");
 
   const filteredPosts = blogPosts
-    .filter(post => 
-      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
+    .filter(
+      (post) =>
+        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()),
     )
     .sort((a, b) => {
-      if (sortBy === 'latest') {
-        return new Date(b.date).getTime() - new Date(a.date).getTime()
+      if (sortBy === "latest") {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
       }
-      return 0
-    })
+      return 0;
+    });
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -156,7 +164,8 @@ export default function BlogsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Blog</h1>
           <p className="text-xl text-muted-foreground">
-            Our place to share news about concerts, events and singers all around the world
+            Our place to share news about concerts, events and singers all
+            around the world
           </p>
         </div>
       </div>
@@ -166,15 +175,15 @@ export default function BlogsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold">Popular Posts</h2>
-            <Link 
-              href="/blogs/popular" 
+            <Link
+              href="/blogs/popular"
               className="text-primary hover:text-primary/90 flex items-center gap-2"
             >
               All News
               <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
-          
+
           <Carousel
             opts={{
               align: "start",
@@ -184,7 +193,10 @@ export default function BlogsPage() {
           >
             <CarouselContent className="-ml-4">
               {popularPosts.map((post) => (
-                <CarouselItem key={post.id} className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                <CarouselItem
+                  key={post.id}
+                  className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                >
                   <Link href={`/blogs/${post.id}`}>
                     <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-4">
                       <Image
@@ -202,11 +214,13 @@ export default function BlogsPage() {
                     </p>
                     <div className="flex items-center gap-3">
                       <Avatar className="h-8 w-8">
-                        <AvatarImage src={post.author.image} />
+                        <AvatarImage src={post.author.image} alt="Ticketer" />
                         <AvatarFallback>{post.author.name[0]}</AvatarFallback>
                       </Avatar>
                       <div>
-                        <p className="text-sm font-medium">{post.author.name}</p>
+                        <p className="text-sm font-medium">
+                          {post.author.name}
+                        </p>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
                           <time>{post.date}</time>
                           <span>·</span>
@@ -256,7 +270,7 @@ export default function BlogsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {filteredPosts.map((post) => (
-            <article 
+            <article
               key={post.id}
               className="bg-card border border-border rounded-lg overflow-hidden hover:bg-muted/50 transition-colors"
             >
@@ -286,7 +300,7 @@ export default function BlogsPage() {
                   </p>
                   <div className="flex items-center gap-3">
                     <Avatar>
-                      <AvatarImage src={post.author.image} />
+                      <AvatarImage src={post.author.image} alt="Ticketer" />
                       <AvatarFallback>{post.author.name[0]}</AvatarFallback>
                     </Avatar>
                     <div className="flex-1">
@@ -306,11 +320,12 @@ export default function BlogsPage() {
 
         {filteredPosts.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">No blog posts found matching your search.</p>
+            <p className="text-muted-foreground">
+              No blog posts found matching your search.
+            </p>
           </div>
         )}
       </div>
     </div>
-  )
+  );
 }
-

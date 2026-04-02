@@ -22,7 +22,7 @@ const concerts = [
     date: "August 15, 2024",
     location: "New York, NY",
     venue: "Madison Square Garden",
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg",
+    image: "/assets/asset_d1774d39.jpeg",
     price: 150
   },
   {
@@ -31,7 +31,7 @@ const concerts = [
     date: "September 3, 2024",
     location: "Los Angeles, CA",
     venue: "SoFi Stadium",
-    image: "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg",
+    image: "/assets/asset_b95a9401.jpeg",
     price: 120
   },
   {
@@ -40,7 +40,7 @@ const concerts = [
     date: "July 22, 2024",
     location: "London, UK",
     venue: "Wembley Stadium",
-    image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg",
+    image: "/assets/asset_479a8517.jpeg",
     price: 200
   },
   {
@@ -49,7 +49,7 @@ const concerts = [
     date: "October 10, 2024",
     location: "Paris, France",
     venue: "Stade de France",
-    image: "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg",
+    image: "/assets/asset_b95a9401.jpeg",
     price: 130
   },
   {
@@ -58,7 +58,7 @@ const concerts = [
     date: "November 5, 2024",
     location: "Berlin, Germany",
     venue: "Mercedes-Benz Arena",
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg",
+    image: "/assets/asset_d1774d39.jpeg",
     price: 180
   },
   {
@@ -67,7 +67,7 @@ const concerts = [
     date: "August 28, 2024",
     location: "Toronto, Canada",
     venue: "Scotiabank Arena",
-    image: "https://images.pexels.com/photos/1916824/pexels-photo-1916824.jpeg",
+    image: "/assets/asset_091e5e11.jpeg",
     price: 140
   }
 ]

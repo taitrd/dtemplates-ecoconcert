@@ -45,7 +45,7 @@ const tickets: TicketItem[] = [
     seat: 105,
     price: 399,
     ticketType: "VIP Ticket",
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg"
+    image: "/assets/asset_d1774d39.jpeg"
   },
   {
     id: 2,
@@ -58,7 +58,7 @@ const tickets: TicketItem[] = [
     seat: 106,
     price: 399,
     ticketType: "VIP Ticket",
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg"
+    image: "/assets/asset_d1774d39.jpeg"
   }
 ]
 

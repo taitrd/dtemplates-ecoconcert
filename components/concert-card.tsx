@@ -44,6 +44,7 @@ export function ConcertCard({ id, artist, location, dateRange, price, imageUrl, 
             src={imageUrl}
             alt={artist}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             className="object-cover transition-transform duration-500 hover:scale-110"
           />
           <div className="absolute top-2 right-2">

@@ -290,7 +290,7 @@ export default function SignUpPage() {
       {/* Image Section */}
       <div className="hidden lg:block relative bg-muted">
         <Image
-          src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg"
+          src="/assets/asset_b95a9401.jpeg"
           alt="Concert crowd"
           fill
           className="object-cover opacity-80"

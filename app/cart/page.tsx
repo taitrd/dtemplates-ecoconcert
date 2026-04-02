@@ -34,7 +34,7 @@ const cartItems: CartItem[] = [
     row: "A",
     seat: 12,
     price: 399,
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg",
+    image: "/assets/asset_d1774d39.jpeg",
     quantity: 1
   },
   {
@@ -48,7 +48,7 @@ const cartItems: CartItem[] = [
     row: "C",
     seat: 5,
     price: 299,
-    image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg",
+    image: "/assets/asset_479a8517.jpeg",
     quantity: 1
   }
 ]

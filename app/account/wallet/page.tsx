@@ -26,7 +26,7 @@ const tickets: TicketWallet[] = [
     row: "12",
     seat: "24",
     status: "valid",
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg"
+    image: "/assets/asset_d1774d39.jpeg"
   },
   {
     id: "TKT-002",
@@ -37,7 +37,7 @@ const tickets: TicketWallet[] = [
     row: "15",
     seat: "10",
     status: "valid",
-    image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg"
+    image: "/assets/asset_479a8517.jpeg"
   }
 ]
 

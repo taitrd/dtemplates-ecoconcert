@@ -159,6 +159,7 @@ export function TopNavigation() {
             width={130}
             className="object-cover min-h-8"
             alt="Ticketer"
+            fetchPriority="high"
           />
         </Link>
       </div>

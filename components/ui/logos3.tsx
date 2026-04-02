@@ -104,6 +104,7 @@ const Logos3 = ({
             }),
           ]}
           className="w-full bg-secondary py-24"
+          aria-label="Partner logos ticker"
         >
           <CarouselContent className="flex items-center">
             {logos.map((logo) => (
@@ -113,11 +114,11 @@ const Logos3 = ({
               >
                 <Image
                   src={logo.image}
-                  alt={logo.description}
+                  alt={`${logo.description} logo`}
                   className={logo.className}
                   loading="lazy"
-                  height={600}
-                  width={800}
+                  height={100}
+                  width={200}
                 />
               </CarouselItem>
             ))}
@@ -127,11 +128,13 @@ const Logos3 = ({
                 key={`${logo.id}-dup`}
                 className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 flex justify-center items-center px-12"
               >
-                <img
+                <Image
                   src={logo.image}
-                  alt={logo.description}
+                  alt={`${logo.description} logo`}
                   className={logo.className}
                   loading="lazy"
+                  height={100}
+                  width={200}
                 />
               </CarouselItem>
             ))}

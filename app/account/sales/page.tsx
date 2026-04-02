@@ -31,7 +31,7 @@ const sales: Sale[] = [
     price: 399.99,
     quantity: 2,
     status: "completed",
-    image: "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg"
+    image: "/assets/asset_d1774d39.jpeg"
   },
   {
     id: "SL-002",
@@ -41,7 +41,7 @@ const sales: Sale[] = [
     price: 299.99,
     quantity: 1,
     status: "pending",
-    image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg"
+    image: "/assets/asset_479a8517.jpeg"
   }
 ]
 

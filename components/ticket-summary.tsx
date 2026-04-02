@@ -35,7 +35,7 @@ export function TicketSummary({ tickets, onCheckout, concertInfo }: TicketSummar
           <div key={index} className="flex gap-4 p-4 bg-muted/30 rounded-lg">
             <div className="relative w-20 h-20">
               <Image
-                src="https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg"
+                src="/assets/asset_d1774d39.jpeg"
                 alt="Taylor Swift"
                 fill
                 className="object-cover rounded-lg"

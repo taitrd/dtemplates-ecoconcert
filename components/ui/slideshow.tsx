@@ -7,13 +7,13 @@ import { Button } from "@/components/ui/button";
 
 const slides = [
   {
-    img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1600&h=900&fit=crop",
+    img: "/assets/asset_076f2363.jpeg",
     text: ["BEYOND SOUND", "PURE ENERGY"],
     location: "Tomorrowland Mainstage",
     date: "July 2026",
   },
   {
-    img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1600&h=900&fit=crop",
+    img: "/assets/asset_adc75c6f.jpeg",
     text: ["UNITE IN", "THE RHYTHM"],
     location: "Wembley Stadium, London",
     date: "August 2026",
@@ -25,13 +25,13 @@ const slides = [
     date: "September 2026",
   },
   {
-    img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1600&h=900&fit=crop",
+    img: "/assets/asset_61192bc3.jpeg",
     text: ["ECHOES OF", "ETERNITY"],
     location: "Sydney Opera House",
     date: "October 2026",
   },
   {
-    img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=1600&h=900&fit=crop",
+    img: "/assets/asset_41753393.jpeg",
     text: ["RAW POWER", "SOULFUL VIBE"],
     location: "Red Rocks Amphitheater",
     date: "November 2026",
@@ -108,16 +108,18 @@ export default function Slideshow() {
           size="icon"
           className="h-16 w-16 rounded-full bg-white/10 backdrop-blur-xl border-white/20 text-white hover:bg-white hover:text-black transition-all"
           onClick={prevSlide}
+          aria-label="Previous slide"
         >
-          <ChevronLeft className="h-8 w-8" />
+          <ChevronLeft className="h-8 w-8" aria-hidden="true" />
         </Button>
         <Button
           variant="outline"
           size="icon"
           className="h-16 w-16 rounded-full bg-white/10 backdrop-blur-xl border-white/20 text-white hover:bg-white hover:text-black transition-all"
           onClick={nextSlide}
+          aria-label="Next slide"
         >
-          <ChevronRight className="h-8 w-8" />
+          <ChevronRight className="h-8 w-8" aria-hidden="true" />
         </Button>
       </div>
 

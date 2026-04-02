@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Concert, Ticket, SearchFilters, TicketState } from './types/ticket';
+import { Concert, Ticket, SearchFilters, TicketState } from '@/lib/types';
 
 const initialState: TicketState = {
   concerts: [],

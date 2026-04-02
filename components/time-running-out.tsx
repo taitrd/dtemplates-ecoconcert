@@ -21,7 +21,7 @@ export function TimeRunningOut() {
       price: 299.99,
       days: 15,
       imageUrl:
-        "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg",
+        "/assets/asset_b95a9401.jpeg",
     },
     {
       artist: "Taylor Swift",
@@ -30,7 +30,7 @@ export function TimeRunningOut() {
       price: 799.99,
       days: 15,
       imageUrl:
-        "https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg",
+        "/assets/asset_d1774d39.jpeg",
     },
     {
       artist: "Ariana Grande",
@@ -39,7 +39,7 @@ export function TimeRunningOut() {
       price: 199.99,
       days: 14,
       imageUrl:
-        "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg",
+        "/assets/asset_479a8517.jpeg",
     },
     {
       artist: "Adele",
@@ -48,7 +48,7 @@ export function TimeRunningOut() {
       price: 499.99,
       days: 12,
       imageUrl:
-        "https://images.pexels.com/photos/2747446/pexels-photo-2747446.jpeg",
+        "/assets/asset_253b0770.jpeg",
     },
     {
       artist: "Khalid",
@@ -57,7 +57,7 @@ export function TimeRunningOut() {
       price: 499.99,
       days: 10,
       imageUrl:
-        "https://images.pexels.com/photos/1916824/pexels-photo-1916824.jpeg",
+        "/assets/asset_091e5e11.jpeg",
     },
   ];
 

@@ -38,15 +38,18 @@ function ConcertHero() {
           ease: "linear",
         }}
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-60"
-        src="https://videos.pexels.com/video-files/18526841/uhd_30fps.mp4"
+        src="/assets/asset_5927cf8d.mp4"
         autoPlay
         loop
         muted
         playsInline
+        aria-hidden="true"
+        title="Atmospheric concert background video"
       />
 
-      {/* Animated Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-background via-background/40 to-primary/20 z-10 animate-pulse duration-[8000ms]" />
+      {/* Animated Gradient Overlay and Contrast Enhancer */}
+      <div className="absolute inset-0 bg-black/50 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-background/40 to-primary/20 z-10 animate-pulse duration-[8000ms]" />
 
       {/* Scanline Effect */}
       <div className="absolute inset-0 z-15 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] opacity-20" />
@@ -64,7 +67,7 @@ function ConcertHero() {
             className="px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md"
           >
             <span className="text-primary text-xs font-bold uppercase tracking-[0.2em] flex items-center gap-2">
-              <Zap className="w-3 h-3 fill-primary" /> Live Experience 2026
+              <Zap className="w-3 h-3 fill-primary" aria-hidden="true" /> Live Experience 2026
             </span>
           </motion.div>
 
@@ -102,21 +105,23 @@ function ConcertHero() {
           <div className="flex flex-col sm:flex-row gap-5 mt-4">
             <Button
               size="lg"
+              name="obtain-passes"
               className="h-14 px-8 bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_20px_rgba(var(--primary),0.4)] transition-all duration-300 transform hover:-translate-y-1 rounded-xl font-bold"
               asChild
             >
-              <Link href="/concerts">
-                Obtain Passes <Ticket className="ml-2 w-5 h-5" />
+              <Link href="/concerts" aria-label="Obtain passes for upcoming concerts">
+                Obtain Passes <Ticket className="ml-2 w-5 h-5" aria-hidden="true" />
               </Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
+              name="view-lineup"
               className="h-14 px-8 border-primary/50 text-primary hover:bg-primary/10 backdrop-blur-md rounded-xl font-bold"
               asChild
             >
-              <Link href="/concerts/1">
-                View Lineup <Music className="ml-2 w-5 h-5" />
+              <Link href="/concerts/1" aria-label="View the full lineup of performers">
+                View Lineup <Music className="ml-2 w-5 h-5" aria-hidden="true" />
               </Link>
             </Button>
           </div>
@@ -128,6 +133,7 @@ function ConcertHero() {
             animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
             transition={{ duration: 5, repeat: Infinity }}
             className="absolute top-1/4 left-1/4"
+            aria-hidden="true"
           >
             <Music className="w-12 h-12 text-primary" />
           </motion.div>
@@ -135,6 +141,7 @@ function ConcertHero() {
             animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
             transition={{ duration: 7, repeat: Infinity }}
             className="absolute bottom-1/4 right-1/4"
+            aria-hidden="true"
           >
             <Zap className="w-16 h-16 text-primary" />
           </motion.div>

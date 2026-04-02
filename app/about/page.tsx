@@ -94,7 +94,7 @@ export default function AboutPage() {
             </div>
             <div className="relative aspect-video rounded-xl overflow-hidden">
               <Image
-                src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg"
+                src="/assets/asset_b95a9401.jpeg"
                 alt="Concert crowd enjoying a live performance"
                 fill
                 className="object-cover"

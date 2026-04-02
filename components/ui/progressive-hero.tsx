@@ -80,7 +80,7 @@ function DarkProjectHero() {
     <div className="fixed inset-0 w-full h-full min-h-screen min-w-screen z-[-1] font-sans">
       <video
         className="absolute inset-0 w-full h-full object-cover z-0"
-        src="https://videos.pexels.com/video-files/18526841/uhd_30fps.mp4"
+        src="/assets/asset_5927cf8d.mp4"
         autoPlay
         loop
         muted

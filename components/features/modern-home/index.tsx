@@ -3,15 +3,17 @@
 import * as React from "react";
 import { ConcertHero } from "@/components/ui/concert-hero";
 import { Toolbar } from "../home/toolbar";
-import { ConcertCarousel } from "@/components/concert-carousel";
-import { BenefitsSection } from "@/components/benefits-section";
-import { UpcomingConcerts } from "@/components/upcoming-concerts";
-import { NewsletterSection } from "@/components/newsletter-section";
-import { TestimonialsSection } from "@/components/testimonials-2-section";
-import { FaqSection } from "@/components/faq-section";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { Logos3 } from "@/components/ui/logos3";
-import Slideshow from "@/components/ui/slideshow";
+
+const ConcertCarousel = dynamic(() => import("@/components/concert-carousel").then(mod => mod.ConcertCarousel), { ssr: false });
+const BenefitsSection = dynamic(() => import("@/components/benefits-section").then(mod => mod.BenefitsSection), { ssr: true });
+const UpcomingConcerts = dynamic(() => import("@/components/upcoming-concerts").then(mod => mod.UpcomingConcerts), { ssr: true });
+const NewsletterSection = dynamic(() => import("@/components/newsletter-section").then(mod => mod.NewsletterSection), { ssr: true });
+const TestimonialsSection = dynamic(() => import("@/components/testimonials-2-section").then(mod => mod.TestimonialsSection), { ssr: true });
+const FaqSection = dynamic(() => import("@/components/faq-section").then(mod => mod.FaqSection), { ssr: true });
+const Logos3 = dynamic(() => import("@/components/ui/logos3").then(mod => mod.Logos3), { ssr: false });
+const Slideshow = dynamic(() => import("@/components/ui/slideshow"), { ssr: false });
 
 export function ModernHomeFeature() {
   return (

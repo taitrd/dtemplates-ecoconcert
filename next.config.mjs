@@ -1,14 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   images: {
-    unoptimized: true,
+    unoptimized: false,
   },
-
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
   },
   distDir: process.env.NODE_ENV === "development" ? ".next-dev" : ".next",
   async redirects() {

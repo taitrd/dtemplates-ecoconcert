@@ -1,28 +1,28 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import ThemeSwitcher from '@/components/theme-switcher'
+} from "@/components/ui/select";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ThemeSwitcher from "@/components/theme-switcher";
 
 export default function SettingsPage() {
   const [notifications, setNotifications] = useState({
     email: true,
     push: true,
     sms: false,
-    promotional: false
-  })
+    promotional: false,
+  });
 
   return (
     <div className="p-8">
@@ -37,7 +37,7 @@ export default function SettingsPage() {
           <CardContent className="space-y-6">
             <div className="flex items-center gap-4">
               <Avatar className="h-20 w-20">
-                <AvatarImage src="/placeholder.svg" />
+                <AvatarImage src="/placeholder.svg" alt="Ticketer" />
                 <AvatarFallback>EB</AvatarFallback>
               </Avatar>
               <Button variant="outline">Change Photo</Button>
@@ -49,7 +49,11 @@ export default function SettingsPage() {
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" defaultValue="elnazbolkhari@gmail.com" />
+                <Input
+                  id="email"
+                  type="email"
+                  defaultValue="elnazbolkhari@gmail.com"
+                />
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="phone">Phone Number</Label>
@@ -77,7 +81,7 @@ export default function SettingsPage() {
               <Switch
                 checked={notifications.email}
                 onCheckedChange={(checked) =>
-                  setNotifications(prev => ({ ...prev, email: checked }))
+                  setNotifications((prev) => ({ ...prev, email: checked }))
                 }
               />
             </div>
@@ -91,7 +95,7 @@ export default function SettingsPage() {
               <Switch
                 checked={notifications.push}
                 onCheckedChange={(checked) =>
-                  setNotifications(prev => ({ ...prev, push: checked }))
+                  setNotifications((prev) => ({ ...prev, push: checked }))
                 }
               />
             </div>
@@ -105,7 +109,7 @@ export default function SettingsPage() {
               <Switch
                 checked={notifications.sms}
                 onCheckedChange={(checked) =>
-                  setNotifications(prev => ({ ...prev, sms: checked }))
+                  setNotifications((prev) => ({ ...prev, sms: checked }))
                 }
               />
             </div>
@@ -119,7 +123,10 @@ export default function SettingsPage() {
               <Switch
                 checked={notifications.promotional}
                 onCheckedChange={(checked) =>
-                  setNotifications(prev => ({ ...prev, promotional: checked }))
+                  setNotifications((prev) => ({
+                    ...prev,
+                    promotional: checked,
+                  }))
                 }
               />
             </div>
@@ -190,6 +197,5 @@ export default function SettingsPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
