@@ -157,7 +157,7 @@ export function TopNavigation() {
             src={"/ticketer.png"}
             height={80}
             width={130}
-            className="object-cover min-h-8"
+            className="object-cover min-h-6 max-h-10"
             alt="Ticketer"
             fetchPriority="high"
           />

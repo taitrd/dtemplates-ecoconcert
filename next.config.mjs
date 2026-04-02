@@ -10,6 +10,43 @@ const nextConfig = {
     ignoreDuringBuilds: false,
   },
   distDir: process.env.NODE_ENV === "development" ? ".next-dev" : ".next",
+  async headers() {
+    const cacheStaticSources = [
+      "/_next/image/:path*",
+      "/assets/:path*",
+      "/concerts/:path*",
+      "/partners/:path*",
+      "/singers/:path*",
+      "/css/:path*",
+      "/fonts/:path*",
+      "/favicon.ico",
+      "/placeholder-logo.png",
+      "/placeholder-logo.svg",
+      "/placeholder-user.svg",
+      "/placeholder.jpg",
+      "/placeholder.png",
+      "/placeholder.svg",
+      "/ticketer.png",
+    ];
+
+    const cacheNextSources = ["/_next/static/:path*"];
+
+    /**
+     * Static sources cache until hard refresh cache
+     */
+    const cacheStaticConfigs = cacheStaticSources.map((source) => ({
+      source,
+      headers: [{ key: "Cache-Control", value: "public, max-age=2159000" }],
+    }));
+    const cacheNextConfigs = cacheNextSources.map((source) => ({
+      source,
+      headers: [{ key: "Cache-Control", value: "public, max-age=2159000" }],
+    }));
+    if (process.env.NODE_ENV == "development") {
+      return [...cacheStaticConfigs];
+    }
+    return [...cacheNextConfigs, ...cacheStaticConfigs];
+  },
   async redirects() {
     const enterpricePaths = ["/account/:path"];
     if (process.env.APP_VERSION !== "full") {
