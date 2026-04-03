@@ -70,7 +70,7 @@ const Logos3 = ({
     {
       id: "logo-7",
       description: "Warner Music Group",
-      image: "/partners/wmg.svg",
+      image: "/partners/wmg.png",
       className:
         "h-12 w-auto dark:invert grayscale opacity-70 dark:hover:grayscale hover:opacity-100 hover:grayscale-0 transition-all",
     },
@@ -86,7 +86,7 @@ const Logos3 = ({
   return (
     <section className="py-8 bg-background relative overflow-hidden group">
       <div className="container px-4 flex flex-col items-center text-center">
-        <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-primary/40 mb-12">
+        <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-primary mb-12">
           {heading}
         </h2>
       </div>
