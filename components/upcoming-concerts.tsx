@@ -20,7 +20,7 @@ export function UpcomingConcerts() {
   );
 
   return (
-    <section className="w-full py-20 px-4 md:px-6 bg-background/50 backdrop-blur-sm">
+    <section className="w-full py-20 px-4 md:px-6 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">

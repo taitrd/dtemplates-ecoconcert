@@ -75,7 +75,7 @@ export function NewsletterSection() {
   };
 
   return (
-    <section className="w-full py-24 px-4 md:px-6 bg-muted/20 border-y border-border">
+    <section className="w-full py-24 px-4 md:px-6 bg-accent/50 border-y border-border">
       <div className="overflow-x-auto overflow-y-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Newsletter Subscription */}

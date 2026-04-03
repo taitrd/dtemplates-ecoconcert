@@ -84,7 +84,7 @@ const Logos3 = ({
   ],
 }: Logos3Props) => {
   return (
-    <section className="py-8 bg-background relative overflow-hidden group">
+    <section className="py-8 relative overflow-hidden group">
       <div className="container px-4 flex flex-col items-center text-center">
         <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-primary mb-12">
           {heading}

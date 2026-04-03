@@ -6,18 +6,54 @@ import { Toolbar } from "../home/toolbar";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 
-const ConcertCarousel = dynamic(() => import("@/components/concert-carousel").then(mod => mod.ConcertCarousel), { ssr: false });
-const BenefitsSection = dynamic(() => import("@/components/benefits-section").then(mod => mod.BenefitsSection), { ssr: true });
-const UpcomingConcerts = dynamic(() => import("@/components/upcoming-concerts").then(mod => mod.UpcomingConcerts), { ssr: true });
-const NewsletterSection = dynamic(() => import("@/components/newsletter-section").then(mod => mod.NewsletterSection), { ssr: true });
-const TestimonialsSection = dynamic(() => import("@/components/testimonials-2-section").then(mod => mod.TestimonialsSection), { ssr: true });
-const FaqSection = dynamic(() => import("@/components/faq-section").then(mod => mod.FaqSection), { ssr: true });
-const Logos3 = dynamic(() => import("@/components/ui/logos3").then(mod => mod.Logos3), { ssr: false });
-const Slideshow = dynamic(() => import("@/components/ui/slideshow"), { ssr: false });
+import { BackgroundSnippet } from "@/components/ui/background-snippet";
+
+const ConcertCarousel = dynamic(
+  () =>
+    import("@/components/concert-carousel").then((mod) => mod.ConcertCarousel),
+  { ssr: false },
+);
+const BenefitsSection = dynamic(
+  () =>
+    import("@/components/benefits-section").then((mod) => mod.BenefitsSection),
+  { ssr: true },
+);
+const UpcomingConcerts = dynamic(
+  () =>
+    import("@/components/upcoming-concerts").then(
+      (mod) => mod.UpcomingConcerts,
+    ),
+  { ssr: true },
+);
+const NewsletterSection = dynamic(
+  () =>
+    import("@/components/newsletter-section").then(
+      (mod) => mod.NewsletterSection,
+    ),
+  { ssr: true },
+);
+const TestimonialsSection = dynamic(
+  () =>
+    import("@/components/testimonials-2-section").then(
+      (mod) => mod.TestimonialsSection,
+    ),
+  { ssr: true },
+);
+const FaqSection = dynamic(
+  () => import("@/components/faq-section").then((mod) => mod.FaqSection),
+  { ssr: true },
+);
+const Logos3 = dynamic(
+  () => import("@/components/ui/logos3").then((mod) => mod.Logos3),
+  { ssr: false },
+);
+const Slideshow = dynamic(() => import("@/components/ui/slideshow"), {
+  ssr: false,
+});
 
 export function ModernHomeFeature() {
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground scroll-smooth">
+    <div className="flex flex-col min-h-screen scroll-smooth">
       <ConcertHero />
 
       <div className="relative z-30 -mt-24 mb-24 max-w-7xl mx-auto w-full px-4">
@@ -54,26 +90,26 @@ export function ModernHomeFeature() {
 
         <BenefitsSection />
 
+        <BackgroundSnippet className="py-40" />
         <section className="container mx-auto px-4">
           <div className="flex flex-col gap-4 mb-12 items-center text-center">
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase">
               Live <span className="text-primary italic">Lineup</span>
             </h2>
-            <p className="text-muted-foreground max-w-xl">
+            <p className="text-muted-foreground/80 max-w-xl">
               Dont miss out on the most anticipated performances of the season.
               Secure your spot now.
             </p>
           </div>
           <UpcomingConcerts />
         </section>
-
         <Logos3 />
 
         <motion.section
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="bg-accent/50 py-32"
+          className=" py-32"
         >
           <NewsletterSection />
         </motion.section>
