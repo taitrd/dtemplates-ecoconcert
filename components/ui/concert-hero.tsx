@@ -67,7 +67,8 @@ function ConcertHero() {
             className="px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md"
           >
             <span className="text-primary text-xs font-bold uppercase tracking-[0.2em] flex items-center gap-2">
-              <Zap className="w-3 h-3 fill-primary" aria-hidden="true" /> Live Experience 2026
+              <Zap className="w-3 h-3 fill-primary" aria-hidden="true" /> Live
+              Experience 2026
             </span>
           </motion.div>
 
@@ -109,8 +110,12 @@ function ConcertHero() {
               className="h-14 px-8 bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_20px_rgba(var(--primary),0.4)] transition-all duration-300 transform hover:-translate-y-1 rounded-xl font-bold"
               asChild
             >
-              <Link href="/concerts" aria-label="Obtain passes for upcoming concerts">
-                Obtain Passes <Ticket className="ml-2 w-5 h-5" aria-hidden="true" />
+              <Link
+                href="/concerts"
+                aria-label="Obtain passes for upcoming concerts"
+              >
+                Obtain Passes{" "}
+                <Ticket className="ml-2 w-5 h-5" aria-hidden="true" />
               </Link>
             </Button>
             <Button
@@ -120,8 +125,12 @@ function ConcertHero() {
               className="h-14 px-8 border-primary/50 text-primary hover:bg-primary/10 backdrop-blur-md rounded-xl font-bold"
               asChild
             >
-              <Link href="/concerts/1" aria-label="View the full lineup of performers">
-                View Lineup <Music className="ml-2 w-5 h-5" aria-hidden="true" />
+              <Link
+                href="/concerts/1"
+                aria-label="View the full lineup of performers"
+              >
+                View Lineup{" "}
+                <Music className="ml-2 w-5 h-5" aria-hidden="true" />
               </Link>
             </Button>
           </div>
@@ -149,8 +158,8 @@ function ConcertHero() {
       </div>
 
       {/* Footer hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
-        <span className="text-primary/40 text-[10px] uppercase tracking-[0.3em]">
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
+        <span className="text-primary text-[10px] uppercase tracking-[0.3em]">
           Scroll for Details
         </span>
         <motion.div

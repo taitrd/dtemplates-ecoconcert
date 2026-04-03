@@ -1,19 +1,19 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Calendar, MapPin, Search, Home } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { ThisWeekConcerts } from '@/components/this-week-concerts'
+} from "@/components/ui/select";
+import { Calendar, MapPin, Search, Home } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ThisWeekConcerts } from "@/components/this-week-concerts";
 
 const concerts = [
   {
@@ -23,7 +23,7 @@ const concerts = [
     location: "New York, NY",
     venue: "Madison Square Garden",
     image: "/assets/asset_d1774d39.jpeg",
-    price: 150
+    price: 150,
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const concerts = [
     location: "Los Angeles, CA",
     venue: "SoFi Stadium",
     image: "/assets/asset_b95a9401.jpeg",
-    price: 120
+    price: 120,
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ const concerts = [
     location: "London, UK",
     venue: "Wembley Stadium",
     image: "/assets/asset_479a8517.jpeg",
-    price: 200
+    price: 200,
   },
   {
     id: 4,
@@ -50,7 +50,7 @@ const concerts = [
     location: "Paris, France",
     venue: "Stade de France",
     image: "/assets/asset_b95a9401.jpeg",
-    price: 130
+    price: 130,
   },
   {
     id: 5,
@@ -59,7 +59,7 @@ const concerts = [
     location: "Berlin, Germany",
     venue: "Mercedes-Benz Arena",
     image: "/assets/asset_d1774d39.jpeg",
-    price: 180
+    price: 180,
   },
   {
     id: 6,
@@ -68,60 +68,72 @@ const concerts = [
     location: "Toronto, Canada",
     venue: "Scotiabank Arena",
     image: "/assets/asset_091e5e11.jpeg",
-    price: 140
-  }
-]
+    price: 140,
+  },
+];
 
 interface SearchParams {
-  artist: string
-  date: string
-  location: string
+  artist: string;
+  date: string;
+  location: string;
 }
 
 export default function ConcertsPage() {
   const [searchParams, setSearchParams] = useState<SearchParams>({
-    artist: '',
-    date: '',
-    location: ''
-  })
-  const [filteredConcerts, setFilteredConcerts] = useState(concerts)
-  const [hasSearched, setHasSearched] = useState(false)
+    artist: "",
+    date: "",
+    location: "",
+  });
+  const [filteredConcerts, setFilteredConcerts] = useState(concerts);
+  const [hasSearched, setHasSearched] = useState(false);
 
   const handleFilter = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setHasSearched(true)
+    e.preventDefault();
+    setHasSearched(true);
 
-    const filtered = concerts.filter(concert => {
-      const artistMatch = !searchParams.artist ||
-        concert.artist.toLowerCase().includes(searchParams.artist.toLowerCase())
-      const dateMatch = !searchParams.date ||
-        concert.date.toLowerCase().includes(searchParams.date.toLowerCase())
-      const locationMatch = !searchParams.location ||
-        concert.location.toLowerCase().includes(searchParams.location.toLowerCase())
+    const filtered = concerts.filter((concert) => {
+      const artistMatch =
+        !searchParams.artist ||
+        concert.artist
+          .toLowerCase()
+          .includes(searchParams.artist.toLowerCase());
+      const dateMatch =
+        !searchParams.date ||
+        concert.date.toLowerCase().includes(searchParams.date.toLowerCase());
+      const locationMatch =
+        !searchParams.location ||
+        concert.location
+          .toLowerCase()
+          .includes(searchParams.location.toLowerCase());
 
-      return artistMatch && dateMatch && locationMatch
-    })
+      return artistMatch && dateMatch && locationMatch;
+    });
 
-    setFilteredConcerts(filtered)
-  }
+    setFilteredConcerts(filtered);
+  };
 
   const handleReset = () => {
     setSearchParams({
-      artist: '',
-      date: '',
-      location: ''
-    })
-    setFilteredConcerts(concerts)
-    setHasSearched(false)
-  }
+      artist: "",
+      date: "",
+      location: "",
+    });
+    setFilteredConcerts(concerts);
+    setHasSearched(false);
+  };
 
   return (
     <div className="min-h-screen">
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-4xl font-bold mb-8 text-foreground">Upcoming Concerts</h1>
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-4">
+        <h1 className="text-4xl font-bold mb-8 text-foreground">
+          Upcoming Concerts
+        </h1>
 
         {/* Filter Section */}
-        <form onSubmit={handleFilter} className="mb-12 p-6 bg-card/50 border border-border rounded-lg">
+        <form
+          onSubmit={handleFilter}
+          className="mb-12 p-6 bg-card/50 border border-border rounded-lg"
+        >
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="relative">
               <Input
@@ -129,7 +141,12 @@ export default function ConcertsPage() {
                 type="text"
                 placeholder="Artist name"
                 value={searchParams.artist}
-                onChange={(e) => setSearchParams(prev => ({ ...prev, artist: e.target.value }))}
+                onChange={(e) =>
+                  setSearchParams((prev) => ({
+                    ...prev,
+                    artist: e.target.value,
+                  }))
+                }
                 className="pl-10 bg-background border-border text-foreground placeholder:text-muted-foreground"
               />
               <Search className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
@@ -137,7 +154,9 @@ export default function ConcertsPage() {
             <div className="relative">
               <Select
                 value={searchParams.date}
-                onValueChange={(value) => setSearchParams(prev => ({ ...prev, date: value }))}
+                onValueChange={(value) =>
+                  setSearchParams((prev) => ({ ...prev, date: value }))
+                }
               >
                 <SelectTrigger className="bg-muted border-border text-foreground">
                   <div className="flex items-center">
@@ -157,7 +176,9 @@ export default function ConcertsPage() {
             <div className="relative">
               <Select
                 value={searchParams.location}
-                onValueChange={(value) => setSearchParams(prev => ({ ...prev, location: value }))}
+                onValueChange={(value) =>
+                  setSearchParams((prev) => ({ ...prev, location: value }))
+                }
               >
                 <SelectTrigger className="bg-muted border-border text-foreground">
                   <div className="flex items-center">
@@ -176,7 +197,10 @@ export default function ConcertsPage() {
               </Select>
             </div>
             <div className="flex gap-2">
-              <Button type="submit" className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button
+                type="submit"
+                className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
+              >
                 Apply Filters
               </Button>
               {hasSearched && (
@@ -200,13 +224,16 @@ export default function ConcertsPage() {
         {hasSearched && filteredConcerts.length === 0 && (
           <div className="text-center py-12">
             <h2 className="text-2xl font-semibold mb-2">
-              Sorry, there aren't any search results for: {searchParams.artist || "your search"}
+              Sorry, there aren't any search results for:{" "}
+              {searchParams.artist || "your search"}
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
               We couldn't find any results matching your criteria
             </p>
             <div className="max-w-md mx-auto">
-              <h3 className="font-semibold mb-4">Tips for improving the results:</h3>
+              <h3 className="font-semibold mb-4">
+                Tips for improving the results:
+              </h3>
               <ul className="text-muted-foreground text-left space-y-2 mb-8">
                 <li>• Check your spelling</li>
                 <li>• Use different keywords and try again</li>
@@ -226,7 +253,10 @@ export default function ConcertsPage() {
         {filteredConcerts.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredConcerts.map((concert) => (
-              <div key={concert.id} className="bg-card border border-border rounded-lg overflow-hidden">
+              <div
+                key={concert.id}
+                className="bg-card border border-border rounded-lg overflow-hidden"
+              >
                 <div className="relative h-48">
                   <Image
                     src={concert.image}
@@ -236,12 +266,18 @@ export default function ConcertsPage() {
                   />
                 </div>
                 <div className="p-4">
-                  <h2 className="text-xl font-semibold mb-2">{concert.artist}</h2>
+                  <h2 className="text-xl font-semibold mb-2">
+                    {concert.artist}
+                  </h2>
                   <p className="text-muted-foreground mb-1">{concert.date}</p>
-                  <p className="text-muted-foreground mb-1">{concert.location}</p>
+                  <p className="text-muted-foreground mb-1">
+                    {concert.location}
+                  </p>
                   <p className="text-muted-foreground mb-4">{concert.venue}</p>
                   <div className="flex justify-between items-center">
-                    <span className="text-lg font-bold text-foreground">${concert.price}</span>
+                    <span className="text-lg font-bold text-foreground">
+                      ${concert.price}
+                    </span>
                     <Link href={`/concerts/${concert.id}`}>
                       <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                         View Details
@@ -255,6 +291,5 @@ export default function ConcertsPage() {
         )}
       </main>
     </div>
-  )
+  );
 }
-
