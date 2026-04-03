@@ -30,7 +30,7 @@ const footerLinks = {
 
 export function SiteFooter() {
   return (
-    <footer className="w-full bg-background border-t border-border mt-20">
+    <footer className="w-full border-t border-border mt-20">
       <div className="max-w-7xl mx-auto px-4 md:px-6 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-12">
           {/* Logo and Description */}
@@ -111,7 +111,9 @@ export function SiteFooter() {
               Join our mailing list to stay in the loop with our...
             </h3>
             <div className="relative">
-              <label htmlFor="newsletter-email" className="sr-only">Newsletter Email</label>
+              <label htmlFor="newsletter-email" className="sr-only">
+                Newsletter Email
+              </label>
               <Input
                 id="newsletter-email"
                 type="email"
@@ -133,7 +135,9 @@ export function SiteFooter() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-muted-foreground">@2024 Ticketer All rights reserved.</p>
+            <p className="text-muted-foreground">
+              @2024 Ticketer All rights reserved.
+            </p>
             <div className="flex items-center gap-4">
               <Link
                 href="/terms"

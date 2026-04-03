@@ -6,64 +6,55 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     text: "Getting tickets for the Eras Tour seemed impossible, but this platform made it a breeze. The transfer was instant!",
-    image:
-      "/assets/asset_c988083a.jpeg",
+    image: "/assets/asset_c988083a.jpeg",
     name: "Briana Patton",
     role: "Pop Fanatic",
   },
   {
     text: "The most user-friendly ticketing site I've used. I especially love the venue maps and real-time availability updates.",
-    image:
-      "/assets/asset_905f7255.jpeg",
+    image: "/assets/asset_905f7255.jpeg",
     name: "Bilal Ahmed",
     role: "Live Music Lover",
   },
   {
     text: "Customer support actually replies! They helped me resolve a seat double-booking in minutes. Truly impressed.",
-    image:
-      "/assets/asset_0669cd1a.jpeg",
+    image: "/assets/asset_0669cd1a.jpeg",
     name: "Saman Malik",
     role: "Concert Regular",
   },
   {
     text: "I've tried many resellers, but the verified ticket guarantee here is what keeps me coming back. No more fake tickets!",
-    image:
-      "/assets/asset_7231d0de.jpeg",
+    image: "/assets/asset_7231d0de.jpeg",
     name: "Omar Raza",
     role: "Event Organizer",
   },
   {
     text: "The selection of indie concerts is phenomenal. I've discovered so many local artists through their upcoming events list.",
-    image:
-      "/assets/asset_1c7cdce5.jpeg",
+    image: "/assets/asset_1c7cdce5.jpeg",
     name: "Zainab Hussain",
     role: "Indie Rocker",
   },
   {
     text: "Fast, reliable, and smooth. Booking wholesale tickets for our corporate retreat was easier than I expected.",
-    image:
-      "/assets/asset_9d68de8d.jpeg",
+    image: "/assets/asset_9d68de8d.jpeg",
     name: "Aliza Khan",
     role: "HR Director",
   },
   {
     text: "The layout is gorgeous and looks great on my iPhone. Buying tickets while on the bus worked perfectly.",
-    image:
-      "/assets/asset_0308a933.jpeg",
+    image: "/assets/asset_0308a933.jpeg",
     name: "Farhan Siddiqui",
     role: "Tech Enthusiast",
   },
   {
     text: "I love the 'Verified View' feature. Knowing exactly what look my daughter would have at the stadium gave me peace of mind.",
-    image:
-      "/assets/asset_5526ac63.jpeg",
+    image: "/assets/asset_5526ac63.jpeg",
     name: "Sana Sheikh",
     role: "Parent",
   },
   {
     text: "Finally a ticketing site that doesn't crash during major drops! Their server handling is top-tier.",
-    image:
-      "/assets/asset_ba42c62d.jpeg",
+    image: "/assets/asset_ba42c62d.jpeg",
     name: "Hassan Ali",
     role: "E-sports Fan",
   },
@@ -75,7 +66,7 @@ const thirdColumn = testimonials.slice(6, 9);
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-background py-24 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
       <div className="container z-10 mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

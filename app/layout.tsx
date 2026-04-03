@@ -37,9 +37,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} font-sans min-h-screen bg-background text-foreground`}
-      >
+      <body className={`${inter.variable} font-sans min-h-screen`}>
         <ReduxProvider>
           <ThemeProvider enableSystem attribute="class">
             <TopNavigation />
