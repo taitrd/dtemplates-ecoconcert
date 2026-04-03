@@ -6,6 +6,18 @@
   .text-balance {
     text-wrap: balance;
   }
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  .delay-700 {
+    animation-delay: 700ms;
+  }
+  .delay-1000 {
+    animation-delay: 1000ms;
+  }
 }
 
 @layer base {
@@ -45,6 +57,8 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --brand: 38 100% 95%;
+    --brand-foreground: 31 97% 72%;
   }
 
   .dark {
@@ -80,6 +94,8 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --brand: 238, 64%, 11%;
+    --brand-foreground: 238°, 100%, 95%;
   }
 }
 

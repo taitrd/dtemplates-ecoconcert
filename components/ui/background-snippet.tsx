@@ -29,19 +29,31 @@ export const BackgroundSnippet = ({
   return (
     <div
       className={cn(
-        "w-full dark:flex flex-col items-center justify-center overflow-hidden inset-0 fixed -z-10 !my-0 hidden",
+        "w-full flex flex-col items-center justify-center overflow-hidden inset-0 fixed -z-10 !my-0",
         className,
       )}
     >
-      {/* Background Pattern - Animated Stage Gradient */}
+      {/* Background Pattern - Animated Stage/Sunset Gradient */}
       <div className="absolute inset-0 pointer-events-none">
+        {/* Dark Mode Gradient */}
         <motion.div
-          className="absolute inset-0 -z-10 h-full w-full"
+          className="absolute inset-0 -z-10 h-full w-full hidden dark:block"
           style={{
             background: useTransform(
               focalPointY,
               (y) =>
-                `radial-gradient(125% 125% at 50% ${y}, #0a0b2e 40%, #63e 100%)`,
+                `radial-gradient(125% 125% at 50% ${y}, hsla(var(--brand)) 40%, hsla(var(--primary)) 100%)`,
+            ),
+          }}
+        />
+        {/* Light Mode Sunset Gradient */}
+        <motion.div
+          className="absolute inset-0 -z-10 h-full w-full block dark:hidden"
+          style={{
+            background: useTransform(
+              focalPointY,
+              (y) =>
+                `radial-gradient(125% 125% at 50% ${y}, hsla(var(--brand)) 0%, #fff 50%, hsla(var(--primary)) 100%)`,
             ),
           }}
         />

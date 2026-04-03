@@ -160,14 +160,14 @@ export function SiteFooter() {
             </div>
             <div className="flex items-center gap-4">
               <Link
-                href="https://twitter.com"
+                href="#"
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Follow Ticketer on Twitter"
               >
                 <Twitter className="h-5 w-5" aria-hidden="true" />
               </Link>
               <Link
-                href="https://facebook.com"
+                href="#"
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Follow Ticketer on Facebook"
               >

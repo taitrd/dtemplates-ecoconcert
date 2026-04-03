@@ -44,12 +44,33 @@ ListItem.displayName = "ListItem";
 
 export function TopNavigation() {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const floatOnHero = false;
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between px-6 py-4 border-b border-border bg-background/80 backdrop-blur-md">
+    <nav
+      className={cn(
+        "z-50 flex items-center justify-between px-6 py-4 transition-all duration-300",
+        floatOnHero
+          ? "fixed top-0 left-0 right-0"
+          : "sticky top-0 border-b border-border bg-background/80 backdrop-blur-md",
+        floatOnHero &&
+          (isScrolled
+            ? "bg-background/80 backdrop-blur-md border-b border-border text-foreground "
+            : "bg-transparent backdrop-blur-none border-b-transparent text-background dark:text-muted-foreground "),
+      )}
+    >
       {/* Mobile Menu Toggle */}
       <button
-        className="lg:hidden text-muted-foreground hover:text-foreground p-2 -ml-2"
+        className="lg:hidden hover:text-foreground p-2 -ml-2"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -61,7 +82,7 @@ export function TopNavigation() {
           <NavigationMenuList>
             {/* Discover */}
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:text-foreground hover:bg-transparent data-[state=open]:bg-primary/10 data-[active]:bg-primary/10 transition-colors">
+              <NavigationMenuTrigger className="bg-transparent hover:text-primary hover:bg-transparent data-[state=open]:bg-primary/10 data-[active]:bg-primary/10 transition-colors">
                 Discover
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -91,7 +112,7 @@ export function TopNavigation() {
 
             {/* Help & Info */}
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:text-foreground hover:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent transition-colors">
+              <NavigationMenuTrigger className="bg-transparent hover:text-primary hover:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent transition-colors">
                 Help & Info
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -120,7 +141,7 @@ export function TopNavigation() {
 
             {/* Legal */}
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:text-foreground hover:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent transition-colors">
+              <NavigationMenuTrigger className="bg-transparent hover:text-accent-foreground hover:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent transition-colors">
                 Legal
               </NavigationMenuTrigger>
               <NavigationMenuContent>
