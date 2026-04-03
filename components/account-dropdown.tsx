@@ -68,7 +68,7 @@ export function AccountDropdown() {
           <Button
             variant="ghost"
             size="icon"
-            className="relative hover:bg-muted/50"
+            className="relative border-primary bg-background/50 hover:bg-muted/50 text-primary"
           >
             <Bell className="h-5 w-5" />
             {notifications.length > 0 && (
@@ -77,7 +77,7 @@ export function AccountDropdown() {
             <span className="sr-only">Notifications</span>
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-80">
+        <PopoverContent className="w-80 z-50">
           <div className="grid gap-4">
             <div className="space-y-2">
               <h4 className="font-medium leading-none">Notifications</h4>
