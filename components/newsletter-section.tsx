@@ -15,6 +15,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { subscribeToNewsletter } from "@/app/actions";
+import { StageGradientBackground } from "@/components/ui/stage-gradient-background";
 
 const news = [
   {
@@ -75,16 +76,17 @@ export function NewsletterSection() {
   };
 
   return (
-    <section className="w-full py-24 px-4 md:px-6 bg-muted/20 border-y border-border">
-      <div className="overflow-x-auto overflow-y-hidden">
+    <StageGradientBackground variant="medium">
+      <section className="w-full py-24 px-4 md:px-6">
+        <div className="overflow-x-auto overflow-y-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Newsletter Subscription */}
           <div className="space-y-6 px-4">
             <div className="space-y-3">
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground">
-                Stay in the <span className="text-primary italic">Loop</span>
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
+                Stay in the <span className="text-cyan-300 italic">Loop</span>
               </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <p className="text-white/80 text-lg leading-relaxed">
                 Unlock exclusive early access, special offers, and the latest
                 news from the music world. Join our community today.
               </p>
@@ -101,7 +103,7 @@ export function NewsletterSection() {
                   id="newsletter-email-input"
                   type="email"
                   placeholder="Enter your email address"
-                  className="w-full pl-10 h-14 bg-background border-border focus:ring-primary shadow-sm"
+                  className="w-full pl-10 h-14 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:ring-cyan-400 shadow-sm"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -130,7 +132,7 @@ export function NewsletterSection() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </form>
-            <p className="text-xs text-muted-foreground italic">
+            <p className="text-xs text-white/60 italic">
               * By subscribing, you agree to our Privacy Policy and Terms of
               Service.
             </p>
@@ -203,7 +205,8 @@ export function NewsletterSection() {
             </Carousel>
           </div>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </StageGradientBackground>
   );
 }

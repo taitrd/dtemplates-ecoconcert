@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Monitor, Calendar, CreditCard, Download } from 'lucide-react'
 import { motion } from "framer-motion"
+import { StageGradientBackground } from "@/components/ui/stage-gradient-background"
 
 const steps = [
   {
@@ -29,19 +30,20 @@ const steps = [
 
 export function StepsSection() {
   return (
-    <section className="w-full py-20 px-4 md:px-6 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
+    <StageGradientBackground variant="intense">
+      <section className="w-full py-20 px-4 md:px-6">
+        <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-[300px_1fr] gap-12">
           {/* Left side - Title and Button */}
           <div className="text-left">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
               4 Easy Steps To Buy a Ticket!
             </h2>
-            <p className="text-muted-foreground mb-8">
+            <p className="text-white/70 mb-8">
               Get Familiar with our 4 easy working process
             </p>
             <Button 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+              className="bg-cyan-400 hover:bg-cyan-300 text-blue-900 px-8 font-bold"
               size="lg"
             >
               Buy Ticket
@@ -50,9 +52,9 @@ export function StepsSection() {
 
           {/* Right side - Steps */}
           <div className="relative">
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-primary/20">
+            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-cyan-400/20">
               <motion.div
-                className="h-full bg-primary"
+                className="h-full bg-cyan-400"
                 initial={{ width: "0%" }}
                 whileInView={{ width: "100%" }}
                 transition={{ duration: 1.5 }}
@@ -69,13 +71,13 @@ export function StepsSection() {
                   transition={{ delay: index * 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <div className="w-16 h-16 mb-4 rounded-full bg-primary/10 flex items-center justify-center relative z-10">
-                    <step.icon className="w-8 h-8 text-primary" />
+                  <div className="w-16 h-16 mb-4 rounded-full bg-cyan-400/20 flex items-center justify-center relative z-10">
+                    <step.icon className="w-8 h-8 text-cyan-300" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">
+                  <h3 className="text-lg font-semibold mb-2 text-white">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-white/70 leading-relaxed">
                     {step.description}
                   </p>
                 </motion.div>
@@ -83,8 +85,9 @@ export function StepsSection() {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </StageGradientBackground>
   )
 }
 

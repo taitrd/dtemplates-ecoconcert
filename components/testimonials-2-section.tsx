@@ -2,6 +2,7 @@
 
 import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
 import { motion } from "framer-motion";
+import { StageGradientBackground } from "@/components/ui/stage-gradient-background";
 
 const testimonials = [
   {
@@ -75,8 +76,9 @@ const thirdColumn = testimonials.slice(6, 9);
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-background py-24 relative overflow-hidden">
-      <div className="container z-10 mx-auto px-4">
+    <StageGradientBackground variant="subtle">
+      <section className="py-24 relative overflow-hidden">
+        <div className="container z-10 mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -85,15 +87,15 @@ export function TestimonialsSection() {
           className="flex flex-col items-center justify-center max-w-3xl mx-auto text-center"
         >
           <div className="flex justify-center mb-6">
-            <div className="border border-primary/20 bg-primary/5 text-primary py-1.5 px-6 rounded-full text-sm font-bold tracking-widest uppercase">
+            <div className="border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 py-1.5 px-6 rounded-full text-sm font-bold tracking-widest uppercase">
               Fan Stories
             </div>
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6 leading-none uppercase">
-            What our <span className="text-primary italic">Fans</span> say
+          <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6 leading-none uppercase text-white">
+            What our <span className="text-cyan-300 italic">Fans</span> say
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto font-medium">
+          <p className="text-lg md:text-xl text-white/70 max-w-xl mx-auto font-medium">
             Join thousands of happy concert-goers who found their perfect night
             out with us.
           </p>
@@ -112,7 +114,8 @@ export function TestimonialsSection() {
             duration={17}
           />
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </StageGradientBackground>
   );
 }
