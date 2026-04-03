@@ -1,21 +1,23 @@
-'use client'
+"use client";
 
-import { useDispatch, useSelector } from "react-redux"
-import { RootState, AppDispatch } from "@/lib/store"
-import { ConcertCard } from "@/components/concert-card"
-import { toggleConcertSelection } from "@/lib/tickets-slice"
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, AppDispatch } from "@/lib/store";
+import { ConcertCard } from "@/components/concert-card";
+import { toggleConcertSelection } from "@/lib/tickets-slice";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
-import { Skeleton } from "@/components/ui/skeleton"
+} from "@/components/ui/carousel";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export function UpcomingConcerts() {
-  const dispatch = useDispatch<AppDispatch>()
-  const { concerts, loading, selectedConcertIds } = useSelector((state: RootState) => state.tickets)
+  const dispatch = useDispatch<AppDispatch>();
+  const { concerts, loading, selectedConcertIds } = useSelector(
+    (state: RootState) => state.tickets,
+  );
 
   return (
     <section className="w-full py-20 px-4 md:px-6 bg-background/50 backdrop-blur-sm">
@@ -25,7 +27,8 @@ export function UpcomingConcerts() {
             Upcoming Concerts
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            The best concerts will be held soon! Don't miss out on your chance to see your favorite artists live.
+            The best concerts will be held soon! Don't miss out on your chance
+            to see your favorite artists live.
           </p>
         </div>
 
@@ -47,9 +50,12 @@ export function UpcomingConcerts() {
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="-ml-4 py-4">
               {concerts.map((concert) => (
-                <CarouselItem key={concert.id} className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+                <CarouselItem
+                  key={concert.id}
+                  className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 "
+                >
                   <ConcertCard
                     id={concert.id}
                     artist={concert.singer}
@@ -58,7 +64,9 @@ export function UpcomingConcerts() {
                     price={concert.price}
                     imageUrl={concert.image}
                     isSelected={selectedConcertIds.includes(concert.id)}
-                    onToggleSelection={(id) => dispatch(toggleConcertSelection(id))}
+                    onToggleSelection={(id) =>
+                      dispatch(toggleConcertSelection(id))
+                    }
                   />
                 </CarouselItem>
               ))}
@@ -68,11 +76,12 @@ export function UpcomingConcerts() {
           </Carousel>
         ) : (
           <div className="text-center py-20 bg-muted/20 rounded-2xl border border-dashed border-border">
-            <p className="text-muted-foreground italic">No concerts found matching your criteria.</p>
+            <p className="text-muted-foreground italic">
+              No concerts found matching your criteria.
+            </p>
           </div>
         )}
       </div>
     </section>
-  )
+  );
 }
-

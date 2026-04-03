@@ -30,56 +30,56 @@ const Logos3 = ({
       description: "Spotify",
       image: "/partners/spotify.svg",
       className:
-        "h-14 w-auto invert dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+        "h-12 w-auto dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
     },
     {
       id: "logo-2",
       description: "Live Nation",
       image: "/partners/live-nation.svg",
       className:
-        "h-16 w-auto invert dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+        "h-14 w-auto dark:invert grayscale opacity-70 dark:hover:invert-0 hover:opacity-100 hover:grayscale-0 transition-all",
     },
     {
       id: "logo-3",
       description: "Ticketmaster",
-      image: "/partners/ticketmaster.png",
+      image: "/partners/ticketmaster.svg",
       className:
-        "h-14 w-auto invert dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+        "h-20 w-auto dark:invert grayscale opacity-70  dark:hover:invert-0 hover:opacity-100 hover:grayscale-0 transition-all",
     },
     {
       id: "logo-4",
       description: "Apple Music",
       image: "/partners/apple-music.png",
       className:
-        "h-17 w-auto invert dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+        "h-17 rounded-lg w-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
     },
     {
       id: "logo-5",
       description: "SoundCloud",
-      image: "/partners/sound-cloud.svg",
+      image: "/partners/soundcloud.svg",
       className:
-        "h-14 w-auto invert dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+        "h-24 w-auto dark:invert grayscale opacity-70  dark:hover:invert-0 hover:opacity-100 hover:grayscale-0 transition-all",
     },
     {
       id: "logo-6",
       description: "YouTube Music",
-      image: "/partners/youtube-music.png",
+      image: "/partners/youtube-music.svg",
       className:
-        "h-8 w-auto invert dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+        "h-22 w-auto dark:invert grayscale opacity-70 hover:opacity-100 dark:hover:grayscale hover:grayscale-0 transition-all",
     },
     {
       id: "logo-7",
       description: "Warner Music Group",
-      image: "/partners/wmg.png",
+      image: "/partners/wmg.svg",
       className:
-        "h-12 w-auto invert dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+        "h-12 w-auto dark:invert grayscale opacity-70 dark:hover:grayscale hover:opacity-100 hover:grayscale-0 transition-all",
     },
     {
       id: "logo-8",
       description: "Universal Music Group",
-      image: "/partners/umg.png",
+      image: "/partners/umg.svg",
       className:
-        "h-14 w-auto invert dark:invert-0 bg-muted opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+        "h-18 w-auto dark:invert p-2 rounded-lg opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
     },
   ],
 }: Logos3Props) => {
