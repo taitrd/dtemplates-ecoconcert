@@ -8,6 +8,7 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
  * Provides a stage-like radial gradient background using primary and indigo colors.
  * Features a scroll-linked 'flip' effect where the spotlight center shifts as the user scrolls.
  */
+
 export const BackgroundSnippet = ({
   className,
 }: {

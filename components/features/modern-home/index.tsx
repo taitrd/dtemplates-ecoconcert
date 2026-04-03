@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { ConcertHero } from "@/components/ui/concert-hero";
 import { Toolbar } from "../home/toolbar";
 import dynamic from "next/dynamic";
@@ -47,11 +46,15 @@ const Logos3 = dynamic(
   () => import("@/components/ui/logos3").then((mod) => mod.Logos3),
   { ssr: false },
 );
-const Slideshow = dynamic(() => import("@/components/ui/slideshow"), {
-  ssr: false,
-});
+import Slideshow from "@/components/ui/slideshow";
+import { useLayout } from "@/components/providers/layout-provider";
+import { useEffect } from "react";
 
 export function ModernHomeFeature() {
+  const { showBackground, setFloatOnHero } = useLayout();
+  useEffect(() => {
+    setFloatOnHero(true);
+  }, [setFloatOnHero]);
   return (
     <div className="flex flex-col min-h-screen scroll-smooth">
       <ConcertHero />
@@ -90,7 +93,7 @@ export function ModernHomeFeature() {
 
         <BenefitsSection />
 
-        <BackgroundSnippet className="py-40" />
+        {showBackground && <BackgroundSnippet className="py-40" />}
         <section className="container mx-auto px-4">
           <div className="flex flex-col gap-4 mb-12 items-center text-center">
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase">
