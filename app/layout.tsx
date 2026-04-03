@@ -1,11 +1,15 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { SiteFooter } from "@/components/site-footer";
 import { ReduxProvider } from "@/components/providers/redux-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TopNavigation } from "@/components/top-navigation";
-import { BottomNavigation } from "@/components/bottom-navigation";
 import { siteMetadata } from "@/lib/metadata";
+import { LayoutProvider } from "@/components/providers/layout-provider";
+import { LayoutToolbar } from "@/components/ui/layout-toolbar";
+import {
+  BottomNavWrapper,
+  FooterWrapper,
+} from "@/components/features/layout/wrappers";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -35,18 +39,24 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const fullVersion = process.env.APP_VERSION === "full";
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans min-h-screen`}>
         <ReduxProvider>
           <ThemeProvider enableSystem attribute="class">
-            <TopNavigation />
+            <LayoutProvider>
+              {fullVersion && <LayoutToolbar />}
+              <TopNavigation />
 
-            <main className="flex-1 pb-16 md:pb-0">{children}</main>
+              <main className="flex-1 pb-16 md:pb-0">{children}</main>
 
-            <BottomNavigation />
+              <div className="md:hidden">
+                <BottomNavWrapper />
+              </div>
 
-            <SiteFooter />
+              <FooterWrapper />
+            </LayoutProvider>
           </ThemeProvider>
         </ReduxProvider>
       </body>

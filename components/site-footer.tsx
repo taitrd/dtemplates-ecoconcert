@@ -4,7 +4,10 @@ import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Facebook, Twitter, Send, Ticket } from "lucide-react";
-import ThemeSwitcher from "./theme-switcher";
+import dynamic from "next/dynamic";
+const ThemeSwitcher = dynamic(() => import("./theme-switcher"), {
+  ssr: false,
+});
 
 const footerLinks = {
   ticketer: [
