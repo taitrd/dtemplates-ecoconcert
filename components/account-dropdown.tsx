@@ -36,7 +36,7 @@ export function AccountDropdown() {
   const user = {
     name: "Elnaz Bolkhari",
     email: "elnazbolkhari@gmail.com",
-    image: "/placeholder.png",
+    image: "/assets/asset_1c7cdce5.jpeg",
   };
 
   const [notifications, setNotifications] = useState([
@@ -112,7 +112,11 @@ export function AccountDropdown() {
             className="relative h-8 w-8 rounded-full hover:bg-muted/50"
           >
             <Avatar className="h-8 w-8">
-              <AvatarImage src={user.image} alt={user.name} />
+              <AvatarImage
+                src={user.image}
+                alt={user.name}
+                className="object-cover"
+              />
               <AvatarFallback className="text-secondary-foreground">
                 {user.name?.charAt(0)}
               </AvatarFallback>
