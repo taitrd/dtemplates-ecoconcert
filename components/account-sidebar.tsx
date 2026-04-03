@@ -14,12 +14,11 @@ import {
   Wallet,
   Settings,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const user = {
   name: "Elnaz Bolkhari",
   email: "elnazbolkhari@gmail.com",
-  image: "/placeholder.png",
+  image: "/assets/asset_1c7cdce5.jpeg",
 };
 
 const navigation = [

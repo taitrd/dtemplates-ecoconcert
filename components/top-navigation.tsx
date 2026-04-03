@@ -61,7 +61,7 @@ export function TopNavigation() {
           <NavigationMenuList>
             {/* Discover */}
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:text-foreground hover:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent transition-colors">
+              <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:text-foreground hover:bg-transparent data-[state=open]:bg-primary/10 data-[active]:bg-primary/10 transition-colors">
                 Discover
               </NavigationMenuTrigger>
               <NavigationMenuContent>
