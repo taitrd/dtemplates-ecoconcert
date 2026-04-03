@@ -11,16 +11,28 @@ interface StageGradientBackgroundProps {
 /**
  * Stage-inspired gradient background component
  * Creates a concert stage effect with gradient from bottom blue to top primary color
+ * Colors are dynamically fetched from CSS variables for theme consistency
  */
 export function StageGradientBackground({
   children,
   variant = 'medium',
   className,
 }: StageGradientBackgroundProps) {
-  const gradientVariants = {
-    subtle: 'from-blue-600 via-blue-500 to-purple-600',
-    medium: 'from-blue-700 via-blue-500 to-purple-700',
-    intense: 'from-blue-900 via-blue-600 to-purple-900',
+  // Opacity values for different variants
+  const opacityVariants = {
+    subtle: 0.7,
+    medium: 0.85,
+    intense: 1,
+  };
+
+  // Inline styles to create dynamic gradient using CSS variables
+  const gradientStyle = {
+    background: `linear-gradient(
+      to top,
+      hsl(var(--stage-gradient-bottom) / ${opacityVariants[variant]}),
+      hsl(var(--stage-gradient-bottom) / ${opacityVariants[variant] * 0.6}),
+      hsl(var(--stage-gradient-top) / ${opacityVariants[variant]})
+    )`,
   };
 
   return (
@@ -30,12 +42,10 @@ export function StageGradientBackground({
         className
       )}
     >
-      {/* Main gradient background */}
+      {/* Main gradient background using CSS variables */}
       <div
-        className={cn(
-          'absolute inset-0 -z-10',
-          `bg-gradient-to-t ${gradientVariants[variant]}`
-        )}
+        className="absolute inset-0 -z-10"
+        style={gradientStyle}
       />
 
       {/* Animated light rays effect */}
