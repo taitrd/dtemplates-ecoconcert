@@ -82,7 +82,7 @@ export function ConcertCarousel() {
           }}
           className="w-full"
         >
-          <CarouselContent className="-ml-4 gap-2">
+          <CarouselContent className="-ml-4 gap-2 py-4">
             {concerts.map((concert, index) => (
               <CarouselItem
                 key={index}

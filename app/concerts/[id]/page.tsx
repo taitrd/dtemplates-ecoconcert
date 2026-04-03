@@ -1,35 +1,35 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Image from 'next/image'
-import { Button } from "@/components/ui/button"
-import { Calendar, MapPin, Clock, Music, ArrowRight } from 'lucide-react'
-import { BookingSteps } from '@/components/booking-steps'
-import { DateTimeSelector } from '@/components/date-time-selector'
-import { SeatSelection } from '@/components/seat-selection'
-import type { ShowTime } from '@/components/date-time-selector'
-import type { TicketTier } from '@/components/seat-selection'
+import { useState } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Calendar, MapPin, Clock, Music, ArrowRight } from "lucide-react";
+import { BookingSteps } from "@/components/booking-steps";
+import { DateTimeSelector } from "@/components/date-time-selector";
+import { SeatSelection } from "@/components/seat-selection";
+import type { ShowTime } from "@/components/date-time-selector";
+import type { TicketTier } from "@/components/seat-selection";
 
 export default function ConcertDetailsPage() {
-  const [currentStep, setCurrentStep] = useState(1)
-  const [selectedTime, setSelectedTime] = useState<ShowTime>()
-  const [selectedTier, setSelectedTier] = useState<TicketTier>()
+  const [currentStep, setCurrentStep] = useState(1);
+  const [selectedTime, setSelectedTime] = useState<ShowTime>();
+  const [selectedTier, setSelectedTier] = useState<TicketTier>();
 
   const handleTimeSelect = (time: ShowTime) => {
-    setSelectedTime(time)
-    setCurrentStep(2)
-  }
+    setSelectedTime(time);
+    setCurrentStep(2);
+  };
 
   const handleTierSelect = (tier: TicketTier) => {
-    setSelectedTier(tier)
-    setCurrentStep(3)
-  }
+    setSelectedTier(tier);
+    setCurrentStep(3);
+  };
 
   const handleNextStep = () => {
     if (currentStep < 4) {
-      setCurrentStep(prev => prev + 1)
+      setCurrentStep((prev) => prev + 1);
     }
-  }
+  };
 
   const renderStepContent = () => {
     switch (currentStep) {
@@ -39,7 +39,7 @@ export default function ConcertDetailsPage() {
             onSelectTime={handleTimeSelect}
             selectedTime={selectedTime}
           />
-        )
+        );
       case 2:
         return (
           <SeatSelection
@@ -49,14 +49,14 @@ export default function ConcertDetailsPage() {
               title: "The Eras Tour: Taylor Swift",
               date: "Mon, June 04",
               time: "08:00 pm",
-              venue: "Royal Albert Hall"
+              venue: "Royal Albert Hall",
             }}
           />
-        )
+        );
       default:
-        return null
+        return null;
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -73,21 +73,25 @@ export default function ConcertDetailsPage() {
           </div>
 
           {/* Event Details Section */}
-          <div className="bg-muted/30 backdrop-blur-sm p-6 lg:p-8">
+          <div className="bg-muted-foreground/30 backdrop-blur-sm p-6 lg:p-8">
             <div className="max-w-7xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="flex items-center gap-3">
                   <Calendar className="h-6 w-6 text-muted" />
                   <div>
                     <div className="text-sm text-muted">Date</div>
-                    <div className="font-medium text-muted">3 June until 6 June, 2024</div>
+                    <div className="font-medium text-muted">
+                      3 June until 6 June, 2024
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="h-6 w-6 text-muted" />
                   <div>
                     <div className="text-sm text-muted">Time</div>
-                    <div className="font-medium text-muted">08:00 PM & 10:00 PM</div>
+                    <div className="font-medium text-muted">
+                      08:00 PM & 10:00 PM
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center justify-between lg:col-span-1">
@@ -95,7 +99,9 @@ export default function ConcertDetailsPage() {
                     <MapPin className="h-6 w-6 text-muted" />
                     <div>
                       <div className="text-sm text-muted">Location</div>
-                      <div className="font-medium text-muted" >Royal Albert Hall, London</div>
+                      <div className="font-medium text-muted">
+                        Royal Albert Hall, London
+                      </div>
                     </div>
                   </div>
                   <Button
@@ -124,21 +130,23 @@ export default function ConcertDetailsPage() {
         </div>
 
         {/* Dynamic Step Content */}
-        <div className="mb-12">
-          {renderStepContent()}
-        </div>
+        <div className="mb-12">{renderStepContent()}</div>
 
         {/* Concert Details - only show when not in selection steps */}
         {currentStep > 2 && (
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
               <section className="mb-8">
-                <h2 className="text-2xl font-semibold mb-4">About the Concert</h2>
+                <h2 className="text-2xl font-semibold mb-4">
+                  About the Concert
+                </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Join us for an unforgettable evening with Taylor Swift at the iconic Royal Albert Hall.
-                  Experience the magic of her latest tour featuring songs from her newest album along with
-                  beloved classics. This exclusive performance promises an intimate setting with state-of-the-art
-                  sound and lighting that will bring her music to life like never before.
+                  Join us for an unforgettable evening with Taylor Swift at the
+                  iconic Royal Albert Hall. Experience the magic of her latest
+                  tour featuring songs from her newest album along with beloved
+                  classics. This exclusive performance promises an intimate
+                  setting with state-of-the-art sound and lighting that will
+                  bring her music to life like never before.
                 </p>
               </section>
 
@@ -161,12 +169,15 @@ export default function ConcertDetailsPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold mb-4">Venue Information</h2>
+                <h2 className="text-2xl font-semibold mb-4">
+                  Venue Information
+                </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  The Royal Albert Hall is one of the world's most prestigious venues.
-                  Located in South Kensington, London, this historic venue offers excellent
-                  acoustics and an intimate atmosphere despite its grand scale. The venue
-                  is easily accessible by public transport and offers nearby parking facilities.
+                  The Royal Albert Hall is one of the world's most prestigious
+                  venues. Located in South Kensington, London, this historic
+                  venue offers excellent acoustics and an intimate atmosphere
+                  despite its grand scale. The venue is easily accessible by
+                  public transport and offers nearby parking facilities.
                 </p>
               </section>
             </div>
@@ -197,7 +208,7 @@ export default function ConcertDetailsPage() {
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                     onClick={handleNextStep}
                   >
-                    {currentStep === 4 ? 'Download Ticket' : 'Continue'}
+                    {currentStep === 4 ? "Download Ticket" : "Continue"}
                   </Button>
                 </div>
               </div>
@@ -206,6 +217,5 @@ export default function ConcertDetailsPage() {
         )}
       </main>
     </div>
-  )
+  );
 }
-
