@@ -59,7 +59,7 @@ export default function Slideshow() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.8, ease: "circOut" }}
-          className="absolute inset-0 w-full h-full"
+          className="absolute inset-0 w-full h-full rounded-[3rem]"
           style={{
             backgroundImage: `url(${slides[current].img})`,
             backgroundSize: "cover",
@@ -67,7 +67,7 @@ export default function Slideshow() {
           }}
         >
           {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-black/20 rounded-[3rem]" />
 
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 sm:p-12">
             <motion.div

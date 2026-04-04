@@ -31,7 +31,7 @@ export function HeroSunset() {
         },
       ]}
       image={{
-        light: "/concerts/photo-1540039155733-5bb30b53aa14.jpeg",
+        light: "/concerts/austin-neill-hgO1wFPXl3I-unsplash.jpg",
         dark: "/concerts/photo-1501386761578-eac5c94b800a.jpeg",
         alt: "Concert Live Experience Preview",
       }}
