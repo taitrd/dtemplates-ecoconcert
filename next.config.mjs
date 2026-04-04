@@ -1,9 +1,14 @@
 /** @type {import('next').NextConfig} */
+
+const isStaticExport = process.env.NEXT_PUBLIC_STATIC_EXPORT === "true";
+
 const nextConfig = {
+  ...(isStaticExport && { output: "export" }),
   typescript: {
     ignoreBuildErrors: false,
   },
   images: {
+    ...(isStaticExport && { unoptimized: true }),
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -38,6 +43,8 @@ const nextConfig = {
   distDir: process.env.NODE_ENV === "development" ? ".next-dev" : ".next",
   productionBrowserSourceMaps: false,
   async headers() {
+    if (isStaticExport) return [];
+
     const cacheStaticSources = [
       "/_next/image/:path*",
       "/assets/:path*",
@@ -75,6 +82,8 @@ const nextConfig = {
     return [...cacheNextConfigs, ...cacheStaticConfigs];
   },
   async redirects() {
+    if (isStaticExport) return [];
+
     const enterpricePaths = ["/account/:path", "/home-3"];
     if (process.env.APP_VERSION !== "full") {
       return enterpricePaths.map((path) => ({

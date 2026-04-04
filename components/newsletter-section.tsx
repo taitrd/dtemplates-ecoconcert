@@ -14,7 +14,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { subscribeToNewsletter } from "@/app/actions";
+import { subscribeToNewsletter } from "@/client/actions";
 
 const news = [
   {
