@@ -54,6 +54,9 @@ export function ModernHomeFeature() {
   const { showBackground, setFloatOnHero } = useLayout();
   useEffect(() => {
     setFloatOnHero(true);
+    return () => {
+      setFloatOnHero(false);
+    };
   }, [setFloatOnHero]);
   return (
     <div className="flex flex-col min-h-screen scroll-smooth">
