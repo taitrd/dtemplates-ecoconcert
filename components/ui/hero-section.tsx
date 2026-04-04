@@ -13,7 +13,14 @@ interface HeroAction {
   text: string;
   href: string;
   icon?: React.ReactNode;
-  variant?: "default" | "outline" | "secondary" | "ghost" | "link" | "destructive" | "glow";
+  variant?:
+    | "default"
+    | "outline"
+    | "secondary"
+    | "ghost"
+    | "link"
+    | "destructive"
+    | "glow";
 }
 
 interface HeroProps {
@@ -47,9 +54,9 @@ export function HeroSection({
   return (
     <section
       className={cn(
-        "bg-background text-foreground",
+        "bg-background/10 backdrop-blur-sm text-foreground",
         "py-12 sm:py-24 md:py-32 px-4",
-        "fade-bottom overflow-hidden pb-0"
+        "fade-bottom overflow-hidden pb-0",
       )}
     >
       <div className="mx-auto flex max-w-container flex-col gap-12 pt-16 sm:gap-24">
@@ -78,7 +85,12 @@ export function HeroSection({
           {/* Actions */}
           <div className="relative z-10 flex animate-appear justify-center gap-4 opacity-0 delay-300">
             {actions.map((action, index) => (
-              <Button key={index} variant={action.variant as any} size="lg" asChild>
+              <Button
+                key={index}
+                variant={action.variant as any}
+                size="lg"
+                asChild
+              >
                 <a href={action.href} className="flex items-center gap-2">
                   {action.icon}
                   {action.text}

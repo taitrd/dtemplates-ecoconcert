@@ -75,7 +75,7 @@ const nextConfig = {
     return [...cacheNextConfigs, ...cacheStaticConfigs];
   },
   async redirects() {
-    const enterpricePaths = ["/account/:path"];
+    const enterpricePaths = ["/account/:path", "/home-3"];
     if (process.env.APP_VERSION !== "full") {
       return enterpricePaths.map((path) => ({
         source: path, // The path you want to disable

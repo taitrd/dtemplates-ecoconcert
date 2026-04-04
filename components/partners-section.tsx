@@ -1,57 +1,86 @@
-import Image from "next/image"
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const partners = [
   {
-    name: "Partner 1",
-    logo: "/placeholder.svg?height=40&width=120",
+    name: "Spotify",
+    logo: "/partners/spotify.svg",
+    className:
+      "h-12 w-auto dark:invert-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
   },
   {
-    name: "Abstract",
-    logo: "/placeholder.svg?height=40&width=120",
+    name: "Live Nation",
+    logo: "/partners/live-nation.svg",
+    className:
+      "h-14 w-auto dark:invert grayscale opacity-70 dark:hover:invert-0 hover:opacity-100 hover:grayscale-0 transition-all",
   },
   {
-    name: "Aspen Online",
-    logo: "/placeholder.svg?height=40&width=120",
+    name: "Ticketmaster",
+    logo: "/partners/ticketmaster.svg",
+    className:
+      "h-20 w-auto dark:invert grayscale opacity-70  dark:hover:invert-0 hover:opacity-100 hover:grayscale-0 transition-all",
   },
   {
-    name: "Grand Events",
-    logo: "/placeholder.svg?height=40&width=120",
+    name: "Apple Music",
+    logo: "/partners/apple-music.png",
+    className:
+      "h-17 rounded-lg w-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
   },
   {
-    name: "Peppermint",
-    logo: "/placeholder.svg?height=40&width=120",
+    name: "SoundCloud",
+    logo: "/partners/soundcloud.svg",
+    className:
+      "h-24 w-auto dark:invert grayscale opacity-70  dark:hover:invert-0 hover:opacity-100 hover:grayscale-0 transition-all",
   },
   {
-    name: "Pixie Labs",
-    logo: "/placeholder.svg?height=40&width=120",
-  }
-]
+    name: "YouTube Music",
+    logo: "/partners/youtube-music.svg",
+    className:
+      "h-22 w-auto dark:invert grayscale opacity-70 hover:opacity-100 dark:hover:grayscale hover:grayscale-0 transition-all",
+  },
+  {
+    name: "Warner Music Group",
+    logo: "/partners/wmg.png",
+    className:
+      "h-10 w-auto dark:invert grayscale opacity-70 dark:hover:grayscale hover:opacity-100 hover:grayscale-0 transition-all",
+  },
+  {
+    name: "Universal Music Group",
+    logo: "/partners/umg.svg",
+    className:
+      "h-18 w-auto dark:invert p-2 rounded-lg opacity-70 hover:opacity-100 hover:grayscale-0 transition-all",
+  },
+];
 
 export function PartnersSection() {
   return (
-    <section className="w-full py-20 px-4 md:px-6 bg-background/80">
+    <section className="w-full py-20 px-4 md:px-6 bg-accent">
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-2">Our Trusted Partners</p>
-          <h2 className="text-2xl font-bold text-muted-foreground/60">Collaborating with the Best in the Industry</h2>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-2">
+            Our Trusted Partners
+          </p>
+          <h2 className="text-2xl font-bold text-muted-foreground/60">
+            Collaborating with the Best in the Industry
+          </h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 items-center justify-items-center opacity-70">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 md:gap-12 items-center justify-items-center">
           {partners.map((partner, index) => (
-            <div 
+            <div
               key={index}
-              className="w-full max-w-[140px] h-12 relative grayscale hover:grayscale-0 transition-all duration-500 hover:scale-110 cursor-pointer"
+              className="w-full flex items-center justify-center p-4 rounded-xl hover:bg-background/40 transition-all duration-500 hover:scale-110 cursor-pointer group"
             >
               <Image
                 src={partner.logo}
                 alt={`${partner.name} logo`}
-                fill
-                className="object-contain"
+                width={200}
+                height={150}
+                className={cn(partner.className)}
               />
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
-
