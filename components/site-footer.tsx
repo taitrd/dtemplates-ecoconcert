@@ -51,10 +51,10 @@ export function SiteFooter() {
             <div className="space-y-2">
               <h3 className="text-xl font-semibold mb-2">Contact</h3>
               <a
-                href="mailto:Ticketercontacts@gmail.com"
+                href="mailto:dtwebta@gmail.com"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                Ticketercontacts@gmail.com
+                dtwebta@gmail.com
               </a>
             </div>
           </div>
