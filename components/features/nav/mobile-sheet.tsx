@@ -56,15 +56,24 @@ export function MobileSheet() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="text-sm font-medium py-2.5 px-3 hover:bg-primary/10 hover:text-primary rounded-lg transition-all active:scale-95 flex flex-col gap-0.5"
+                      className="text-sm font-medium py-3 px-3 hover:bg-primary/5 hover:text-primary rounded-xl transition-all active:scale-95 flex items-center gap-4 group"
                       onClick={() => setOpen(false)}
                     >
-                      <span className="leading-none">{item.title}</span>
-                      {item.description && (
-                        <span className="text-[11px] font-normal text-muted-foreground line-clamp-1">
-                          {item.description}
-                        </span>
+                      {item.icon && (
+                        <div className="w-9 h-9 rounded-lg bg-primary/5 flex items-center justify-center shrink-0 group-hover:bg-primary/10 transition-colors">
+                          <item.icon className="w-5 h-5 text-primary/70 group-hover:text-primary" />
+                        </div>
                       )}
+                      <div className="flex flex-col gap-0.5 overflow-hidden">
+                        <span className="leading-none font-bold text-foreground group-hover:text-primary transition-colors">
+                          {item.title}
+                        </span>
+                        {item.description && (
+                          <span className="text-[11px] font-normal text-muted-foreground line-clamp-1">
+                            {item.description}
+                          </span>
+                        )}
+                      </div>
                     </Link>
                   ))}
                 </div>

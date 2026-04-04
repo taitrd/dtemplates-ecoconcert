@@ -27,6 +27,8 @@ export function LayoutToolbar() {
     setShowBottomNav,
     showBackground,
     setShowBackground,
+    navTransparent,
+    setNavTransparent,
   } = useLayout();
 
   return (
@@ -101,25 +103,44 @@ export function LayoutToolbar() {
           </div>
 
           {/* Show Background Toggle */}
-          <div className="flex items-center justify-between group">
-            <div className="flex items-center gap-3">
-              {showBackground ? (
-                <Eye className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-              ) : (
-                <EyeOff className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-              )}
-              <Label
-                htmlFor="show-background"
-                className="text-xs font-semibold cursor-pointer text-left leading-none"
-              >
-                Background Effects
-              </Label>
+          <div className="flex-col space-y-4">
+            <div className="flex items-center justify-between group">
+              <div className="flex items-center gap-3">
+                {showBackground ? (
+                  <Eye className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                ) : (
+                  <EyeOff className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                )}
+                <Label
+                  htmlFor="show-background"
+                  className="text-xs font-semibold cursor-pointer text-left leading-none"
+                >
+                  Background Effects
+                </Label>
+              </div>
+              <Switch
+                id="show-background"
+                checked={showBackground}
+                onCheckedChange={setShowBackground}
+              />
             </div>
-            <Switch
-              id="show-background"
-              checked={showBackground}
-              onCheckedChange={setShowBackground}
-            />
+
+            <div className="flex items-center justify-between group">
+              <div className="flex items-center gap-3">
+                <Navigation className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                <Label
+                  htmlFor="nav-transparent"
+                  className="text-xs font-semibold cursor-pointer text-left leading-none"
+                >
+                  Transparent Nav
+                </Label>
+              </div>
+              <Switch
+                id="nav-transparent"
+                checked={navTransparent}
+                onCheckedChange={setNavTransparent}
+              />
+            </div>
           </div>
         </div>
       </div>

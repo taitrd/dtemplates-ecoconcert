@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { Hero } from "./hero";
 import { Toolbar } from "./toolbar";
 import { ConcertCarousel } from "@/components/concert-carousel";
@@ -12,8 +11,15 @@ import { NewsletterSection } from "@/components/newsletter-section";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { FaqSection } from "@/components/faq-section";
 import { PartnersSection } from "@/components/partners-section";
+import { useLayout } from "@/components/providers/layout-provider";
+import { useEffect } from "react";
 
 export function HomeFeature() {
+  const { setFloatOnHero, setNavTransparent } = useLayout();
+  useEffect(() => {
+    setFloatOnHero(false);
+    setNavTransparent(false);
+  }, [setFloatOnHero]);
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Hero />
