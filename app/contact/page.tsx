@@ -1,43 +1,43 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Image from "next/image"
-import { Phone, Mail, Instagram, Facebook, Send, Linkedin } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { toast } from "sonner"
+import { useState } from "react";
+import Image from "next/image";
+import { Phone, Mail, Instagram, Facebook, Send, Linkedin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 export default function ContactPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    message: ''
-  })
+    fullName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      toast.success("Message sent successfully!")
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      toast.success("Message sent successfully!");
       setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        message: ''
-      })
+        fullName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
     } catch (error) {
-      toast.error("Failed to send message. Please try again.")
+      toast.error("Failed to send message. Please try again.");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen">
@@ -45,7 +45,8 @@ export default function ContactPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-4">Get in Touch with Us</h1>
           <p className="text-xl text-muted-foreground">
-            Have questions or need assistance? We're here to help! Reach out to our team through any of the channels below.
+            Have questions or need assistance? We're here to help! Reach out to
+            our team through any of the channels below.
           </p>
         </div>
       </div>
@@ -53,16 +54,17 @@ export default function ContactPage() {
         {/* Left Column - Contact Info */}
         <div className="relative bg-background text-foreground p-8 lg:p-12 border-r border-border">
           <div className="relative z-10">
-            
             <div className="space-y-6 mb-12">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                   <Phone className="h-6 w-6" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Call directly at:</p>
-                  <a 
-                    href="tel:+1-235678354" 
+                  <p className="text-sm text-muted-foreground">
+                    Call directly at:
+                  </p>
+                  <a
+                    href="tel:+1-235678354"
                     className="text-lg hover:text-primary transition-colors"
                   >
                     +1-235678354
@@ -76,39 +78,41 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email:</p>
-                  <a 
-                    href="mailto:Ticketer@gmail.com" 
+                  <a
+                    href="mailto:dtwebta@gmail.com"
                     className="text-lg hover:text-primary transition-colors"
                   >
-                    Ticketer@gmail.com
+                    dtwebta@gmail.com
                   </a>
                 </div>
               </div>
             </div>
 
             <div className="mt-auto">
-              <p className="text-muted-foreground mb-4">Follow us on social media:</p>
+              <p className="text-muted-foreground mb-4">
+                Follow us on social media:
+              </p>
               <div className="flex gap-4">
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
                   <Instagram className="h-5 w-5" />
                 </a>
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
                   <Facebook className="h-5 w-5" />
                 </a>
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
                   <Send className="h-5 w-5" />
                 </a>
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
                   <Linkedin className="h-5 w-5" />
@@ -142,7 +146,9 @@ export default function ContactPage() {
                 <Input
                   id="fullName"
                   value={formData.fullName}
-                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, fullName: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -153,7 +159,9 @@ export default function ContactPage() {
                   id="email"
                   type="email"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -164,7 +172,9 @@ export default function ContactPage() {
                   id="phone"
                   type="tel"
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -175,13 +185,15 @@ export default function ContactPage() {
                   id="message"
                   rows={6}
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   required
                 />
               </div>
 
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 disabled={isSubmitting}
               >
@@ -192,6 +204,5 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
