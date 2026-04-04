@@ -1,7 +1,7 @@
 import { Concert, SearchFilters } from "@/lib/types";
 
 // Mock data for concerts
-const mockConcerts: Concert[] = [
+export const mockConcerts: Concert[] = [
   {
     id: "1",
     title: "Summer Pop Blast",

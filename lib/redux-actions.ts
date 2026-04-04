@@ -5,14 +5,17 @@ import {
   setError,
   setUserTickets,
 } from "@/lib/tickets-slice";
-import { fetchConcertsAction, checkoutAction } from "@/lib/actions/ticket";
+// import { fetchConcertsAction, checkoutAction } from "@/lib/actions/ticket";
 import { SearchFilters } from "@/lib/types";
+import { isStaticExport } from "./constants/app";
+import { mockConcerts } from "./services/ticket/get-tickets";
 
 export const fetchConcerts =
   (filters?: SearchFilters) => async (dispatch: AppDispatch) => {
     dispatch(setLoading(true));
     try {
-      const concerts = await fetchConcertsAction(filters);
+      const concerts = isStaticExport ? mockConcerts : [];
+      // await fetchConcertsAction(filters)
       dispatch(setConcerts(concerts));
       dispatch(setError(null));
     } catch (error: any) {
@@ -27,7 +30,15 @@ export const purchaseTicket =
   async (dispatch: AppDispatch, getState: any) => {
     dispatch(setLoading(true));
     try {
-      const ticket = await checkoutAction(concertId, userId, seatNumber);
+      const ticket = isStaticExport && {
+        id: Math.random().toString(36).substr(2, 9),
+        concertId,
+        userId,
+        seatNumber,
+        purchasedAt: new Date().toISOString(),
+        status: "active",
+      };
+      // await checkoutAction(concertId, userId, seatNumber)
       const currentTickets = getState().tickets.userTickets;
       dispatch(setUserTickets([...currentTickets, ticket]));
       dispatch(setError(null));
