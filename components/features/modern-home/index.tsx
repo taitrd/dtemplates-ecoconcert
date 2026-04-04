@@ -51,11 +51,13 @@ import { useLayout } from "@/components/providers/layout-provider";
 import { useEffect } from "react";
 
 export function ModernHomeFeature() {
-  const { showBackground, setFloatOnHero } = useLayout();
+  const { showBackground, setFloatOnHero, setNavTransparent } = useLayout();
   useEffect(() => {
     setFloatOnHero(true);
+    setNavTransparent(true);
     return () => {
       setFloatOnHero(false);
+      setNavTransparent(false);
     };
   }, [setFloatOnHero]);
   return (

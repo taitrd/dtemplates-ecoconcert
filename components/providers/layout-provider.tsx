@@ -11,15 +11,18 @@ interface LayoutContextType {
   setShowBottomNav: (value: boolean) => void;
   showBackground: boolean;
   setShowBackground: (value: boolean) => void;
+  navTransparent: boolean;
+  setNavTransparent: (value: boolean) => void;
 }
 
 const LayoutContext = createContext<LayoutContextType | undefined>(undefined);
 
 export function LayoutProvider({ children }: { children: ReactNode }) {
-  const [floatOnHero, setFloatOnHero] = useState(false);
+  const [floatOnHero, setFloatOnHero] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
   const [showBottomNav, setShowBottomNav] = useState(true);
   const [showBackground, setShowBackground] = useState(true);
+  const [navTransparent, setNavTransparent] = useState(true);
 
   return (
     <LayoutContext.Provider
@@ -32,6 +35,8 @@ export function LayoutProvider({ children }: { children: ReactNode }) {
         setShowBottomNav,
         showBackground,
         setShowBackground,
+        navTransparent,
+        setNavTransparent,
       }}
     >
       {children}

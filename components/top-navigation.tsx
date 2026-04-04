@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
 import { AccountDropdown } from "@/components/account-dropdown";
 import { cn } from "@/lib/utils";
 import {
@@ -20,8 +19,8 @@ import { NAV_CATEGORIES } from "@/lib/constants/navigation";
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, href, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<"a"> & { icon?: React.ElementType }
+>(({ className, title, children, href, icon: Icon, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
@@ -29,13 +28,18 @@ const ListItem = React.forwardRef<
           ref={ref as any}
           href={href!}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className,
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-2">
+          <div className="flex items-center gap-2.5 mb-1">
+            {Icon && (
+              <Icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+            )}
+            <div className="text-sm font-semibold leading-none">{title}</div>
+          </div>
+          <p className="line-clamp-2 text-[13px] leading-snug text-muted-foreground/80 mt-2 pl-6.5">
             {children}
           </p>
         </Link>
@@ -47,7 +51,7 @@ ListItem.displayName = "ListItem";
 
 export function TopNavigation() {
   const [isScrolled, setIsScrolled] = React.useState(false);
-  const { floatOnHero } = useLayout();
+  const { floatOnHero, navTransparent } = useLayout();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -68,6 +72,7 @@ export function TopNavigation() {
           (isScrolled
             ? "bg-background/80 backdrop-blur-md border-b border-border text-foreground "
             : "bg-transparent backdrop-blur-none border-b-transparent text-background dark:text-muted-foreground "),
+        navTransparent ? "" : "bg-background text-muted-foreground",
       )}
     >
       {/* Mobile Menu Trigger (Sheet) */}
@@ -79,16 +84,17 @@ export function TopNavigation() {
           <NavigationMenuList>
             {NAV_CATEGORIES.map((category) => (
               <NavigationMenuItem key={category.title}>
-                <NavigationMenuTrigger className="bg-transparent hover:text-primary hover:bg-transparent data-[state=open]:bg-primary/10 data-[active]:bg-primary/10 transition-colors">
+                <NavigationMenuTrigger className="bg-transparent hover:text-primary hover:bg-transparent data-[state=open]:bg-primary/10 data-[active]:bg-primary/10 transition-colors uppercase text-[11px] font-black tracking-widest">
                   {category.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[750px]">
                     {category.items.map((item) => (
                       <ListItem
                         key={item.href}
                         href={item.href}
                         title={item.title}
+                        icon={item.icon}
                       >
                         {item.description}
                       </ListItem>

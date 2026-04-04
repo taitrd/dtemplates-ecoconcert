@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Home, Music, Mic2, Search, User } from 'lucide-react';
-import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
+import Link from "next/link";
+import { Home, Music, Mic2, Search, User } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 export function BottomNavigation() {
   const pathname = usePathname();
 
   const links = [
-    { href: '/', label: 'Home', icon: Home },
-    { href: '/concerts', label: 'Concerts', icon: Music },
-    { href: '/search', label: 'Search', icon: Search },
-    { href: '/singers', label: 'Singers', icon: Mic2 },
-    { href: '/account', label: 'Account', icon: User },
+    { href: "/", label: "Home", icon: Home },
+    { href: "/concerts", label: "Concerts", icon: Music },
+    { href: "/home-2", label: "Search", icon: Search },
+    { href: "/singers", label: "Singers", icon: Mic2 },
+    { href: "/account", label: "Account", icon: User },
   ];
 
   return (
@@ -22,14 +22,16 @@ export function BottomNavigation() {
         {links.map((link) => {
           const Icon = link.icon;
           const isActive = pathname === link.href;
-          
+
           return (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
                 "flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors",
-                isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                isActive
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground",
               )}
             >
               <Icon className="w-5 h-5" />
